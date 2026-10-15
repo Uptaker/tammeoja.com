@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  tone: 'blue' | 'orange';
+  label: string;
+  description: string;
+}
+
+const { href, tone, label, description } = Astro.props;
+---
+
+<a class:list={['portal-link', `portal-${tone}`]} href={href} aria-label={description}>
+  <span class="portal-art"><img src="/portal-pair-figure.png" width="860" height="531" alt="" /></span>
+  <span class="portal-label">{label}</span>
+</a>

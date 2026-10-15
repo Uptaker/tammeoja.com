@@ -1,0 +1,330 @@
+---
+const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
+---
+
+<button class="turret-stage is-playing" type="button" aria-label="Replay the turret incident">
+  <svg viewBox="0 0 300 245" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="wheatley-shell" cx="35%" cy="28%" r="75%">
+        <stop offset="0" stop-color="#f6f6ef" />
+        <stop offset=".63" stop-color="#d7dddb" />
+        <stop offset="1" stop-color="#859494" />
+      </radialGradient>
+      <radialGradient id="wheatley-blue" cx="45%" cy="44%" r="60%">
+        <stop offset="0" stop-color="#e3ffff" />
+        <stop offset=".22" stop-color="#53d9ff" />
+        <stop offset=".65" stop-color="#2374d2" />
+        <stop offset="1" stop-color="#102f66" />
+      </radialGradient>
+    </defs>
+    <path d="M8 22h284v201H8z" fill="#d4dfd9" opacity=".4" />
+    <path d="M8 22h284M8 116h284M8 222h284M100 22v200m100-200v200" fill="none" stroke="#9cafaa" stroke-width="2" opacity=".45" />
+    <path d="M15 73h8m4 0h8" stroke="#b77256" stroke-width="2" />
+    <text x="15" y="65" fill="#526d70" font-family="monospace" font-size="9" font-weight="700" letter-spacing="1.1">SENTRY TEST / 02</text>
+    <path d="M65 34h229v10H65z" fill="#a9bdb6" stroke="#657e7d" stroke-width="2" />
+    <path d="M70 37h217" stroke="#e4ebe2" stroke-width="2" opacity=".8" />
+    <path d="M80 44v6m60-6v6m60-6v6m60-6v6" stroke="#617a79" stroke-width="2" />
+    <path d="M12 220h276" stroke="#647d7b" stroke-width="3" opacity=".8" />
+    <path d="M105 216h33m-23-5h13M229 216h24" stroke="#a0b4ac" stroke-width="2" opacity=".7" />
+    <g class="reset-wall">
+      <path d="M240 61h86v159h-86z" fill="#9bada8" stroke="#526b6d" stroke-width="3" />
+      <path d="M244 65h77v49h-77zM244 119h77v46h-77zM244 170h77v46h-77z" fill="#dfe6de" stroke="#708a88" stroke-width="2" />
+      <path d="M248 70h66v38h-66zM248 124h66v35h-66zM248 175h66v35h-66z" fill="#c7d5cd" />
+      <path d="M247 115h73m-73 51h73" stroke="#536c6d" stroke-width="5" />
+      <path d="M241 72v137" stroke="#f1f3e9" stroke-width="3" opacity=".8" />
+      <path d="M251 101h28m-28 51h28m-28 49h28" stroke="#8fa6a0" stroke-width="2" />
+      <path d="m242 183 7-9m-7 20 7-9m-7 20 7-9" stroke="#b77a55" stroke-width="3" />
+      <circle cx="255" cy="75" r="3" fill="#5c7777" /><circle cx="255" cy="203" r="3" fill="#5c7777" />
+    </g>
+    <g class="wheatley-rig">
+      <path d="M114 43h28v9h-28z" fill="#536d70" stroke="#3f585b" stroke-width="2" />
+      <circle cx="119" cy="47" r="3" fill="#b9cac2" /><circle cx="137" cy="47" r="3" fill="#b9cac2" />
+      <path d="M128 52v46" stroke="#536d70" stroke-width="5" />
+      <path d="M126 52v44" stroke="#bed0c8" stroke-width="1.5" />
+      <g transform="translate(128 116) scale(.68) translate(-128 -116)">
+        <g class="wheatley-shell">
+          <path d="M103 102q-8-6-5-11 23-13 51-3 9 5 5 15M104 130q-8 6-5 11 23 13 51 3 9-5 5-15" fill="none" stroke="#293d45" stroke-width="3" stroke-linecap="round" />
+          <path d="M100 93q23-10 49-3m-48 49q23 11 49 3" fill="none" stroke="#c6d2d0" stroke-width="1.6" stroke-linecap="round" />
+          <path d="M121 93c19-5 34 7 37 22 4 16-9 27-29 27-18 0-30-10-30-25 0-12 7-21 22-24Z" fill="url(#wheatley-shell)" stroke="#354b53" stroke-width="2.5" />
+          <path d="M134 94q14 5 18 17m-4 19q-7 9-20 10" fill="none" stroke="#fff" stroke-width="2" opacity=".75" />
+          <path d="m140 97 4 7m-2 31-5 4m-17-43 4 3m17 2-4 7" fill="none" stroke="#849493" stroke-width="1" />
+          <ellipse cx="151" cy="117" rx="7" ry="13" fill="#405259" stroke="#22363e" stroke-width="2" />
+          <ellipse cx="152" cy="117" rx="4" ry="9" fill="#14232b" />
+          <path d="m149 110 3-3m-3 16 3 3" fill="none" stroke="#788b8d" stroke-width="1" />
+          <ellipse cx="119" cy="116" rx="21" ry="22" fill="url(#wheatley-shell)" stroke="#344a52" stroke-width="2.5" />
+          <path d="M103 106q5-9 14-10m12 1q7 4 10 11m-35 17q5 10 14 12m11-1q8-4 11-11" fill="none" stroke="#fff" stroke-width="1.7" opacity=".8" />
+          <path d="m113 95 2 6m16-2-3 7m-26 13 5 1m9 17 2-7m13 3-4-6" fill="none" stroke="#748687" stroke-width="1.1" />
+          <ellipse cx="119" cy="116" rx="16" ry="16.5" fill="#c6d0cd" stroke="#52666c" stroke-width="1.6" />
+          <ellipse cx="119" cy="116" rx="12.7" ry="12.5" fill="#14232c" stroke="#314852" stroke-width="1.7" />
+          <path d="M108 115q2-11 11-12m-9 18q3 5 7 6" fill="none" stroke="#657b85" stroke-width="1.2" />
+          <g class="wheatley-eye">
+            <circle cx="119" cy="116" r="9" fill="url(#wheatley-blue)" stroke="#215d9c" stroke-width="1" />
+            <circle cx="119" cy="116" r="3.5" fill="#6bdfff" opacity=".65" />
+            <circle cx="119" cy="116" r="1.5" fill="#d8ffff" opacity=".8" />
+          </g>
+          <path class="wheatley-shutter" d="M104 110q15-13 30 0l-2 4q-13-8-26 1Z" fill="url(#wheatley-shell)" stroke="#3c535b" stroke-width="1.3" />
+          <path d="M106 122q13 8 26 0l-2 5q-11 7-22 0Z" fill="#e3e8e3" stroke="#53696f" stroke-width="1.2" />
+          <circle cx="106" cy="119" r="1" fill="#485f66" /><circle cx="110" cy="128" r="1" fill="#485f66" />
+          <path d="m121 94 2 7m-2 30 3 7" stroke="#5c7176" stroke-width="1" />
+        </g>
+      </g>
+    </g>
+    {turrets.map(({ id, x }) => (
+      <g class:list={['turret', `turret-${id}`]} transform={`translate(${x} 126) scale(.37)`}>
+        <g class="turret-motion">
+          <g class="turret-legs">
+      <path d="M135 181 111 223 101 256m72-75 18 42 11 33m-52-61v50" fill="none" stroke="#455d60" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="m94 256 17-3m83 1 18 2m-62-10h17" stroke="#455d60" stroke-width="5" stroke-linecap="round" />
+          </g>
+          <g class="turret-barrels">
+      <path d="M120 128h60v34h-60z" fill="#344b50" />
+      <g class="barrel-left">
+        <path d="M91 114h29v58H91z" fill="#4b6265" />
+        <circle cx="104" cy="129" r="6" fill="#243a3d" /><circle cx="104" cy="151" r="6" fill="#243a3d" />
+      </g>
+      <g class="barrel-right">
+        <path d="M180 114h29v58h-29z" fill="#4b6265" />
+        <circle cx="196" cy="129" r="6" fill="#243a3d" /><circle cx="196" cy="151" r="6" fill="#243a3d" />
+      </g>
+          </g>
+          <g class="turret-wing turret-wing-left">
+        <path d="M90 58c-15 6-23 27-24 64-1 39 6 69 25 91l16-10-12-42-1-62 11-29z" fill="#e5ebe4" stroke="#657d7f" stroke-width="3" />
+        <path d="M89 72c-8 20-11 42-10 70 1 23 5 41 12 54" fill="none" stroke="#f7f8f1" stroke-width="4" opacity=".8" />
+        <path d="m87 105 10 8-3 47-9 7" fill="none" stroke="#8ea39e" stroke-width="2" />
+          </g>
+          <g class="turret-wing turret-wing-right">
+        <path d="M210 58c15 6 23 27 24 64 1 39-6 69-25 91l-16-10 12-42 1-62-11-29z" fill="#e5ebe4" stroke="#657d7f" stroke-width="3" />
+        <path d="M211 72c8 20 11 42 10 70-1 23-5 41-12 54" fill="none" stroke="#f7f8f1" stroke-width="4" opacity=".8" />
+        <path d="m213 105-10 8 3 47 9 7" fill="none" stroke="#8ea39e" stroke-width="2" />
+          </g>
+          <g class="turret-core">
+      <path d="M150 28c18 3 29 24 33 56l-9 25c8 17 9 36 7 51-2 25-13 44-31 56-18-12-29-31-31-56-2-15-1-34 7-51l-9-25c4-32 15-53 33-56Z" fill="#ebefe8" stroke="#6c8585" stroke-width="3" />
+      <path d="M137 44c-8 20-11 44-9 72m45 35c-3 23-10 40-23 51" fill="none" stroke="#fff" stroke-width="4" opacity=".7" />
+      <path d="M151 30v184" stroke="#829a96" stroke-width="2" />
+            <circle cx="150" cy="129" r="18" fill="#617677" stroke="#b6c8c0" stroke-width="3" />
+            <circle cx="150" cy="129" r="13" fill="#2c4247" />
+            <g class="turret-eye">
+              <circle cx="150" cy="129" r="9" fill="#b84b3e" />
+              <circle cx="150" cy="129" r="4" fill="#e59472" />
+            </g>
+      <path d="M130 208h40" stroke="#b9cac1" stroke-width="4" />
+          </g>
+        </g>
+      </g>
+    ))}
+    <path class="turret-scan" d="M84 174 132 136" stroke="#b85d50" stroke-width="1" />
+    <g class="shot-lane shot-lane-a">
+      <g class="bullet bullet-a-one"><path d="M87 173h8" stroke="#c85d45" stroke-width="2" stroke-linecap="round" /><circle cx="97" cy="173" r="2" fill="#efb574" /></g>
+      <g class="bullet bullet-a-two"><path d="M87 176h8" stroke="#c85d45" stroke-width="2" stroke-linecap="round" /><circle cx="97" cy="176" r="2" fill="#efb574" /></g>
+      <path class="muzzle-flash" d="m83 173 5-8 1 7 7 2-7 2-4 7-2-7-6-2Z" fill="#ed9a5d" />
+      <path class="hit-spark" d="m132 136-4-5m4 5 5-2m-5 2 2 6" fill="none" stroke="#d6815d" stroke-width="2" />
+    </g>
+    <text class="turret-surprise" x="210" y="117" fill="#a96550" font-family="monospace" font-size="19" font-weight="700">!</text>
+    <g class="shot-lane shot-lane-b">
+      <g class="bullet bullet-b-one"><path d="M256 202h7" stroke="#c85d45" stroke-width="2" stroke-linecap="round" /><circle cx="265" cy="202" r="2" fill="#efb574" /></g>
+      <g class="bullet bullet-b-two"><path d="M256 206h7" stroke="#c85d45" stroke-width="2" stroke-linecap="round" /><circle cx="265" cy="206" r="2" fill="#efb574" /></g>
+      <path class="muzzle-flash" d="m253 202 5-7 1 6 6 2-6 2-4 6-2-6-5-2Z" fill="#ed9a5d" />
+      <path class="hit-spark" d="m282 189-4-5m4 5 5-2m-5 2 2 6" fill="none" stroke="#d6815d" stroke-width="2" />
+    </g>
+    <path class="wall-jolt" d="m266 196-6-8m6 8-10 1m10-1-3 10" fill="none" stroke="#b67555" stroke-width="2" stroke-linecap="round" />
+    <path d="M10 223h280" stroke="#bac9c0" stroke-width="2" />
+    <text class="stage-caption" x="15" y="235" fill="#537378" font-family="monospace" font-size="8" font-weight="700" letter-spacing="1">CLICK TO REPLAY</text>
+  </svg>
+</button>
+
+<script>
+  const stage = document.querySelector<HTMLButtonElement>('.turret-stage');
+  if (stage && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    stage.disabled = true;
+    stage.setAttribute('aria-label', 'Wheatley on a rail above two turrets and a movable wall');
+  }
+  stage?.addEventListener('click', () => {
+    stage.classList.remove('is-playing');
+    void stage.offsetWidth;
+    stage.classList.add('is-playing');
+  });
+</script>
+
+<style>
+  .turret-stage { position: absolute; bottom: 0; left: 0; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; pointer-events: auto; text-align: left; }
+  .turret-stage svg { display: block; width: 100%; height: auto; }
+  .turret-stage:focus-visible { outline: 2px solid #b66d51; outline-offset: -3px; }
+  .stage-caption { opacity: .75; }
+  .turret-stage:hover .stage-caption, .turret-stage:focus-visible .stage-caption { opacity: 1; }
+  .wheatley-rig { transform: translateX(0); }
+  .wheatley-shell { transform-origin: 128px 99px; }
+  .wheatley-eye { transform-origin: 119px 116px; }
+  .wheatley-shutter { transform-origin: 119px 110px; }
+  .turret-motion { transform-origin: 150px 252px; }
+  .turret-wing-left { transform-origin: 100px 140px; }
+  .turret-wing-right { transform-origin: 200px 140px; }
+  .turret-b .turret-wing-left { transform: translateX(40px) rotate(8deg); }
+  .turret-b .turret-wing-right { transform: translateX(-40px) rotate(-8deg); }
+  .turret-b .barrel-left { transform: translateX(33px); }
+  .turret-b .barrel-right { transform: translateX(-33px); }
+  .turret-eye { transform-origin: 150px 129px; }
+  .reset-wall { transform: translateX(40px); }
+  .shot-lane, .turret-surprise, .wall-jolt, .turret-scan { opacity: 0; }
+  .is-playing .wheatley-rig { animation: wheatley-glide 16s ease-in-out infinite; }
+  .is-playing .wheatley-shell { animation: wheatley-swing 16s ease-in-out infinite; }
+  .is-playing .wheatley-eye { animation: wheatley-look 16s ease-in-out infinite; }
+  .is-playing .wheatley-shutter { animation: wheatley-shutter 16s ease-in-out infinite; }
+  .is-playing .turret-a .turret-motion { animation: first-turret 16s ease-in-out infinite; }
+  .is-playing .turret-b .turret-motion { animation: second-turret 16s ease-in-out infinite; }
+  .is-playing .turret-a .turret-wing-left { animation: wing-a-left 16s ease-in-out infinite; }
+  .is-playing .turret-a .turret-wing-right { animation: wing-a-right 16s ease-in-out infinite; }
+  .is-playing .turret-b .turret-wing-left { animation: wing-b-left 16s ease-in-out infinite; }
+  .is-playing .turret-b .turret-wing-right { animation: wing-b-right 16s ease-in-out infinite; }
+  .is-playing .turret-b .barrel-left { animation: barrel-left-open 16s ease-in-out infinite; }
+  .is-playing .turret-b .barrel-right { animation: barrel-right-open 16s ease-in-out infinite; }
+  .is-playing .turret-a .turret-core, .is-playing .turret-a .turret-barrels { animation: first-recoil 16s ease-out infinite; }
+  .is-playing .turret-b .turret-core { animation: second-recoil 16s ease-out infinite; }
+  .is-playing .turret-b .turret-barrels { animation: second-recoil 16s ease-out infinite; }
+  .is-playing .turret-a .turret-eye { animation: eye-a 16s ease-in-out infinite; }
+  .is-playing .turret-b .turret-eye { animation: eye-b 16s ease-in-out infinite; }
+  .is-playing .turret-scan { animation: scan-target 16s step-end infinite; }
+  .is-playing .shot-lane-a { animation: firing-a 16s step-end infinite; }
+  .is-playing .shot-lane-b { animation: firing-b 16s step-end infinite; }
+  .is-playing .bullet-a-one, .is-playing .bullet-a-two { animation: shot-a .38s linear infinite; }
+  .is-playing .bullet-b-one { animation: shot-b-high .38s linear infinite; }
+  .is-playing .bullet-b-two { animation: shot-b-low .38s linear infinite; }
+  .is-playing .bullet-a-two, .is-playing .bullet-b-two { animation-delay: -.19s; }
+  .shot-lane-a .muzzle-flash { transform: rotate(-25deg); transform-origin: 85px 174px; }
+  .is-playing .muzzle-flash, .is-playing .hit-spark { animation: flash .19s step-end infinite; }
+  .is-playing .turret-surprise { animation: surprise 16s step-end infinite; }
+  .is-playing .reset-wall { animation: wall-reset 16s ease-in-out infinite; }
+  .is-playing .wall-jolt { animation: wall-contact 16s step-end infinite; }
+  @keyframes wheatley-glide {
+    0%, 5%, 100% { transform: translateX(190px); }
+    13% { transform: translateX(52px); }
+    18%, 19% { transform: translateX(0); }
+    21% { transform: translate(-8px, -3px); }
+    23% { transform: translate(9px, 3px); }
+    26% { transform: translate(19px, -6px); }
+    30% { transform: translateX(85px); }
+    36%, 90% { transform: translateX(190px); }
+  }
+  @keyframes wheatley-swing {
+    0%, 12%, 100% { transform: rotate(0); }
+    18% { transform: rotate(-8deg); }
+    21% { transform: rotate(12deg); }
+    24% { transform: rotate(-15deg); }
+    28% { transform: rotate(10deg); }
+    36% { transform: rotate(-5deg); }
+  }
+  @keyframes wheatley-look {
+    0%, 13%, 36%, 100% { transform: translateX(0) scale(1); filter: brightness(1); }
+    17%, 19% { transform: translate(-1px, 1px) scale(.96); }
+    21% { transform: translate(1px, -1px) scale(1.08); filter: brightness(1.35); }
+    23% { transform: translate(-1px, 1px) scale(.82); filter: brightness(.7); }
+    25% { transform: translate(1px, -1px) scale(1.08); filter: brightness(1.35); }
+    29% { transform: translate(2px, -1px) scale(1.02); }
+  }
+  @keyframes wheatley-shutter {
+    0%, 18%, 21%, 25%, 100% { transform: translateY(0); }
+    23% { transform: translateY(3px); }
+  }
+  @keyframes first-turret {
+    0%, 100% { transform: rotate(-3deg); }
+    8% { transform: rotate(4deg); }
+    13% { transform: rotate(-2deg); }
+    17% { transform: rotate(-7deg); }
+    20%, 22%, 24%, 26% { transform: rotate(-6deg); }
+    21%, 23%, 25%, 27% { transform: rotate(-10deg); }
+    32%, 53% { transform: rotate(-5deg); }
+    72% { transform: rotate(3deg); }
+    83% { transform: rotate(-5deg); }
+  }
+  @keyframes second-turret {
+    0%, 100% { transform: rotate(1deg); }
+    11% { transform: rotate(-3deg); }
+    20% { transform: rotate(2deg); }
+    23% { transform: rotate(-12deg); }
+    26% { transform: rotate(9deg); }
+    29% { transform: rotate(-8deg); }
+    32% { transform: rotate(5deg); }
+    37% { transform: rotate(77deg); }
+    40% { transform: rotate(66deg); }
+    42%, 55% { transform: rotate(74deg); }
+    59% { transform: rotate(67deg); }
+    65% { transform: rotate(27deg); }
+    71% { transform: rotate(-9deg); }
+    74% { transform: rotate(4deg); }
+    78% { transform: rotate(0); }
+  }
+  @keyframes wing-a-left {
+    0%, 15%, 31%, 100% { transform: translateX(0) rotate(0); }
+    18%, 27% { transform: translateX(-12px) rotate(-7deg); }
+    20%, 24% { transform: translateX(-8px) rotate(-4deg); }
+    75% { transform: translateX(-3px) rotate(-2deg); }
+  }
+  @keyframes wing-a-right {
+    0%, 15%, 31%, 100% { transform: translateX(0) rotate(0); }
+    18%, 27% { transform: translateX(12px) rotate(7deg); }
+    20%, 24% { transform: translateX(8px) rotate(4deg); }
+    75% { transform: translateX(3px) rotate(2deg); }
+  }
+  @keyframes wing-b-left {
+    0%, 18%, 100% { transform: translateX(40px) rotate(8deg); }
+    24%, 30% { transform: translateX(-9px) rotate(-8deg); }
+    34%, 57%, 81%, 90% { transform: translateX(0) rotate(0); }
+    38% { transform: translateX(-16px) rotate(-12deg); }
+    43%, 53% { transform: translateX(-10px) rotate(-8deg); }
+    72% { transform: translateX(-7px) rotate(-5deg); }
+  }
+  @keyframes wing-b-right {
+    0%, 18%, 100% { transform: translateX(-40px) rotate(-8deg); }
+    24%, 30% { transform: translateX(9px) rotate(8deg); }
+    34%, 57%, 81%, 90% { transform: translateX(0) rotate(0); }
+    38% { transform: translateX(16px) rotate(12deg); }
+    43%, 53% { transform: translateX(10px) rotate(8deg); }
+    72% { transform: translateX(7px) rotate(5deg); }
+  }
+  @keyframes barrel-left-open { 0%, 18%, 100% { transform: translateX(33px); } 24%, 90% { transform: translateX(0); } }
+  @keyframes barrel-right-open { 0%, 18%, 100% { transform: translateX(-33px); } 24%, 90% { transform: translateX(0); } }
+  @keyframes first-recoil {
+    0%, 18%, 28%, 100% { transform: translateX(0); }
+    20%, 22%, 24%, 26% { transform: translateX(-7px); }
+    21%, 23%, 25%, 27% { transform: translateX(1px); }
+  }
+  @keyframes second-recoil {
+    0%, 42%, 54%, 100% { transform: translateX(0); }
+    44%, 47%, 50%, 53% { transform: translateX(-8px); }
+    45%, 48%, 51% { transform: translateX(2px); }
+  }
+  @keyframes eye-a {
+    0%, 10%, 100% { transform: translateX(-3px); filter: brightness(1); }
+    15% { transform: translateX(4px); }
+    18%, 28% { transform: translateX(2px); filter: brightness(1.7); }
+    36%, 55% { transform: translateX(5px); filter: brightness(1); }
+    82% { transform: translateX(-4px); }
+  }
+  @keyframes eye-b {
+    0%, 15%, 100% { transform: translateX(2px); filter: brightness(1); }
+    23% { transform: translateX(-5px); }
+    37% { transform: translateX(4px); }
+    42%, 54% { transform: translateX(3px); filter: brightness(1.7); }
+    75% { transform: translateX(-4px); filter: brightness(1); }
+  }
+  @keyframes scan-target { 0%, 12%, 18%, 100% { opacity: 0; } 13%, 17% { opacity: .35; } }
+  @keyframes firing-a { 0%, 18%, 28%, 100% { opacity: 0; } 19%, 27% { opacity: 1; } }
+  @keyframes firing-b { 0%, 41%, 55%, 100% { opacity: 0; } 42%, 54% { opacity: 1; } }
+  @keyframes shot-a { from { transform: translate(0, 0); opacity: 1; } to { transform: translate(43px, -38px); opacity: .45; } }
+  @keyframes shot-b-high { from { transform: translate(0, 0); opacity: 1; } to { transform: translate(24px, -15px); opacity: .45; } }
+  @keyframes shot-b-low { from { transform: translate(0, 0); opacity: 1; } to { transform: translate(26px, 9px); opacity: .45; } }
+  @keyframes flash { 0%, 50% { opacity: 1; } 51%, 100% { opacity: .18; } }
+  @keyframes surprise { 0%, 22%, 32%, 100% { opacity: 0; } 23%, 31% { opacity: 1; } }
+  @keyframes wall-reset {
+    0%, 56%, 81%, 100% { transform: translateX(40px); }
+    60% { transform: translateX(21px); }
+    66% { transform: translateX(2px); }
+    71%, 74% { transform: translateX(-4px); }
+  }
+  @keyframes wall-contact { 0%, 59%, 62%, 100% { opacity: 0; } 60%, 61% { opacity: 1; } }
+  @media (max-width: 1100px) { .turret-stage { left: auto; right: -6px; bottom: -4px; width: 210px; } }
+  @media (max-width: 420px) { .turret-stage { right: -8px; width: 205px; } }
+  @media (prefers-reduced-motion: reduce) {
+    .is-playing .wheatley-rig, .is-playing .wheatley-shell, .is-playing .wheatley-eye, .is-playing .wheatley-shutter, .is-playing .turret-motion, .is-playing .turret-wing, .is-playing .turret-core, .is-playing .turret-barrels, .is-playing .barrel-left, .is-playing .barrel-right, .is-playing .turret-eye, .is-playing .shot-lane, .is-playing .turret-scan, .is-playing .bullet, .is-playing .muzzle-flash, .is-playing .hit-spark, .is-playing .turret-surprise, .is-playing .reset-wall, .is-playing .wall-jolt { animation: none; }
+    .stage-caption { display: none; }
+  }
+</style>

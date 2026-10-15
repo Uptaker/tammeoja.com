@@ -1,0 +1,42 @@
+---
+import ChapterScenery from './ChapterScenery.astro';
+
+interface Props {
+  period: string;
+  company: string;
+  logo: string;
+  role: string;
+  place: string;
+  description: string;
+  tags: string[];
+  work?: { label: string; detail: string; url?: string }[];
+}
+
+const { period, company, logo, role, place, description, tags, work } = Astro.props;
+---
+
+<div class="timeline-chapter">
+<ChapterScenery company={company} />
+<article class:list={['timeline-entry', { 'timeline-entry-has-work': work?.length }]}>
+  <div class="timeline-date">{period}</div>
+  <div class="timeline-content">
+    <div class="timeline-head">
+      <div>
+        <div class="timeline-identity"><img class="timeline-logo" src={logo} width="48" height="48" alt="" loading="lazy" /><div><h3>{company}</h3><p class="timeline-role">{role}</p></div></div>
+      </div>
+      <span class="timeline-place">{place}</span>
+    </div>
+    <p class="timeline-description">{description}</p>
+    {tags.length > 0 && <ul class="tag-list" aria-label={`${company} technologies`}>{tags.map((tag) => <li>{tag}</li>)}</ul>}
+  </div>
+</article>
+{work?.map((item, index) => (
+  <article class:list={['timeline-entry', 'timeline-entry-project', { 'timeline-entry-project-last': index === work.length - 1 }]}>
+    <div class="timeline-date" aria-hidden="true"></div>
+    <div class="timeline-content">
+      <h4>{item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.label}<span aria-hidden="true">↗</span></a> : item.label}</h4>
+      <p>{item.detail}</p>
+    </div>
+  </article>
+))}
+</div>

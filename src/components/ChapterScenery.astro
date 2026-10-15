@@ -1,0 +1,296 @@
+---
+import TurretDuo from './TurretDuo.astro';
+
+interface Props { company: string }
+
+const { company } = Astro.props;
+const kind = company === 'Tallinn University' ? 'university' : company.toLowerCase();
+---
+
+<div class:list={['chapter-scene', `chapter-scene-${kind}`]}>
+  {kind === 'swappie' && <>
+  <svg class="wall-machine" viewBox="0 0 300 590" aria-hidden="true" focusable="false">
+    <path d="M9 53h270v506H9z" fill="#9eb0ae" opacity=".25" />
+    <path d="M20 65h250v480H20z" fill="#617779" opacity=".32" />
+    <path d="M24 68h242v479H24z" fill="#cbd8d2" stroke="#8fa39f" stroke-width="2" />
+    <path d="M24 68h242v31H24zM24 298h242v13H24zM24 443h242v11H24z" fill="#718887" opacity=".52" />
+    <path d="M24 311h242v132H24zM24 454h242v93H24z" fill="#536c6d" stroke="#aabcb5" stroke-width="2" />
+    <g class="machine-lower-panel">
+      <path d="M25 312h240v128H25z" fill="#dfe7df" stroke="#aabcb5" stroke-width="2" />
+      <path d="M84 312v128m61-128v128m61-128v128" stroke="#adbfba" stroke-width="2" />
+      <path d="m42 321 24 13h14m138 52 10-12 20-4" fill="none" stroke="#8fa6a0" stroke-width="2" />
+    </g>
+    <path d="M25 455h240v91H25z" fill="#dfe7df" stroke="#aabcb5" stroke-width="2" />
+    <path d="M105 455v91m91-91v91" stroke="#adbfba" stroke-width="2" />
+    <path d="M24 101h242v195H24z" fill="#3b5457" />
+    <path d="M32 108h226v181H32z" fill="#718586" opacity=".34" />
+    <path d="M35 112h208m-208 36h208m-208 36h208m-208 36h208m-208 36h208" stroke="#a3b5af" stroke-width="2" opacity=".45" />
+    <path d="M258 100v191m-8-191v191" stroke="#dce5dd" stroke-width="3" opacity=".55" />
+    <path d="M37 197h223m-220 6h218" stroke="#253f43" stroke-width="5" opacity=".7" />
+    <path d="M243 112h12v164h-12z" fill="#acc0b9" />
+    <path d="M2 188h31v18H2z" fill="#536c6d" />
+    <path d="M6 191h22v3H6z" fill="#aabdb6" opacity=".7" />
+    <g class="machine-piston"><path d="M31 195h58v6H31z" fill="#d7e1d8" /><path d="M51 193h9v10h-9z" fill="#738a89" /></g>
+    <g class="machine-panel">
+      <path d="M27 110h202l10 9v157l-10 11H26l-10-10V121z" fill="#edf0e8" stroke="#90a5a0" stroke-width="3" />
+      <path d="M37 124h186v147H37z" fill="#e8eee6" stroke="#bbc9c2" stroke-width="2" />
+      <path d="M37 165h186M100 124v147m64-147v147" stroke="#b8c9c1" stroke-width="2" />
+      <path d="M228 110v167M17 165h20" stroke="#f8faf4" stroke-width="3" opacity=".6" />
+      <path d="m184 111 4 32 18 12-8 28 17 20m-18-20-15 18 8 19" fill="none" stroke="#8da19a" stroke-width="2" />
+      <path d="M19 213h14v24H19zM218 243h20v33h-20z" fill="#a6b9b1" />
+      <text x="48" y="251" fill="#819a93" font-family="monospace" font-size="39" font-weight="700" letter-spacing="2" opacity=".75">02</text>
+      <path d="M45 260h79" stroke="#819a93" stroke-width="2" opacity=".4" />
+    </g>
+    <path d="M23 316h27l14 14h13m119 112 8-12 19-3 8-19m-157 48 15 20-4 19" fill="none" stroke="#819791" stroke-width="2" opacity=".58" />
+    <path d="M33 425c13-8 16-1 32-5 10-3 24-16 33-15 9 1 20 7 31 0m-112 128c17-7 28-2 41-11 11-7 22-8 38-3" fill="none" stroke="#819576" stroke-width="7" opacity=".34" />
+    <path d="M24 68h242v478H24z" fill="none" stroke="#839b99" stroke-width="2" />
+  </svg>
+
+  <svg class="wall-vines" viewBox="0 0 300 760" aria-hidden="true" focusable="false">
+    <path d="M4 0c44 61 12 117 56 162 40 42 18 77 56 123 22 28 29 61 14 98m-91-280c28 19 61 25 79 56 28 48 15 74 56 105m-92-27c-35 13-45 42-34 76m247-253c-27 54-12 119-53 151-34 27-32 61-59 85m-86 44c21 31 19 70 6 100" fill="none" stroke="#6e8a69" stroke-width="5" stroke-linecap="round" />
+    <path d="M132 382c-20 26-4 52-22 77-17 25-6 38-23 59-11 14-12 30-7 48m33-96c9-12 15-13 21-11m-45 54c-9-10-18-13-25-10" fill="none" stroke="#7a9774" stroke-width="3" stroke-linecap="round" />
+    <path d="M29 95c-23-14-32-11-36-3 12 13 24 16 36 3Zm36 77c-24-9-38-3-42 7 15 12 30 11 42-7Zm47 108c-17-20-35-22-44-13 10 21 27 25 44 13Zm21 101c20-15 38-15 45-5-11 18-27 21-45 5Zm-35-254c14-22 30-29 40-21-5 23-20 31-40 21Zm63 116c16-17 31-20 39-12-7 20-20 25-39 12Zm-114 67c-21-6-34 1-37 11 14 10 27 7 37-11Zm235-233c21-18 36-17 42-8-10 19-24 23-42 8Zm-17 79c-17-16-32-16-38-6 8 18 21 21 38 6Zm-34 57c17-16 32-17 39-8-7 19-22 22-39 8Z" fill="#829a78" stroke="#6e8a69" stroke-width=".8" />
+    <path d="M28 95Q8 93-3 92m67 80q-19 1-39 7m86 101q-20-15-41-13m63 114q19-12 42-5M98 127q15-16 37-20m26 136q16-14 37-12M47 310q-17-1-35 11M282 77q16-11 35-8m-52 87q-16-10-37-6m3 63q17-12 37-8" fill="none" stroke="#bfd0a9" stroke-width="1.4" stroke-linecap="round" opacity=".8" />
+    <path d="M37 141c-11-16-20-17-27-13 4 12 13 16 27 13Zm38 55c-8-17-20-21-27-17 2 13 11 20 27 17Zm57 122c15-15 28-16 34-9-7 15-20 19-34 9Zm48-104c11-15 25-18 31-12-4 17-17 23-31 12Zm48 36c-13-12-25-12-30-5 7 13 17 17 30 5Zm-17-83c15-13 26-13 31-5-7 13-18 17-31 5Zm54 117c-16-8-29-5-32 4 10 11 22 10 32-4Z" fill="#95aa87" />
+    <path d="M111 456c-17-12-29-10-32-2 9 13 20 16 32 2Zm-22 52c15-16 28-20 35-12-5 17-17 22-35 12Zm-8 41c-15-9-26-7-30 1 9 11 19 12 30-1Z" fill="#899f7d" />
+    <path d="M35 141q-12-7-24-13m63 68q-11-10-24-17m82 139q15-9 32-9m16-95q14-9 29-12m19 48q-13-7-29-5m12-78q15-7 29-5m25 122q-16-3-30 4" fill="none" stroke="#c0d0aa" stroke-width="1" stroke-linecap="round" />
+    <path d="M109 456q-13-8-28-2m9 54q13-11 31-12m-41 53q-12-4-27 1" fill="none" stroke="#bfceaa" stroke-width="1" stroke-linecap="round" />
+    <path d="M25 104c-10 12-7 23 4 25 9 1 12-10 5-13m93 182c-12 6-18 19-11 26 6 6 17 0 13-7m105-121c-9 10-9 23 1 24 8 1 11-9 4-12" fill="none" stroke="#829d78" stroke-width="2" stroke-linecap="round" />
+    <path d="M14 342c18-6 24-1 34-9 8-6 17-4 25-2m159-49c13-6 24-3 31-11 8-8 17-7 28-5M78 411c16-8 27-4 38-12 8-6 17-6 27-4" fill="none" stroke="#8da885" stroke-width="3" stroke-linecap="round" opacity=".72" />
+    <path d="m21 338 5-7 4 6 6-8 5 6m207-60 5-8 4 6 6-7 3 6m-165 131 4-9 5 7 5-9" fill="none" stroke="#8da885" stroke-width="2" stroke-linecap="round" opacity=".75" />
+    <circle cx="28" cy="335" r="2" fill="#8da885" /><circle cx="53" cy="332" r="1.5" fill="#8da885" /><circle cx="249" cy="273" r="2" fill="#8da885" /><circle cx="113" cy="401" r="1.5" fill="#8da885" />
+    <path d="M6 1c33 55 17 84 38 130m253-64c-20 52-15 83-37 113" fill="none" stroke="#adc1a0" stroke-width="2" stroke-linecap="round" />
+  </svg>
+  </>}
+
+  {kind === 'ridango' && <svg class="inbound-tram" viewBox="0 0 300 250" aria-hidden="true" focusable="false">
+    <path d="M9 43h282m-282 6h282M18 207h266m-266 8h266" stroke="#7f9794" stroke-width="4" opacity=".56" />
+    <path d="M22 221h256" stroke="#b77f58" stroke-width="5" stroke-dasharray="10 6" opacity=".55" />
+    <path d="M32 17h236v13H32zM85 30v24m130-24v24" fill="#a9bbb4" stroke="#748b89" stroke-width="3" />
+    <g class="tram-car">
+      <path d="M30 71h233l14 16v91l-12 13H35l-13-14V88z" fill="#dce6e0" stroke="#6e8585" stroke-width="4" />
+      <path d="M37 86h224v64H37z" fill="#547078" stroke="#78918e" stroke-width="3" />
+      <path d="M45 92h56v51H45zM108 92h56v51h-56zM171 92h54v51h-54z" fill="#a3c2c2" opacity=".7" />
+      <path d="M102 86v64m64-64v64m64-64v64" stroke="#d5e1d9" stroke-width="5" />
+      <path d="M48 129h44m27 0h37m26 0h35" stroke="#4a686f" stroke-width="10" opacity=".7" />
+      <path d="M26 158h248v15H26z" fill="#7d9792" />
+      <path d="M27 170h247v7H27z" fill="#b3825d" opacity=".7" />
+      <path d="M35 183h230" stroke="#3e585d" stroke-width="3" />
+      <circle cx="69" cy="191" r="8" fill="#50676a" /><circle cx="230" cy="191" r="8" fill="#50676a" />
+      <path d="m40 73 8-19h205l8 19" fill="#dce6e0" stroke="#6e8585" stroke-width="3" />
+      <text x="45" y="69" fill="#5e7574" font-family="monospace" font-size="9" font-weight="700" letter-spacing="1">BLACK MESA / INBOUND</text>
+      <text x="136" y="172" fill="#e9eee5" font-family="monospace" font-size="10" font-weight="700">λ</text>
+    </g>
+  </svg>}
+
+  {kind === 'codeborne' && <>
+  <div class="chamber-terminal" aria-hidden="true">
+    <div class="terminal-head"><span>A/S // AUXILIARY FEED</span><span class="terminal-led"></span></div>
+    <div class="terminal-glass">
+      <span class="terminal-sector">SECTOR 04 / MAINTENANCE</span>
+      <strong class="terminal-message">CHAMBER 02 / PANEL JAM</strong>
+      <span class="terminal-readout">SIGNAL DEGRADED _</span>
+      <span class="terminal-dead-zone"></span>
+      <svg class="terminal-cracks" viewBox="0 0 240 125" preserveAspectRatio="none" aria-hidden="true"><path d="m179 0-12 32 13 8-9 14 18 11-4 16 21 14m-35-41-23 6-16 21m57-16 22-5 15 11m-40 10-21 20-4 24" fill="none" stroke="#a9c9c5" stroke-width="1.5" opacity=".55" /></svg>
+    </div>
+    <div class="terminal-foot"><span>CHAMBER DISPLAY / 02</span><span>FAULT</span></div>
+  </div>
+  <svg class="wall-markings" viewBox="0 0 300 340" aria-hidden="true" focusable="false">
+    <path d="M37 45h225M36 47l12 4m8-8 9 2m157 1 17 4M48 84h214M45 275h217" fill="none" stroke="#6d8582" stroke-width="2" opacity=".4" />
+    <image href="/lambda-graffiti.png" x="26" y="42" width="108" height="108" opacity=".84" />
+    <path d="m138 90-8 45m20-43-8 45m20-43-8 45m19-43-8 45m-37-4 48-42m12 7-5 37m15-35-5 37" stroke="#657a77" stroke-width="2.5" stroke-linecap="round" opacity=".58" />
+    <g transform="translate(35 177) rotate(-6)"><text x="0" y="0" fill="#677d76" font-family="monospace" font-size="12" font-weight="700" opacity=".7">THE CAKE IS A LIE</text><path d="m3 12 34 2 48-3m-84 5 23-2" stroke="#708681" stroke-width="2" opacity=".5" /></g>
+    <g transform="translate(176 137) rotate(4 43 45)" stroke-linecap="round" stroke-linejoin="round" opacity=".82">
+      <path d="M3 65c12 9 26 13 43 13s32-4 43-13l-8-6H11Z" fill="#bb794a" stroke="#9d6949" stroke-width="2" />
+      <path d="M10 34v31c0 10 15 17 37 17s36-7 36-17V34" fill="#4f3932" stroke="#725249" stroke-width="2.5" />
+      <ellipse cx="47" cy="34" rx="37" ry="14" fill="#61453a" stroke="#725249" stroke-width="2.5" />
+      <path d="M13 46c6 2 9 7 14 6m-8 7 8 3m5-14 11 6m-12 16 9 4m7-28 11 5m-8 15 11-2m5-18 9-1m-7 23 10-8" fill="none" stroke="#9a7256" stroke-width="2" opacity=".76" />
+      <path d="M24 25c4-3 7-3 10 0m13-5c4-3 7-3 10 0m12 5c4-3 7-3 10 0M16 34c4-3 6-3 9 0m46 0c4-3 6-3 9 0m-45-5c4-3 6-3 9 0m12-3c4-3 6-3 9 0" fill="none" stroke="#f1e4cf" stroke-width="5" />
+      <circle cx="29" cy="22" r="4" fill="#b74236" /><circle cx="39" cy="27" r="3.5" fill="#b74236" /><circle cx="62" cy="24" r="3.5" fill="#b74236" /><circle cx="52" cy="17" r="4" fill="#b74236" /><circle cx="73" cy="23" r="4" fill="#b74236" /><circle cx="19" cy="32" r="4" fill="#b74236" /><circle cx="77" cy="32" r="4" fill="#b74236" />
+      <path d="M46 28V5" stroke="#f0ebd8" stroke-width="4" />
+      <path d="M46 3c-4-4-1-8 1-10 3 4 5 7-1 10Z" fill="#e4a25c" stroke="#c88a50" stroke-width="1" />
+      <path d="M6 87c20 5 61 5 82-5" fill="none" stroke="#8c9b89" stroke-width="2" opacity=".6" />
+    </g>
+    <path d="m132 246 28-14 15 11 30-13m-70 27 28-14" fill="none" stroke="#7b8f89" stroke-width="2" opacity=".48" />
+    <path d="M47 222c8-7 17-7 22 0m-12 8c9-4 17-2 20 6m-33 8c8-3 14-2 18 4" fill="none" stroke="#8ba17c" stroke-width="4" stroke-linecap="round" opacity=".6" />
+  </svg>
+  </>}
+
+  {kind === 'swappie' && <TurretDuo />}
+
+  {kind === 'codeborne' && <>
+  <div class="pipe-bay">
+    <svg class="pipe-work" viewBox="0 0 300 250" aria-hidden="true" focusable="false">
+      <path d="M20 140h92V98h74v42h95" fill="none" stroke="#536e70" stroke-width="22" stroke-linejoin="round" opacity=".58" />
+      <path d="M20 140h92V98h74v42h95" fill="none" stroke="#b6c8bd" stroke-width="12" stroke-linejoin="round" opacity=".68" />
+      <path d="M101 75h90v17h-90zM105 151h82v12h-82z" fill="#78918e" />
+      <path d="M25 168h251m-251-28h34m196 0h24M36 166v59m75-62v61m105-61v61M42 196h215m-215 28h215" stroke="#93a6a0" stroke-width="2" opacity=".4" />
+      <path d="M38 213c19-8 25 0 42-10m141 4c16-7 29-8 49-4" fill="none" stroke="#8da47e" stroke-width="6" opacity=".48" />
+      <text x="30" y="66" fill="#728783" font-family="monospace" font-size="14" letter-spacing="2" opacity=".65">STEAM / 01</text>
+    </svg>
+    <button class="valve-wheel" type="button" aria-label="Turn the old valve">
+      <svg viewBox="0 0 92 92" aria-hidden="true" focusable="false">
+        <circle cx="46" cy="46" r="39" fill="none" stroke="#b74033" stroke-width="8" />
+        <circle cx="46" cy="46" r="28" fill="none" stroke="#dc7758" stroke-width="3" />
+        <path d="M46 6v80M6 46h80M18 18l56 56m0-56L18 74" stroke="#a9362e" stroke-width="7" />
+        <circle cx="46" cy="46" r="13" fill="#c94d39" stroke="#792e2a" stroke-width="5" /><circle cx="46" cy="46" r="4" fill="#ef9b73" />
+      </svg>
+    </button>
+    <span class="steam-puff steam-puff-one"></span><span class="steam-puff steam-puff-two"></span><span class="steam-puff steam-puff-three"></span>
+  </div>
+  </>}
+
+  {kind === 'university' && <div class="university-mural" aria-hidden="true">
+    <span class="mural-label">RESEARCH / 2020—23</span>
+    <img src="/tux.svg" width="216" height="256" alt="" loading="lazy" decoding="async" />
+    <svg viewBox="0 0 300 255" focusable="false">
+      <path d="M20 25h260M20 222h260M18 28v190m262-190v190" fill="none" stroke="#9eb1ab" stroke-width="2" opacity=".55" />
+      <path d="m28 180 32-19 24 9 29-31m-84 53 33-20 25 7 30-28" fill="none" stroke="#819c8f" stroke-width="3" opacity=".48" />
+      <path d="M235 65h26m-25 10h21m-21 10h24m-24 10h16" stroke="#839b95" stroke-width="2" opacity=".5" />
+      <path d="m45 63 9 18 10-20m-21 39 27-7m-26 21 21 1" fill="none" stroke="#aa7559" stroke-width="3" stroke-linecap="round" opacity=".6" />
+    </svg>
+  </div>}
+</div>
+
+<script>
+  const valve = document.querySelector<HTMLButtonElement>('.valve-wheel');
+  const pipeBay = document.querySelector<HTMLElement>('.pipe-bay');
+
+  if (valve && pipeBay) {
+    let ventTimer: number;
+    valve.addEventListener('click', () => {
+      pipeBay.classList.remove('is-venting');
+      void pipeBay.offsetWidth;
+      pipeBay.classList.add('is-venting');
+      window.clearTimeout(ventTimer);
+      ventTimer = window.setTimeout(() => pipeBay.classList.remove('is-venting'), 2100);
+    });
+  }
+
+  const terminal = document.querySelector<HTMLElement>('.chamber-terminal');
+  const terminalMessage = document.querySelector<HTMLElement>('.terminal-message');
+  const terminalSector = document.querySelector<HTMLElement>('.terminal-sector');
+  const terminalReadout = document.querySelector<HTMLElement>('.terminal-readout');
+
+  if (terminal && terminalMessage && terminalSector && terminalReadout && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const messages = [
+      { sector: 'SECTOR 04 / MAINTENANCE', message: 'CHAMBER 02 / PANEL JAM', readout: 'SIGNAL DEGRADED _' },
+      { sector: 'DEPLOYMENT / CHAMBER 03', message: 'BUILD GREEN. ROOM ON FIRE.', readout: 'ROLLBACK PENDING _' },
+      { sector: 'MONITORING / LIVE METRICS', message: 'ALL SYSTEMS NOMINAL*', readout: '*EXCEPT THE SENTRY _' },
+      { sector: 'CI/CD / TEST TRACK', message: '19 TESTS PASSED. 1 ESCAPED.', readout: 'CONTAINMENT: RETRYING _' },
+      { sector: 'PAIR PROGRAMMING / 02', message: 'YOUR PARTNER IS A CUBE.', readout: 'REVIEW REQUESTED _' },
+      { sector: 'OBSERVABILITY / SENTRY 03', message: 'NO SIGNAL. VERY LOUD GUNFIRE.', readout: 'SEVERITY: MEDIUM _' },
+      { sector: 'SECTOR 04 / OVERGROWTH', message: 'VEGETATION INTAKE: 84%', readout: 'MAINTENANCE DELAYED _' },
+    ];
+    let current = 0;
+    window.setInterval(() => {
+      current = (current + 1) % messages.length;
+      terminalSector.textContent = messages[current].sector;
+      terminalMessage.textContent = messages[current].message;
+      terminalReadout.textContent = messages[current].readout;
+      terminal.classList.remove('is-switching');
+      void terminal.offsetWidth;
+      terminal.classList.add('is-switching');
+    }, 4200);
+  }
+</script>
+
+<style>
+  .chapter-scene { position: absolute; top: 0; bottom: 0; right: calc(100% + 24px); width: min(21vw, 308px); overflow: hidden; border-inline: 1px solid #aabbb53b; background: #e8eeea; opacity: .85; pointer-events: none; isolation: isolate; }
+  .chapter-scene::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 128px, #8da39c52 129px 131px, transparent 132px 256px), repeating-linear-gradient(90deg, transparent 0 86px, #8da39c45 87px 89px, transparent 90px 172px); }
+  .chapter-scene::after { content: ''; position: absolute; inset: 0; z-index: 3; background: linear-gradient(90deg, #f2f4f1b5, transparent 13% 89%, #f2f4f1b5); pointer-events: none; }
+  .wall-machine, .wall-vines, .wall-markings, .inbound-tram, .pipe-bay, .chamber-terminal, .university-mural { position: absolute; left: 0; width: 100%; }
+  .wall-machine { top: 0; }
+  .wall-vines { top: -48px; }
+  .wall-markings { top: 36%; transform: rotate(-2deg); }
+  .inbound-tram { top: 13%; }
+  .pipe-bay { bottom: 1%; aspect-ratio: 300 / 250; }
+  .pipe-work { width: 100%; height: 100%; }
+  .machine-panel { animation: panel-struggle 18s linear infinite; }
+  .machine-piston { animation: piston-struggle 18s linear infinite; transform-origin: 31px 198px; }
+  .machine-lower-panel { animation: lower-panel-stall 14s ease-in-out infinite; }
+  .tram-car { animation: tram-arrive 13s ease-in-out infinite; }
+  .chamber-terminal { top: 35px; left: 5%; width: 90%; padding: 8px; border: 1px solid #698386; background: #cad8d5; box-shadow: 7px 8px 0 #718b8a6e; }
+  .terminal-head, .terminal-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 24px; padding-inline: 3px; color: #526b71; font: 500 9px/1.3 IBM Plex Mono, monospace; letter-spacing: .05em; }
+  .terminal-led { width: 6px; height: 6px; border-radius: 50%; background: #b7775c; animation: terminal-led 3.4s step-end infinite; }
+  .terminal-foot { min-height: 21px; font-size: 8px; }
+  .terminal-foot span:last-child { color: #a5654f; }
+  .terminal-glass { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 12px; min-height: 125px; padding: 15px 14px; overflow: hidden; border: 4px solid #263f45; background: linear-gradient(90deg, #152b32, #203f44); color: #bbd4cb; font: 500 9px/1.4 IBM Plex Mono, monospace; letter-spacing: .045em; }
+  .terminal-glass::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 3px, #d9f8ff12 4px 5px); pointer-events: none; }
+  .terminal-glass::after { content: ''; position: absolute; top: 0; right: 11%; bottom: 0; width: 2px; background: #c17f6f; box-shadow: 7px 0 #85afbd, 10px 0 #af6b80; opacity: .44; animation: terminal-lines 4.1s step-end infinite; pointer-events: none; }
+  .terminal-sector { color: #8eb9b0; font-size: 8px; }
+  .terminal-message { max-width: 78%; color: #e3ede5; font-size: 11px; font-weight: 500; letter-spacing: .03em; }
+  .terminal-readout { color: #b98066; font-size: 8px; }
+  .terminal-dead-zone { position: absolute; top: 0; right: 0; width: 15%; height: 68%; background: #061216; clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 81%, 29% 90%, 38% 56%, 0 49%); }
+  .terminal-cracks { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .chamber-terminal.is-switching .terminal-glass { animation: terminal-flicker .32s step-end; }
+  .university-mural { top: 10px; height: 255px; }
+  .university-mural > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .university-mural img { position: absolute; top: 23px; left: 31%; z-index: 1; width: 38%; height: auto; filter: saturate(.48) contrast(.88); opacity: .8; transform: rotate(-6deg); }
+  .mural-label { position: absolute; top: 28px; left: 23px; color: #6e8582; font: 500 9px IBM Plex Mono, monospace; letter-spacing: .08em; }
+  .valve-wheel { position: absolute; top: 16%; left: 35%; width: 30%; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; pointer-events: auto; }
+  .valve-wheel svg { width: 100%; filter: drop-shadow(2px 4px 1px #593d394a); transition: filter .2s; }
+  .valve-wheel:hover svg, .valve-wheel:focus-visible svg { filter: drop-shadow(1px 1px 4px #b860507d); }
+  .valve-wheel:focus-visible { outline: 2px solid var(--orange); outline-offset: 5px; }
+  .pipe-bay.is-venting .valve-wheel svg { animation: turn-valve 1.3s ease-out both; }
+  .steam-puff { position: absolute; top: 11%; left: 60%; width: 19%; aspect-ratio: 1.6; border-radius: 50%; background: #b8c9c3; filter: blur(7px); opacity: 0; animation: steam-idle 10s ease-out infinite; }
+  .steam-puff-two { left: 68%; top: 2%; animation-delay: -3s; }
+  .steam-puff-three { left: 56%; top: -5%; animation-delay: -6s; }
+  .pipe-bay.is-venting .steam-puff { animation: steam-rise 1.35s ease-out both; }
+  .pipe-bay.is-venting .steam-puff-two { animation-delay: .2s; }
+  .pipe-bay.is-venting .steam-puff-three { animation-delay: .42s; }
+
+  @keyframes panel-struggle {
+    0%, 10%, 15%, 26%, 36%, 43%, 52%, 65%, 100% { transform: translate(0); }
+    12% { transform: translate(10px, 0); }
+    13% { transform: translate(7px, 1px); }
+    29% { transform: translate(17px, 0); }
+    31% { transform: translate(13px, 2px); }
+    33% { transform: translate(18px, 0); }
+    46% { transform: translate(23px, 0); }
+    47% { transform: translate(18px, 3px); }
+    49% { transform: translate(26px, 0); }
+    50% { transform: translate(22px, 2px); }
+    55% { transform: translate(4px, 4px) rotate(-.8deg); }
+  }
+  @keyframes piston-struggle {
+    0%, 10%, 15%, 26%, 36%, 43%, 52%, 65%, 100% { transform: scaleX(1); }
+    12% { transform: scaleX(1.18); }
+    13% { transform: scaleX(1.12); }
+    29% { transform: scaleX(1.29); }
+    31% { transform: scaleX(1.22); }
+    33% { transform: scaleX(1.31); }
+    46% { transform: scaleX(1.4); }
+    47% { transform: scaleX(1.32); }
+    49% { transform: scaleX(1.44); }
+    50% { transform: scaleX(1.38); }
+    55% { transform: scaleX(1.08); }
+  }
+  @keyframes lower-panel-stall { 0%, 18%, 42%, 100% { transform: translateY(0); } 26% { transform: translateY(7px); } 31% { transform: translateY(13px); } 34% { transform: translateY(10px); } 36% { transform: translateY(14px); } }
+  @keyframes tram-arrive { 0%, 12% { transform: translateX(-13px); } 34%, 68% { transform: translateX(0); } 90%, 100% { transform: translateX(11px); } }
+  @keyframes terminal-led { 0%, 82%, 100% { opacity: 1; } 83%, 88% { opacity: .25; } }
+  @keyframes terminal-lines { 0%, 68%, 100% { opacity: .44; transform: translateX(0); } 69%, 73% { opacity: .85; transform: translateX(-4px); } 74%, 78% { opacity: .18; transform: translateX(3px); } }
+  @keyframes terminal-flicker { 0%, 100% { filter: brightness(1); } 20%, 60% { filter: brightness(.45); } 40%, 80% { filter: brightness(1.4); } }
+  @keyframes turn-valve { 0% { transform: rotate(0); } 65% { transform: rotate(300deg); } 82% { transform: rotate(285deg); } 100% { transform: rotate(315deg); } }
+  @keyframes steam-idle { 0%, 69%, 100% { transform: translate(0, 8px) scale(.45); opacity: 0; } 75% { opacity: .16; } 88% { transform: translate(12px, -35px) scale(1.15); opacity: 0; } }
+  @keyframes steam-rise { 0% { transform: translate(0, 10px) scale(.4); opacity: 0; } 25% { opacity: .68; } 100% { transform: translate(25px, -70px) scale(1.7); opacity: 0; } }
+
+  @media (max-width: 1100px) {
+    .chapter-scene { position: relative; top: auto; bottom: auto; right: auto; width: min(calc(100% - 28px), 380px); height: 145px; margin: 0 0 25px 28px; }
+    .wall-machine { top: -92px; left: -9px; width: 185px; }
+    .wall-vines { top: -50px; left: -9px; width: 185px; }
+    .chapter-scene-ridango { height: 185px; }
+    .inbound-tram { top: -8px; left: calc(50% - 118px); width: 235px; }
+    .chamber-terminal { top: 8px; left: 8px; width: 180px; transform: scale(.68); transform-origin: top left; }
+    .wall-markings { top: -27px; left: 145px; width: 175px; }
+    .pipe-bay { display: none; }
+    .university-mural { top: -10px; width: 300px; }
+  }
+  @media (max-width: 420px) {
+    .wall-markings { left: 128px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .machine-panel, .machine-piston, .machine-lower-panel, .tram-car, .terminal-led, .terminal-glass::after, .chamber-terminal.is-switching .terminal-glass, .steam-puff, .pipe-bay.is-venting .valve-wheel svg { animation: none; }
+    .pipe-bay.is-venting .steam-puff-one { opacity: .28; }
+  }
+</style>
