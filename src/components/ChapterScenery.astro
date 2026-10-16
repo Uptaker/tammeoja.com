@@ -206,7 +206,7 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
 
   {kind === 'university' && <div class="university-mural" aria-hidden="true">
     <span class="mural-label">RESEARCH / 2020—23</span>
-    <span class="tux-sprite"><img src="/tux-pixel-v3.png" width="1440" height="172" alt="" loading="lazy" decoding="async" /></span>
+    <span class="tux-sprite"><img src="/tux-hand.png" width="1240" height="146" alt="" loading="lazy" decoding="async" /></span>
     <svg viewBox="0 0 300 255" focusable="false">
       <path d="M20 25h260M20 222h260M18 28v190m262-190v190" fill="none" stroke="#9eb1ab" stroke-width="2" opacity=".55" />
       <path d="m28 180 32-19 24 9 29-31m-84 53 33-20 25 7 30-28" fill="none" stroke="#819c8f" stroke-width="3" opacity=".48" />
@@ -303,9 +303,9 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
   .chamber-terminal.is-switching .terminal-glass { animation: terminal-flicker .32s step-end; }
   .university-mural { top: 10px; height: 255px; }
   .university-mural > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .tux-sprite { position: absolute; top: 34px; left: calc(50% - 60px); z-index: 1; width: 144px; height: 172px; overflow: hidden; opacity: .95; }
-  .tux-sprite img { width: 1440px; height: 172px; max-width: none; image-rendering: pixelated; animation: tux-idle 3s steps(10) infinite; }
-  @keyframes tux-idle { to { transform: translateX(-1440px); } }
+  .tux-sprite { position: absolute; top: 44px; left: calc(50% - 54px); z-index: 1; width: 124px; height: 146px; overflow: hidden; opacity: .95; }
+  .tux-sprite img { width: 1240px; height: 146px; max-width: none; image-rendering: pixelated; animation: tux-idle 3s steps(10) infinite; }
+  @keyframes tux-idle { to { transform: translateX(-1240px); } }
   .mural-label { position: absolute; top: 28px; left: 23px; color: #6e8582; font: 500 9px IBM Plex Mono, monospace; letter-spacing: .08em; }
   .valve-wheel { position: absolute; top: 16%; left: 35%; width: 30%; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; pointer-events: auto; }
   .valve-wheel svg { width: 100%; filter: drop-shadow(2px 4px 1px #593d394a); transition: filter .2s; }
