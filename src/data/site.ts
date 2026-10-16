@@ -10,22 +10,22 @@ export const experience = [
     work: [
       {
         label: 'Factory systems',
-        detail: 'I work on Python services for diagnostics, repair and robot coordination, and on React and Svelte tools for repair workflows and for monitoring robot capacity and slot status.',
+        detail: 'I work on the Django backend that follows devices through the factory, along with Python services for diagnostics, repair and robot coordination. On the frontend, I build React and Svelte tools for repair workflows and for monitoring robot capacity and slot status. I also put the robot lines’ configuration under version control, with scheduled syncing and drift detection.',
       },
       {
         label: 'AI grading',
-        detail: 'I helped bring image-based device grading into the factory workflow. Images move from the line through a coordination service to Linux GPU workers, with results sent back to each device’s record. I set up inference machines and improved worker recovery and monitoring so processing could continue through stalls.',
+        detail: 'I helped bring image-based device grading into the factory workflow, which now goes through hundreds of thousands of images a month. Images move from the line through a coordination service to Linux GPU workers, with results sent back to each device’s record. I moved the workers from Windows PCs to Linux services and improved their recovery and monitoring. After that, gradings that used to get stuck for hours mostly stopped happening.',
       },
       {
-        label: 'MacBook launch',
-        detail: 'During the MacBook launch, I built a small USB controller that acts as a keyboard and mouse, navigates the first macOS setup screens and starts the factory activation workflow. It made the handoff from a fresh MacBook into diagnostics faster and more consistent for operators.',
+        label: 'The Mactivator',
+        detail: 'MacBook setup used to be completely manual. For the MacBook launch, I built a small USB controller that acts as a keyboard and mouse, navigates the first macOS setup screens and starts the factory activation workflow. Now plugging it in is the only thing an operator has to do. Somewhere along the way it became the Mactivator, and a bit of an internal meme.',
       },
       {
         label: 'Workstation tools',
         detail: 'I also built an AirPods serial-number scanner and label-printing software, reducing manual input at factory workstations.',
       },
     ],
-    tags: ['Python', 'React', 'Svelte', 'Docker', 'Datadog', 'Distributed systems'],
+    tags: ['Python', 'Django', 'React', 'Svelte', 'Docker', 'Datadog', 'Distributed systems'],
   },
   {
     period: 'Jan — Apr 2024',
@@ -115,7 +115,7 @@ export const projects = [
     kind: 'Personal project',
     description: [
       'I build and run Ampsu, a food and nutrition app for tracking meals and seeing how eating habits change over time.',
-      'It uses European barcode data and photo-based meal estimates. Its adaptive TDEE (total daily energy expenditure) estimates daily calorie burn from food logs and weight trends, then adjusts calorie targets. I work across its Kotlin backend, Svelte frontend and infrastructure.',
+      'Its food database pulls from over 50 public nutrition databases and retailer sources across Europe and the US, and meals can be estimated from a photo. An adaptive TDEE (total daily energy expenditure) model estimates daily calorie burn from food logs and weight trends, forecasts where they are heading and adjusts calorie targets. I work across its Kotlin backend, Svelte frontend and infrastructure.',
     ],
     tags: ['Kotlin', 'Svelte', 'PostgreSQL', 'Docker', 'Ansible', 'Capacitor (Android)'],
     url: 'https://ampsu.eu',
@@ -127,7 +127,7 @@ export const projects = [
     logo: '/logos/translate-tool.svg',
     kind: 'Built at Codeborne',
     description: [
-      'I built this free alternative to Phrase at Codeborne so translators could work directly with JSON language files.',
+      'I built this free alternative to Phrase at Codeborne so translators could work directly with JSON language files. It fully replaced Phrase and was used across other client projects.',
       'It flags missing keys and placeholders, previews formatting and can translate individual strings with Google Translate for free. Projects can be shared by link, and changes go back to GitHub or Bitbucket as commits or pull requests.',
     ],
     tags: ['Svelte', 'TypeScript', 'Express', 'GitHub / Bitbucket', 'Google Translate'],
