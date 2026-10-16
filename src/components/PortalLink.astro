@@ -7,10 +7,40 @@ interface Props {
 }
 
 const { href, tone, label, description } = Astro.props;
+const clipId = `portal-clip-${tone}`;
 ---
 
 <a class:list={['portal-link', `portal-${tone}`]} href={href} aria-label={description}>
-  <span class="portal-art"><img src="/portal-pair-figure.png" width="860" height="531" alt="" /></span>
+  <span class="portal-art">
+    {tone === 'blue' ? (
+      <svg viewBox="0 0 66 110" aria-hidden="true" focusable="false">
+        <defs><clipPath id={clipId}><path d="M26 0h40v110H26z" /></clipPath></defs>
+        <ellipse class="portal-glow" cx="26" cy="55" rx="20" ry="49" />
+        <ellipse class="portal-ring" cx="26" cy="55" rx="16" ry="45" />
+        <ellipse class="portal-swirl" cx="26" cy="55" rx="16" ry="45" pathLength="100" />
+        <g clip-path={`url(#${clipId})`}>
+          <g class="portal-figure">
+            <path d="M16 56h12M27 55l17-14 17 8M27 59l16 15 18 2" />
+          </g>
+        </g>
+        <path class="portal-front" d="M26 10a16 45 0 0 1 0 90" />
+      </svg>
+    ) : (
+      <svg viewBox="0 0 66 110" aria-hidden="true" focusable="false">
+        <defs><clipPath id={clipId}><path d="M0 0h40v110H0z" /></clipPath></defs>
+        <ellipse class="portal-glow" cx="40" cy="55" rx="20" ry="49" />
+        <ellipse class="portal-ring" cx="40" cy="55" rx="16" ry="45" />
+        <ellipse class="portal-swirl" cx="40" cy="55" rx="16" ry="45" pathLength="100" />
+        <g clip-path={`url(#${clipId})`}>
+          <g class="portal-figure">
+            <circle cx="16" cy="36" r="6.5" />
+            <path d="M44 60 22 47M27 50l-12 13-6-4M38 56l-8 14 6 10" />
+          </g>
+        </g>
+        <path class="portal-front" d="M40 100a16 45 0 0 1 0-90" />
+      </svg>
+    )}
+  </span>
   <span class="portal-label">{label}</span>
 </a>
 
