@@ -69,23 +69,13 @@ h1 em { color: var(--blue); font-style: normal; }
 .arrow-link svg { width: 18px; height: 18px; transition: transform .25s ease; }
 .arrow-link:hover svg, .arrow-link:focus-visible svg { transform: translateX(4px); }
 .portal-link { display: inline-flex; align-items: center; gap: 12px; color: var(--blue-dark); font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 9px; font-weight: 500; letter-spacing: .07em; text-decoration: none; }
-.portal-art { position: relative; display: block; flex: none; width: 66px; height: 110px; transition: transform .25s; }
-.portal-art svg { width: 66px; height: 110px; overflow: visible; }
-.portal-blue { --tone: #2a9be3; --tone-light: #a9dcf8; }
-.portal-orange { --tone: #f1841c; --tone-light: #ffcb92; color: var(--orange); }
-.portal-glow { fill: none; stroke: var(--tone); stroke-width: 10; opacity: .18; transition: opacity .3s; }
-.portal-ring { fill: #fbfdfc; stroke: var(--tone); stroke-width: 9; }
-.portal-rim { fill: none; stroke: var(--tone); stroke-width: 9; }
-.portal-ripple { fill: none; stroke: var(--tone-light); stroke-width: 3; transform-box: fill-box; transform-origin: center; animation: portal-ripple 2.6s ease-out infinite; }
-.portal-shine { fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 18 82; opacity: .85; animation: portal-shine 4s linear infinite; }
-.portal-orange .portal-shine { animation-direction: reverse; }
-.portal-figure { fill: var(--ink); stroke: var(--ink); stroke-linecap: round; stroke-linejoin: round; transition: transform .5s cubic-bezier(.3, .7, .3, 1); }
-.portal-figure path { fill: none; stroke-width: 11; }
-.portal-figure .limb-thick { stroke-width: 13; }
-.portal-figure circle { stroke: none; }
-.portal-blue:hover .portal-figure, .portal-blue:focus-visible .portal-figure { transform: translateX(-18px); }
-.portal-orange:hover .portal-figure, .portal-orange:focus-visible .portal-figure { transform: translateX(-10px); }
-.portal-link:hover .portal-glow, .portal-link:focus-visible .portal-glow { opacity: .4; }.portal-link:hover .portal-art, .portal-link:focus-visible .portal-art { transform: translateY(-4px); }
+.portal-orange { color: var(--orange); }
+.portal-art { position: relative; display: block; flex: none; width: 80px; height: 120px; overflow: hidden; transition: transform .25s, filter .25s; }
+.portal-art img { width: 960px; height: 120px; max-width: none; image-rendering: pixelated; animation: portal-frames 1.4s steps(12) infinite; }
+.portal-link:hover .portal-art, .portal-link:focus-visible .portal-art { transform: translateY(-4px); }
+.portal-link:hover .portal-art img, .portal-link:focus-visible .portal-art img { animation-duration: .7s; }
+.portal-blue:hover .portal-art, .portal-blue:focus-visible .portal-art { filter: drop-shadow(0 0 6px #18a0e680); }
+.portal-orange:hover .portal-art, .portal-orange:focus-visible .portal-art { filter: drop-shadow(0 0 6px #f26e1280); }
 .portal-label { max-width: 62px; line-height: 1.5; }
 .hero-links .portal-label { max-width: 125px; font-size: 12px; font-weight: 600; }
 
@@ -146,8 +136,7 @@ h1 em { color: var(--blue); font-style: normal; }
 @keyframes static-jump { 0% { transform: translate(0); } 35% { transform: translate(-8px, 12px); } 70% { transform: translate(10px, -5px); } }
 @keyframes signal-return { 0% { filter: brightness(.2); } 20% { filter: brightness(1.8); } 35% { filter: brightness(.3); } 60% { filter: brightness(1.4); } 100% { filter: none; } }
 @keyframes cats-sway { 0%, 100% { transform: rotate(1.5deg); } 50% { transform: rotate(-.6deg); } }
-@keyframes portal-ripple { from { transform: scale(.35); opacity: 1; } to { transform: scale(1); opacity: 0; } }
-@keyframes portal-shine { to { stroke-dashoffset: -100; } }
+@keyframes portal-frames { to { transform: translateX(-960px); } }
 @keyframes cube-bounce { 30% { transform: translateY(-11px) rotate(-8deg); } 65% { transform: translateY(0) rotate(6deg); } }
 
 .section { position: relative; padding-block: 140px 155px; }

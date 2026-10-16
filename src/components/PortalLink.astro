@@ -7,45 +7,10 @@ interface Props {
 }
 
 const { href, tone, label, description } = Astro.props;
-const clipId = `portal-clip-${tone}`;
 ---
 
 <a class:list={['portal-link', `portal-${tone}`]} href={href} aria-label={description}>
-  <span class="portal-art">
-    {tone === 'blue' ? (
-      <svg viewBox="0 0 110 200" aria-hidden="true" focusable="false">
-        <defs><clipPath id={clipId}><path d="M50 0h60v200H50z" /></clipPath></defs>
-        <ellipse class="portal-glow" cx="38" cy="100" rx="31" ry="90" />
-        <ellipse class="portal-ring" cx="38" cy="100" rx="25" ry="84" />
-        <ellipse class="portal-ripple" cx="38" cy="100" rx="19" ry="74" />
-        <ellipse class="portal-shine" cx="38" cy="100" rx="21" ry="79" pathLength="100" />
-        <g clip-path={`url(#${clipId})`}>
-          <g class="portal-figure">
-            <path class="limb" d="M30 86 66 64 94 76" />
-            <path class="limb-thick" d="M30 104 74 126 101 103" />
-          </g>
-        </g>
-        <path class="portal-rim" d="M38 16a25 84 0 0 1 0 168" />
-      </svg>
-    ) : (
-      <svg viewBox="0 0 110 200" aria-hidden="true" focusable="false">
-        <defs><clipPath id={clipId}><path d="M0 0h60v200H0z" /></clipPath></defs>
-        <ellipse class="portal-glow" cx="72" cy="100" rx="31" ry="90" />
-        <ellipse class="portal-ring" cx="72" cy="100" rx="25" ry="84" />
-        <ellipse class="portal-ripple" cx="72" cy="100" rx="19" ry="74" />
-        <ellipse class="portal-shine" cx="72" cy="100" rx="21" ry="79" pathLength="100" />
-        <g clip-path={`url(#${clipId})`}>
-          <g class="portal-figure">
-            <circle cx="24" cy="57" r="11.5" />
-            <path class="limb-thick" d="M41 76 80 101" />
-            <path class="limb" d="M47 81 28 104 12 97" />
-            <path class="limb-thick" d="M70 104 44 128 52 155" />
-          </g>
-        </g>
-        <path class="portal-rim" d="M72 184a25 84 0 0 1 0-168" />
-      </svg>
-    )}
-  </span>
+  <span class="portal-art"><img src={`/portal-${tone}.png`} width="960" height="120" alt="" /></span>
   <span class="portal-label">{label}</span>
 </a>
 
