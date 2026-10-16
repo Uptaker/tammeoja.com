@@ -11,9 +11,9 @@ import { experience, projects } from '../data/site';
   <header class="site-header wrap">
     <a class="wordmark" href="#top" aria-label="Markus Tammeoja, back to top"><svg class="aperture-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 49.7 11.6 41.1 24.1 33.7 20.1Z M51.1 12.9 58.9 30.1 44 32.8 41.6 24.8Z M59 32 52.4 49.7 39.9 41.1 43.9 33.7Z M51.1 51.1 33.9 58.9 31.2 44 39.2 41.6Z M32 59 14.3 52.4 22.9 39.9 30.3 43.9Z M12.9 51.1 5.1 33.9 20 31.2 22.4 39.2Z M5 32 11.6 14.3 24.1 22.9 20.1 30.3Z M12.9 12.9 30.1 5.1 32.8 20 24.8 22.4Z"/></svg> MT<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
+      <a href="#experience"><span aria-hidden="true">01</span>Experience</a>
+      <a href="#projects"><span aria-hidden="true">02</span>Projects</a>
+      <a href="#about"><span aria-hidden="true">03</span>About</a>
     </nav>
   </header>
 
@@ -121,7 +121,7 @@ import { experience, projects } from '../data/site';
     </svg>
     <div class="wrap footer-inner">
       <div class="footer-top">
-        <div><p class="footer-kicker">CONTACT</p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
+        <div><p class="footer-kicker">CONTACT <button class="copy-mail" type="button" data-email="markus.tammeoja@gmail.com">COPY</button></p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
         <figure class="footer-cats">
           <a class="footer-cats-trigger" href="/cats.webp" aria-label="View a larger photo of my cats"><img src="/cats.webp" width="900" height="1200" alt="My two cats curled up together on a couch" loading="lazy" decoding="async" /><span class="cats-monitor-top" aria-hidden="true"><span><span class="record-dot"></span> CAM 02 / BREAK ROOM</span><span>LIVE</span></span></a>
           <figcaption>THE CATS / CHAMBER COMPANIONS</figcaption>
@@ -405,6 +405,17 @@ The cats are at the bottom of the page.`,
       });
       crowbar.addEventListener('pointercancel', () => { dragStart = null; crowbar.style.translate = ''; });
     }
+
+    const copyMail = document.querySelector<HTMLButtonElement>('.copy-mail');
+    copyMail?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(copyMail.dataset.email ?? '');
+        copyMail.textContent = 'COPIED';
+      } catch {
+        copyMail.textContent = 'COPY FAILED';
+      }
+      window.setTimeout(() => { copyMail.textContent = 'COPY'; }, 2000);
+    });
 
     if (catsDialog && catsTrigger && typeof catsDialog.showModal === 'function') {
       catsTrigger.addEventListener('click', (event) => {
