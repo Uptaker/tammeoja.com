@@ -86,6 +86,35 @@ import { experience, projects } from '../data/site';
   </main>
 
   <footer class="site-footer">
+    <svg class="footer-grunge" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="grunge-blotches" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency=".011 .016" numOctaves="4" seed="8" />
+          <feColorMatrix values="0 0 0 0 .66  0 0 0 0 .77  0 0 0 0 .8  0 0 0 -9 5.4" />
+        </filter>
+        <filter id="grunge-wear" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="grain" />
+          <feDisplacementMap in="SourceGraphic" in2="grain" scale="7" result="rough" />
+          <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="11" result="chips" />
+          <feColorMatrix in="chips" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -7 4.6" result="mask" />
+          <feComposite in="rough" in2="mask" operator="in" />
+        </filter>
+      </defs>
+      <rect width="1200" height="520" filter="url(#grunge-blotches)" opacity=".035" />
+      <g filter="url(#grunge-wear)" fill="none" stroke="#a9c4cb" opacity=".08">
+        <circle cx="770" cy="270" r="150" stroke-width="24" />
+        <path d="M706 192h50l98 176h-43l-41-77-46 77h-43l68-109-21-38h-22Z" fill="#a9c4cb" stroke="none" />
+      </g>
+      <g class="footer-scribbles" filter="url(#grunge-wear)" fill="#a9c4cb" opacity=".055">
+        <text x="40" y="70">radon vvvvvvvvvv k=-ln (0.500)/t =0.693/t uranium-235::::</text>
+        <text x="40" y="104">type/////thermal1111''1111decaypossible&gt;&gt;&gt;&gt;&gt;</text>
+        <text x="40" y="138">cause unknown3333' breakdown''::::radon</text>
+        <text x="40" y="172">vvvvvvvvvv k=-ln (0.500)/t =0.693/t uran-</text>
+        <text x="40" y="440" class="footer-scribble-big">C</text>
+        <text x="74" y="418">14</text>
+        <text x="760" y="470">ln2 / λ = decay constant</text>
+      </g>
+    </svg>
     <div class="wrap footer-inner">
       <div class="footer-top">
         <div><p class="footer-kicker">CONTACT</p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
