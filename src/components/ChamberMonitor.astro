@@ -1,0 +1,213 @@
+---
+import ApertureMark from './ApertureMark.astro';
+---
+
+<div class="portrait-wrap">
+  <div class="monitor-shell">
+    <button class="monitor-display" type="button" disabled aria-label="Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.">
+      <img src="/markus-tammeoja.webp" width="786" height="1048" alt="Markus Tammeoja at a ceramics class" fetchpriority="high" />
+      <span class="monitor-reticle" aria-hidden="true"></span>
+      <span class="screen-failed" aria-hidden="true"></span>
+      <span class="screen-static" aria-hidden="true"></span>
+      <svg class="screen-pixel-lines" viewBox="0 0 500 580" preserveAspectRatio="none" aria-hidden="true"><path d="M69 0v580" stroke="#fa5368" stroke-width="3"/><path d="M119 0v580" stroke="#4eef8a" stroke-width="2"/><path d="M155 0v580m11 0V0m21 0v580m13 0V0m10 0v580m35 0V0m10 0v580m12 0V0m18 0v580m9 0V0m14 0v580m13 0V0m11 0v580m16 0V0m10 0v580m17 0V0m9 0v580m12 0V0m13 0v580m11 0V0" stroke="#174cfd" stroke-width="4"/><path d="M181 0v580m88 0V0m39 0v580m91 0V0m62 0v580" stroke="#27e1d7" stroke-width="1.5"/><path d="M276 0v580m80 0V0m52 0v580m37 0V0" stroke="#d449ff" stroke-width="2"/><path d="M294 0v580m8 0V0m56 0v580m8 0V0m47 0v580m20 0V0" stroke="#234bff" stroke-width="8" stroke-opacity=".65"/></svg>
+      <svg class="screen-cracks" viewBox="0 0 500 580" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <span class="screen-error" aria-hidden="true"><strong>VIDEO SIGNAL LOST</strong><small>UNFORESEEN CONSEQUENCES / λ-17</small></span>
+      <span class="screen-flash" aria-hidden="true"></span>
+      <span class="monitor-hud"><span class="monitor-top" aria-hidden="true"><span><span class="record-dot"></span> LIVE FEED / CAM 01</span><span>CHAMBER 17</span></span><span class="monitor-bottom"><span aria-hidden="true">SUBJECT / M. TAMMEOJA</span><span class="monitor-status" aria-live="polite">SIGNAL STABLE</span></span></span>
+    </button>
+    <div class="monitor-chin" aria-hidden="true"><ApertureMark class="chin-mark" /><span class="power-led"></span></div>
+  </div>
+  <div class="tool-bay"><span>AUTHORIZED EQUIPMENT / λ-01 <span aria-hidden="true">↗</span></span><button class="crowbar-tool" type="button" aria-label="Pick up crowbar. You can also drag it onto the monitor."><img src="/crowbar-pixel-v3.png" width="124" height="27" alt="" /><span class="crowbar-label">TAKE CROWBAR</span></button></div>
+</div>
+
+<script>
+  import { unlock } from '../scripts/achievements';
+
+  const crowbar = document.querySelector<HTMLButtonElement>('.crowbar-tool');
+  const display = document.querySelector<HTMLButtonElement>('.monitor-display');
+  const monitor = document.querySelector<HTMLElement>('.monitor-shell');
+  const monitorStatus = document.querySelector<HTMLElement>('.monitor-status');
+  const crowbarLabel = document.querySelector<HTMLElement>('.crowbar-label');
+  const cracks = document.querySelector<SVGSVGElement>('.screen-cracks');
+
+  if (crowbar && display && monitor && monitorStatus && crowbarLabel && cracks) {
+    let armed = false;
+    let broken = false;
+    let impacts = 0;
+    let dragStart: { x: number; y: number } | null = null;
+    let dragged = false;
+    let skipClick = false;
+    let hitTimer = 0;
+    let recoverTimer = 0;
+    let statusTimer = 0;
+
+    const svgElement = (name: string) => document.createElementNS('http://www.w3.org/2000/svg', name);
+    const addPath = (parent: SVGElement, d: string, stroke: string, width: number, opacity = 1, fill = 'none') => {
+      const path = svgElement('path');
+      path.setAttribute('d', d);
+      path.setAttribute('stroke', stroke);
+      path.setAttribute('stroke-width', String(width));
+      path.setAttribute('stroke-opacity', String(opacity));
+      path.setAttribute('fill', fill);
+      path.setAttribute('stroke-linejoin', 'round');
+      parent.append(path);
+    };
+
+    const addImpact = (clientX: number, clientY: number, centered = false) => {
+      const box = display.getBoundingClientRect();
+      const x = centered ? 250 : Math.max(12, Math.min(488, (clientX - box.left) / box.width * 500));
+      const y = centered ? 290 : Math.max(12, Math.min(568, (clientY - box.top) / box.height * 580));
+      const group = svgElement('g');
+      group.setAttribute('transform', `translate(${x} ${y}) rotate(${Math.random() * 360})`);
+      const count = 7 + Math.floor(Math.random() * 3);
+      const bleed = svgElement('path');
+      const bleedShape = Array.from({ length: 15 }, (_, i) => {
+        const angle = i * Math.PI * 2 / 15;
+        const radius = 22 + Math.random() * 24;
+        return `${(Math.cos(angle) * radius).toFixed(1)} ${(Math.sin(angle) * radius).toFixed(1)}`;
+      }).join(' L');
+      bleed.setAttribute('d', `M${bleedShape}Z`);
+      bleed.setAttribute('fill', '#020608');
+      bleed.setAttribute('fill-opacity', '.7');
+      group.append(bleed);
+
+      for (let i = 0; i < count; i++) {
+        const angle = i * Math.PI * 2 / count + (Math.random() - .5) * .35;
+        const point = (length: number, drift = 0) => `${(Math.cos(angle + drift) * length).toFixed(1)} ${(Math.sin(angle + drift) * length).toFixed(1)}`;
+        const near = 22 + Math.random() * 18;
+        const inner = 50 + Math.random() * 35;
+        const middle = 95 + Math.random() * 65;
+        const far = i % 3 === 0 ? 130 + Math.random() * 70 : 210 + Math.random() * 150;
+        const lengths = [0, near, inner, (inner + middle) / 2, middle, (middle + far) / 2, far];
+        const d = `M${lengths.map((length, index) => point(length, index < 2 ? 0 : (Math.random() - .5) * .14 * index)).join(' L')}`;
+        addPath(group, d, '#02080a', 2.8, .85);
+        addPath(group, d, '#e7f5f6', .9 + Math.random() * .7, .55 + Math.random() * .3);
+        for (const base of [inner, middle]) {
+          const branchAngle = angle + (Math.random() < .5 ? -1 : 1) * (.3 + Math.random() * .6);
+          const branchLength = base + 25 + Math.random() * 70;
+          const branch = `M${point(base, (Math.random() - .5) * .15)} L${(Math.cos((angle + branchAngle) / 2) * (base + branchLength) / 2).toFixed(1)} ${(Math.sin((angle + branchAngle) / 2) * (base + branchLength) / 2).toFixed(1)} L${(Math.cos(branchAngle) * branchLength).toFixed(1)} ${(Math.sin(branchAngle) * branchLength).toFixed(1)}`;
+          addPath(group, branch, '#d2e9e9', .7 + Math.random() * .6, .3 + Math.random() * .35);
+        }
+      }
+
+      for (let i = 0; i < 5; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 35 + Math.random() * 85;
+        const arc = [0, .22, .48].map((offset) => {
+          const distance = radius + (Math.random() - .5) * 12;
+          return `${(Math.cos(angle + offset) * distance).toFixed(1)} ${(Math.sin(angle + offset) * distance).toFixed(1)}`;
+        }).join(' L');
+        addPath(group, `M${arc}`, '#b9d5d7', .7, .3 + Math.random() * .3);
+      }
+
+      const ring = Array.from({ length: 11 }, (_, i) => {
+        const angle = i * Math.PI * 2 / 11;
+        const radius = 19 + Math.random() * 10;
+        return `${(Math.cos(angle) * radius).toFixed(1)} ${(Math.sin(angle) * radius).toFixed(1)}`;
+      }).join(' L');
+      addPath(group, `M${ring}Z`, '#d9eeef', 1.6, .8);
+      const hole = Array.from({ length: 10 }, (_, i) => {
+        const angle = i * Math.PI * 2 / 10;
+        const radius = 9 + Math.random() * 8;
+        return `${(Math.cos(angle) * radius).toFixed(1)} ${(Math.sin(angle) * radius).toFixed(1)}`;
+      }).join(' L');
+      addPath(group, `M${hole}Z`, '#03080a', 1.2, 1, '#03080a');
+      cracks.append(group);
+      if (cracks.children.length > 5) cracks.firstElementChild?.remove();
+      monitor.style.setProperty('--impact-x', `${x / 5}%`);
+      monitor.style.setProperty('--impact-y', `${y / 5.8}%`);
+    };
+
+    const setArmed = (value: boolean) => {
+      armed = value;
+      display.disabled = !value;
+      if (value) unlock('trusty-hardware');
+      monitor.classList.toggle('is-armed', value);
+      crowbar.classList.toggle('is-armed', value);
+      monitorStatus.textContent = broken ? 'DISPLAY COMPROMISED' : value ? 'CROWBAR EQUIPPED' : 'SIGNAL STABLE';
+      crowbarLabel.textContent = broken ? 'RESTORE DISPLAY' : value ? 'DROP CROWBAR' : 'TAKE CROWBAR';
+      crowbar.setAttribute('aria-label', broken ? 'Restore chamber display' : value ? 'Drop crowbar' : 'Pick up crowbar. You can also drag it onto the monitor.');
+    };
+
+    const hitScreen = (clientX: number, clientY: number, centered = false) => {
+      if (!armed) return;
+      addImpact(clientX, clientY, centered);
+      impacts++;
+      if (!broken) console.log('%cλ UNFORESEEN CONSEQUENCES', 'color: #ed9652; font: 700 15px monospace');
+      unlock('unforeseen-consequences');
+      broken = true;
+      monitor.classList.add('is-broken');
+      monitorStatus.textContent = 'DISPLAY COMPROMISED';
+      crowbarLabel.textContent = 'RESTORE DISPLAY';
+      crowbar.setAttribute('aria-label', 'Restore chamber display');
+      display.setAttribute('aria-label', `Chamber monitor with ${impacts} impact${impacts === 1 ? '' : 's'}. Click again to add another.`);
+      monitor.classList.remove('is-hitting');
+      void monitor.offsetWidth;
+      monitor.classList.add('is-hitting');
+      window.clearTimeout(hitTimer);
+      hitTimer = window.setTimeout(() => monitor.classList.remove('is-hitting'), 450);
+      window.clearTimeout(recoverTimer);
+      recoverTimer = window.setTimeout(recover, 15000);
+    };
+
+    const restore = () => {
+      broken = false;
+      impacts = 0;
+      cracks.replaceChildren();
+      monitor.classList.remove('is-broken', 'is-hitting', 'is-recovering');
+      window.clearTimeout(hitTimer);
+      window.clearTimeout(recoverTimer);
+      window.clearTimeout(statusTimer);
+      display.setAttribute('aria-label', 'Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.');
+      setArmed(false);
+    };
+
+    const recover = () => {
+      monitor.classList.add('is-recovering');
+      recoverTimer = window.setTimeout(() => {
+        restore();
+        monitorStatus.textContent = 'SIGNAL RESTORED';
+        statusTimer = window.setTimeout(() => { if (!armed && !broken) monitorStatus.textContent = 'SIGNAL STABLE'; }, 3000);
+      }, 900);
+    };
+
+    crowbar.addEventListener('click', (event) => {
+      if (skipClick) { skipClick = false; return; }
+      if (broken) {
+        restore();
+      } else {
+        setArmed(!armed);
+        if (armed && event.detail === 0) display.focus();
+      }
+    });
+
+    display.addEventListener('click', (event) => hitScreen(event.clientX, event.clientY, event.detail === 0));
+    crowbar.addEventListener('pointerdown', (event) => {
+      dragStart = { x: event.clientX, y: event.clientY };
+      dragged = false;
+      crowbar.setPointerCapture(event.pointerId);
+    });
+    crowbar.addEventListener('pointermove', (event) => {
+      if (!dragStart) return;
+      const x = event.clientX - dragStart.x;
+      const y = event.clientY - dragStart.y;
+      if (Math.hypot(x, y) > 8) dragged = true;
+      if (dragged) crowbar.style.translate = `${x}px ${y}px`;
+    });
+    crowbar.addEventListener('pointerup', (event) => {
+      if (!dragStart) return;
+      if (dragged) {
+        const box = display.getBoundingClientRect();
+        if (event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom) {
+          setArmed(true);
+          hitScreen(event.clientX, event.clientY);
+        }
+        skipClick = true;
+        window.setTimeout(() => { skipClick = false; }, 0);
+        crowbar.style.translate = '';
+      }
+      dragStart = null;
+    });
+    crowbar.addEventListener('pointercancel', () => { dragStart = null; crowbar.style.translate = ''; });
+  }
+</script>

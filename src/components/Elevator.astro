@@ -1,0 +1,25 @@
+<a class="elevator" href="#top" aria-label="Back to top"><span class="elevator-display" aria-hidden="true">B2</span><span class="elevator-call" aria-hidden="true"></span><span class="elevator-label" aria-hidden="true">UP</span></a>
+
+<script>
+  const elevator = document.querySelector<HTMLAnchorElement>('.elevator');
+  const elevatorDisplay = elevator?.querySelector<HTMLElement>('.elevator-display');
+  elevator?.addEventListener('click', (event) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !elevatorDisplay || elevator.classList.contains('is-called')) return;
+    event.preventDefault();
+    elevator.classList.add('is-called');
+    const floors = ['B2', 'B1', '01'];
+    floors.forEach((floor, index) => window.setTimeout(() => { elevatorDisplay.textContent = floor; }, index * 380));
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const top = document.getElementById('top');
+      if (top) {
+        if (!top.hasAttribute('tabindex')) top.setAttribute('tabindex', '-1');
+        top.focus({ preventScroll: true });
+      }
+    }, 300);
+    window.setTimeout(() => {
+      elevator.classList.remove('is-called');
+      elevatorDisplay.textContent = 'B2';
+    }, 2400);
+  });
+</script>

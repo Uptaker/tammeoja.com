@@ -1,0 +1,78 @@
+<aside class="cube-station wrap" id="intermission" aria-label="Companion cube interaction">
+  <div class="cube-station-head"><span>INTERMISSION / 001</span><span>CLICK FOR DIALOGUE ↓</span></div>
+  <div class="cube-stage">
+    <p class="cube-chat" aria-live="polite"></p>
+    <button class="companion-cube" type="button" aria-label="Talk to the companion cube"><img src="/companion-cube-pixel.webp" width="256" height="256" alt="" loading="lazy" /></button>
+  </div>
+  <p class="cube-station-caption">COMPANION CUBE / RANDOM EVENT</p>
+</aside>
+
+<script>
+  import { unlock } from '../scripts/achievements';
+
+  const cube = document.querySelector<HTMLButtonElement>('.companion-cube');
+  const cubeChat = document.querySelector<HTMLElement>('.cube-chat');
+
+  const fitPixelFont = () => {
+    const ratio = window.devicePixelRatio || 1;
+    const scale = Math.max(1, Math.round(22 * ratio / 16));
+    document.documentElement.style.setProperty('--rs-size', `${16 * scale / ratio}px`);
+  };
+  fitPixelFont();
+  window.addEventListener('resize', fitPixelFont);
+
+  if (cube && cubeChat) {
+    const phrases = [
+      'Fishing lvl?',
+      'Doubling money!',
+      'Buying gf 10k.',
+      '92 is half of 99.',
+      'Meet me in Lumbridge.',
+      'Selling lobbies 200 ea.',
+      'Free armour trimming!',
+      'Bank sale! West Varrock!',
+      'Dragon med helm, no lowballs.',
+      "You can't use that here.",
+      'Nothing interesting happens.',
+      'Welcome to the Wilderness.',
+      'Just one more level.',
+      'My bank is full again.',
+      'Quest complete!',
+      'Your run energy is low.',
+      'The Grand Exchange awaits.',
+      'AFK for five minutes.',
+      'Why am I still chopping yews?',
+      'Connection lost. Please wait...'
+    ];
+    let remaining: number[] = [];
+    let last = -1;
+    let chatTimer = 0;
+    let clicks = 0;
+
+    cube.addEventListener('click', () => {
+      if (++clicks === 10) unlock('companion');
+      if (!remaining.length) {
+        remaining = phrases.map((_, index) => index);
+        for (let i = remaining.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
+        }
+        if (remaining.at(-1) === last) [remaining[0], remaining[remaining.length - 1]] = [remaining[remaining.length - 1], remaining[0]];
+      }
+      last = remaining.pop()!;
+      cubeChat.textContent = phrases[last];
+      cubeChat.style.translate = '';
+      const box = cubeChat.getBoundingClientRect();
+      const ratio = window.devicePixelRatio || 1;
+      const snap = (value: number) => Math.round(value * ratio) / ratio - value;
+      cubeChat.style.translate = `${snap(box.left)}px ${snap(box.top)}px`;
+      cubeChat.classList.remove('is-visible');
+      cube.classList.remove('is-loved');
+      void cube.offsetWidth;
+      cubeChat.classList.add('is-visible');
+      cube.classList.add('is-loved');
+      window.clearTimeout(chatTimer);
+      chatTimer = window.setTimeout(() => cubeChat.classList.remove('is-visible'), 5000);
+    });
+  }
+</script>

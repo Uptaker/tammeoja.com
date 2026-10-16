@@ -4,12 +4,19 @@ import ArrowLink from '../components/ArrowLink.astro';
 import TimelineEntry from '../components/TimelineEntry.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import PortalLink from '../components/PortalLink.astro';
+import ApertureMark from '../components/ApertureMark.astro';
+import ChamberMonitor from '../components/ChamberMonitor.astro';
+import CompanionCube from '../components/CompanionCube.astro';
+import FooterGrunge from '../components/FooterGrunge.astro';
+import FooterCats from '../components/FooterCats.astro';
+import Elevator from '../components/Elevator.astro';
+import CopyEmail from '../components/CopyEmail.astro';
 import { experience, projects } from '../data/site';
 ---
 
 <BaseLayout title="Markus Tammeoja — Software Engineer" description="Markus Tammeoja is a software engineer in Tallinn, Estonia. Work, projects, and a little about the things he likes to build.">
   <header class="site-header wrap">
-    <a class="wordmark" href="#top" aria-label="Markus Tammeoja, back to top"><svg class="aperture-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 49.7 11.6 41.1 24.1 33.7 20.1Z M51.1 12.9 58.9 30.1 44 32.8 41.6 24.8Z M59 32 52.4 49.7 39.9 41.1 43.9 33.7Z M51.1 51.1 33.9 58.9 31.2 44 39.2 41.6Z M32 59 14.3 52.4 22.9 39.9 30.3 43.9Z M12.9 51.1 5.1 33.9 20 31.2 22.4 39.2Z M5 32 11.6 14.3 24.1 22.9 20.1 30.3Z M12.9 12.9 30.1 5.1 32.8 20 24.8 22.4Z"/></svg> MT<span>.</span></a>
+    <a class="wordmark" href="#top" aria-label="Markus Tammeoja, back to top"><ApertureMark class="aperture-mark" /> MT<span>.</span></a>
     <nav aria-label="Main navigation">
       <a href="#experience"><span aria-hidden="true">01</span>Experience</a>
       <a href="#projects"><span aria-hidden="true">02</span>Projects</a>
@@ -29,23 +36,7 @@ import { experience, projects } from '../data/site';
         </div>
         <div class="hero-contact"><ArrowLink href="mailto:markus.tammeoja@gmail.com" label="Email" icon="mail" external={false} /><ArrowLink href="https://www.linkedin.com/in/tammeoja/" label="LinkedIn" icon="linkedin" /><ArrowLink href="https://github.com/Uptaker" label="GitHub" icon="github" /></div>
       </div>
-      <div class="portrait-wrap">
-        <div class="monitor-shell">
-          <button class="monitor-display" type="button" disabled aria-label="Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.">
-            <img src="/markus-tammeoja.webp" width="786" height="1048" alt="Markus Tammeoja at a ceramics class" fetchpriority="high" />
-            <span class="monitor-reticle" aria-hidden="true"></span>
-            <span class="screen-failed" aria-hidden="true"></span>
-            <span class="screen-static" aria-hidden="true"></span>
-            <svg class="screen-pixel-lines" viewBox="0 0 500 580" preserveAspectRatio="none" aria-hidden="true"><path d="M69 0v580" stroke="#fa5368" stroke-width="3"/><path d="M119 0v580" stroke="#4eef8a" stroke-width="2"/><path d="M155 0v580m11 0V0m21 0v580m13 0V0m10 0v580m35 0V0m10 0v580m12 0V0m18 0v580m9 0V0m14 0v580m13 0V0m11 0v580m16 0V0m10 0v580m17 0V0m9 0v580m12 0V0m13 0v580m11 0V0" stroke="#174cfd" stroke-width="4"/><path d="M181 0v580m88 0V0m39 0v580m91 0V0m62 0v580" stroke="#27e1d7" stroke-width="1.5"/><path d="M276 0v580m80 0V0m52 0v580m37 0V0" stroke="#d449ff" stroke-width="2"/><path d="M294 0v580m8 0V0m56 0v580m8 0V0m47 0v580m20 0V0" stroke="#234bff" stroke-width="8" stroke-opacity=".65"/></svg>
-            <svg class="screen-cracks" viewBox="0 0 500 580" preserveAspectRatio="none" aria-hidden="true"></svg>
-            <span class="screen-error" aria-hidden="true"><strong>VIDEO SIGNAL LOST</strong><small>UNFORESEEN CONSEQUENCES / λ-17</small></span>
-            <span class="screen-flash" aria-hidden="true"></span>
-            <span class="monitor-hud"><span class="monitor-top" aria-hidden="true"><span><span class="record-dot"></span> LIVE FEED / CAM 01</span><span>CHAMBER 17</span></span><span class="monitor-bottom"><span aria-hidden="true">SUBJECT / M. TAMMEOJA</span><span class="monitor-status" aria-live="polite">SIGNAL STABLE</span></span></span>
-          </button>
-          <div class="monitor-chin" aria-hidden="true"><svg class="chin-mark" viewBox="0 0 64 64"><path d="M32 5 49.7 11.6 41.1 24.1 33.7 20.1Z M51.1 12.9 58.9 30.1 44 32.8 41.6 24.8Z M59 32 52.4 49.7 39.9 41.1 43.9 33.7Z M51.1 51.1 33.9 58.9 31.2 44 39.2 41.6Z M32 59 14.3 52.4 22.9 39.9 30.3 43.9Z M12.9 51.1 5.1 33.9 20 31.2 22.4 39.2Z M5 32 11.6 14.3 24.1 22.9 20.1 30.3Z M12.9 12.9 30.1 5.1 32.8 20 24.8 22.4Z"/></svg><span class="power-led"></span></div>
-        </div>
-        <div class="tool-bay"><span>AUTHORIZED EQUIPMENT / λ-01 <span aria-hidden="true">↗</span></span><button class="crowbar-tool" type="button" aria-label="Pick up crowbar. You can also drag it onto the monitor."><img src="/crowbar-pixel-v3.png" width="124" height="27" alt="" /><span class="crowbar-label">TAKE CROWBAR</span></button></div>
-      </div>
+      <ChamberMonitor />
     </section>
 
     <div class="marquee-rule wrap"><span><span class="lambda-mark" aria-hidden="true"><span>λ</span></span> CODE, PEOPLE, SYSTEMS</span><span>SCROLL TO EXPLORE ↓</span></div>
@@ -55,14 +46,7 @@ import { experience, projects } from '../data/site';
       <div class="timeline">{experience.map((item) => <TimelineEntry {...item} />)}</div>
     </section>
 
-    <aside class="cube-station wrap" id="intermission" aria-label="Companion cube interaction">
-      <div class="cube-station-head"><span>INTERMISSION / 001</span><span>CLICK FOR DIALOGUE ↓</span></div>
-      <div class="cube-stage">
-        <p class="cube-chat" aria-live="polite"></p>
-        <button class="companion-cube" type="button" aria-label="Talk to the companion cube"><img src="/companion-cube-pixel.png" width="256" height="256" alt="" loading="lazy" /></button>
-      </div>
-      <p class="cube-station-caption">COMPANION CUBE / RANDOM EVENT</p>
-    </aside>
+    <CompanionCube />
 
     <section class="projects-section" id="projects" aria-labelledby="projects-title">
       <div class="wrap">
@@ -86,64 +70,17 @@ import { experience, projects } from '../data/site';
   </main>
 
   <footer class="site-footer">
-    <svg class="footer-grunge" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-      <defs>
-        <filter id="grunge-blotches" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency=".011 .016" numOctaves="4" seed="8" />
-          <feColorMatrix values="0 0 0 0 .66  0 0 0 0 .77  0 0 0 0 .8  0 0 0 -9 5.4" />
-        </filter>
-        <filter id="grunge-soft" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency=".35" numOctaves="2" seed="4" result="grain" />
-          <feDisplacementMap in="SourceGraphic" in2="grain" scale="1.4" />
-        </filter>
-        <filter id="grunge-wear" x="-10%" y="-10%" width="120%" height="120%">
-          <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="grain" />
-          <feDisplacementMap in="SourceGraphic" in2="grain" scale="3" result="rough" />
-          <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="11" result="chips" />
-          <feColorMatrix in="chips" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -7 4.6" result="mask" />
-          <feComposite in="rough" in2="mask" operator="in" />
-        </filter>
-      </defs>
-      <rect width="1200" height="520" filter="url(#grunge-blotches)" opacity=".035" />
-      <g class="footer-lambda" transform="translate(597.3 97.3) scale(.948)" fill="#a9c4cb" stroke="#a9c4cb" opacity=".08" filter="url(#grunge-wear)">
-        <path d="M223.864 272.729l-38.608-97.848-56.603 89.184H93.166l79.052-127.654-8.875-25.229h-30.781V81.12h52.691l60.521 153.899 26.608-8.668 8.867 29.813z" stroke="none" />
-        <circle cx="182.689" cy="182.198" r="154.934" fill="none" stroke-width="34" />
-      </g>
-      <g class="footer-scribbles" filter="url(#grunge-wear)" fill="#a9c4cb" opacity=".055">
-        <text x="40" y="70">radon vvvvvvvvvv k=-ln (0.500)/t =0.693/t uranium-235::::</text>
-        <text x="40" y="104">type/////thermal1111''1111decaypossible&gt;&gt;&gt;&gt;&gt;</text>
-        <text x="40" y="138">cause unknown3333' breakdown''::::radon</text>
-        <text x="40" y="172">vvvvvvvvvv k=-ln (0.500)/t =0.693/t uran-</text>
-        <text x="40" y="440" class="footer-scribble-big">C</text>
-        <text x="74" y="418">14</text>
-        <text x="760" y="470">ln2 / λ = decay constant</text>
-      </g>
-    </svg>
+    <FooterGrunge />
     <div class="wrap footer-inner">
       <div class="footer-top">
-        <div><p class="footer-kicker">CONTACT <button class="copy-mail" type="button" data-email="markus.tammeoja@gmail.com">COPY</button></p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
-        <figure class="footer-cats">
-          <a class="footer-cats-trigger" href="/cats.webp" aria-label="View a larger photo of my cats"><img src="/cats.webp" width="900" height="1200" alt="My two cats curled up together on a couch" loading="lazy" decoding="async" /><span class="cats-monitor-top" aria-hidden="true"><span><span class="record-dot"></span> CAM 02 / BREAK ROOM</span><span>LIVE</span></span></a>
-          <figcaption>THE CATS / CHAMBER COMPANIONS</figcaption>
-          <div class="monitor-chin" aria-hidden="true"><svg class="chin-mark" viewBox="0 0 64 64"><path d="M32 5 49.7 11.6 41.1 24.1 33.7 20.1Z M51.1 12.9 58.9 30.1 44 32.8 41.6 24.8Z M59 32 52.4 49.7 39.9 41.1 43.9 33.7Z M51.1 51.1 33.9 58.9 31.2 44 39.2 41.6Z M32 59 14.3 52.4 22.9 39.9 30.3 43.9Z M12.9 51.1 5.1 33.9 20 31.2 22.4 39.2Z M5 32 11.6 14.3 24.1 22.9 20.1 30.3Z M12.9 12.9 30.1 5.1 32.8 20 24.8 22.4Z"/></svg><span class="power-led"></span></div>
-        </figure>
+        <div><p class="footer-kicker">CONTACT <CopyEmail email="markus.tammeoja@gmail.com" /></p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
+        <FooterCats />
       </div>
-      <div class="footer-bottom"><span>© {new Date().getFullYear()} Markus Tammeoja</span><a class="elevator" href="#top" aria-label="Back to top"><span class="elevator-display" aria-hidden="true">B2</span><span class="elevator-call" aria-hidden="true"></span><span class="elevator-label" aria-hidden="true">UP</span></a></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} Markus Tammeoja</span><Elevator /></div>
     </div>
   </footer>
 
-  <dialog class="cats-dialog" aria-labelledby="cats-dialog-title">
-    <div class="steam-window">
-      <div class="steam-titlebar"><span id="cats-dialog-title">The Cats - Chamber Companions</span><form method="dialog"><button class="steam-close" aria-label="Close photo">×</button></form></div>
-      <div class="steam-tabs" aria-hidden="true"><span class="is-current">Photo</span><span>Friends (2)</span><span>Treats</span></div>
-      <div class="steam-body"><img src="/cats.webp" width="900" height="1200" alt="My two cats curled up together on a couch" loading="lazy" decoding="async" /></div>
-      <div class="steam-statusbar"><span>2 friends online · napping</span><form method="dialog"><button class="steam-button">Close</button></form></div>
-    </div>
-  </dialog>
-
   <script>
-    import { unlock } from '../scripts/achievements';
-
     console.log(
       String.raw`%c /\_/\
 ( o.o )
@@ -153,306 +90,6 @@ Quest complete: you found the console.
 The cats are at the bottom of the page.`,
       'color: #a9bca6; font: 14px monospace'
     );
-
-    const catsDialog = document.querySelector<HTMLDialogElement>('.cats-dialog');
-    const catsTrigger = document.querySelector<HTMLAnchorElement>('.footer-cats-trigger');
-    const cube = document.querySelector<HTMLButtonElement>('.companion-cube');
-    const cubeChat = document.querySelector<HTMLElement>('.cube-chat');
-
-    const fitPixelFont = () => {
-      const ratio = window.devicePixelRatio || 1;
-      const scale = Math.max(1, Math.round(22 * ratio / 16));
-      document.documentElement.style.setProperty('--rs-size', `${16 * scale / ratio}px`);
-    };
-    fitPixelFont();
-    window.addEventListener('resize', fitPixelFont);
-
-    if (cube && cubeChat) {
-      const phrases = [
-        'Fishing lvl?',
-        'Doubling money!',
-        'Buying gf 10k.',
-        '92 is half of 99.',
-        'Meet me in Lumbridge.',
-        'Selling lobbies 200 ea.',
-        'Free armour trimming!',
-        'Bank sale! West Varrock!',
-        'Dragon med helm, no lowballs.',
-        "You can't use that here.",
-        'Nothing interesting happens.',
-        'Welcome to the Wilderness.',
-        'Just one more level.',
-        'My bank is full again.',
-        'Quest complete!',
-        'Your run energy is low.',
-        'The Grand Exchange awaits.',
-        'AFK for five minutes.',
-        'Why am I still chopping yews?',
-        'Connection lost. Please wait...'
-      ];
-      let remaining: number[] = [];
-      let last = -1;
-      let chatTimer = 0;
-      let clicks = 0;
-
-      cube.addEventListener('click', () => {
-        if (++clicks === 10) unlock('companion');
-        if (!remaining.length) {
-          remaining = phrases.map((_, index) => index);
-          for (let i = remaining.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
-          }
-          if (remaining.at(-1) === last) [remaining[0], remaining[remaining.length - 1]] = [remaining[remaining.length - 1], remaining[0]];
-        }
-        last = remaining.pop()!;
-        cubeChat.textContent = phrases[last];
-        cubeChat.style.translate = '';
-        const box = cubeChat.getBoundingClientRect();
-        const ratio = window.devicePixelRatio || 1;
-        const snap = (value: number) => Math.round(value * ratio) / ratio - value;
-        cubeChat.style.translate = `${snap(box.left)}px ${snap(box.top)}px`;
-        cubeChat.classList.remove('is-visible');
-        cube.classList.remove('is-loved');
-        void cube.offsetWidth;
-        cubeChat.classList.add('is-visible');
-        cube.classList.add('is-loved');
-        window.clearTimeout(chatTimer);
-        chatTimer = window.setTimeout(() => cubeChat.classList.remove('is-visible'), 5000);
-      });
-    }
-
-    const crowbar = document.querySelector<HTMLButtonElement>('.crowbar-tool');
-    const display = document.querySelector<HTMLButtonElement>('.monitor-display');
-    const monitor = document.querySelector<HTMLElement>('.monitor-shell');
-    const monitorStatus = document.querySelector<HTMLElement>('.monitor-status');
-    const crowbarLabel = document.querySelector<HTMLElement>('.crowbar-label');
-    const cracks = document.querySelector<SVGSVGElement>('.screen-cracks');
-
-    if (crowbar && display && monitor && monitorStatus && crowbarLabel && cracks) {
-      let armed = false;
-      let broken = false;
-      let impacts = 0;
-      let dragStart: { x: number; y: number } | null = null;
-      let dragged = false;
-      let skipClick = false;
-      let hitTimer = 0;
-      let recoverTimer = 0;
-      let statusTimer = 0;
-
-      const svgElement = (name: string) => document.createElementNS('http://www.w3.org/2000/svg', name);
-      const addPath = (parent: SVGElement, d: string, stroke: string, width: number, opacity = 1, fill = 'none') => {
-        const path = svgElement('path');
-        path.setAttribute('d', d);
-        path.setAttribute('stroke', stroke);
-        path.setAttribute('stroke-width', String(width));
-        path.setAttribute('stroke-opacity', String(opacity));
-        path.setAttribute('fill', fill);
-        path.setAttribute('stroke-linejoin', 'round');
-        parent.append(path);
-      };
-
-      const addImpact = (clientX: number, clientY: number, centered = false) => {
-        const box = display.getBoundingClientRect();
-        const x = centered ? 250 : Math.max(12, Math.min(488, (clientX - box.left) / box.width * 500));
-        const y = centered ? 290 : Math.max(12, Math.min(568, (clientY - box.top) / box.height * 580));
-        const group = svgElement('g');
-        group.setAttribute('transform', `translate(${x} ${y}) rotate(${Math.random() * 360})`);
-        const count = 7 + Math.floor(Math.random() * 3);
-        const bleed = svgElement('path');
-        const bleedShape = Array.from({ length: 15 }, (_, i) => {
-          const angle = i * Math.PI * 2 / 15;
-          const radius = 22 + Math.random() * 24;
-          return `${(Math.cos(angle) * radius).toFixed(1)} ${(Math.sin(angle) * radius).toFixed(1)}`;
-        }).join(' L');
-        bleed.setAttribute('d', `M${bleedShape}Z`);
-        bleed.setAttribute('fill', '#020608');
-        bleed.setAttribute('fill-opacity', '.7');
-        group.append(bleed);
-
-        for (let i = 0; i < count; i++) {
-          const angle = i * Math.PI * 2 / count + (Math.random() - .5) * .35;
-          const point = (length: number, drift = 0) => `${(Math.cos(angle + drift) * length).toFixed(1)} ${(Math.sin(angle + drift) * length).toFixed(1)}`;
-          const near = 22 + Math.random() * 18;
-          const inner = 50 + Math.random() * 35;
-          const middle = 95 + Math.random() * 65;
-          const far = i % 3 === 0 ? 130 + Math.random() * 70 : 210 + Math.random() * 150;
-          const lengths = [0, near, inner, (inner + middle) / 2, middle, (middle + far) / 2, far];
-          const d = `M${lengths.map((length, index) => point(length, index < 2 ? 0 : (Math.random() - .5) * .14 * index)).join(' L')}`;
-          addPath(group, d, '#02080a', 2.8, .85);
-          addPath(group, d, '#e7f5f6', .9 + Math.random() * .7, .55 + Math.random() * .3);
-          for (const base of [inner, middle]) {
-            const branchAngle = angle + (Math.random() < .5 ? -1 : 1) * (.3 + Math.random() * .6);
-            const branchLength = base + 25 + Math.random() * 70;
-            const branch = `M${point(base, (Math.random() - .5) * .15)} L${(Math.cos((angle + branchAngle) / 2) * (base + branchLength) / 2).toFixed(1)} ${(Math.sin((angle + branchAngle) / 2) * (base + branchLength) / 2).toFixed(1)} L${(Math.cos(branchAngle) * branchLength).toFixed(1)} ${(Math.sin(branchAngle) * branchLength).toFixed(1)}`;
-            addPath(group, branch, '#d2e9e9', .7 + Math.random() * .6, .3 + Math.random() * .35);
-          }
-        }
-
-        for (let i = 0; i < 5; i++) {
-          const angle = Math.random() * Math.PI * 2;
-          const radius = 35 + Math.random() * 85;
-          const arc = [0, .22, .48].map((offset) => {
-            const distance = radius + (Math.random() - .5) * 12;
-            return `${(Math.cos(angle + offset) * distance).toFixed(1)} ${(Math.sin(angle + offset) * distance).toFixed(1)}`;
-          }).join(' L');
-          addPath(group, `M${arc}`, '#b9d5d7', .7, .3 + Math.random() * .3);
-        }
-
-        const ring = Array.from({ length: 11 }, (_, i) => {
-          const angle = i * Math.PI * 2 / 11;
-          const radius = 19 + Math.random() * 10;
-          return `${(Math.cos(angle) * radius).toFixed(1)} ${(Math.sin(angle) * radius).toFixed(1)}`;
-        }).join(' L');
-        addPath(group, `M${ring}Z`, '#d9eeef', 1.6, .8);
-        const hole = Array.from({ length: 10 }, (_, i) => {
-          const angle = i * Math.PI * 2 / 10;
-          const radius = 9 + Math.random() * 8;
-          return `${(Math.cos(angle) * radius).toFixed(1)} ${(Math.sin(angle) * radius).toFixed(1)}`;
-        }).join(' L');
-        addPath(group, `M${hole}Z`, '#03080a', 1.2, 1, '#03080a');
-        cracks.append(group);
-        if (cracks.children.length > 5) cracks.firstElementChild?.remove();
-        monitor.style.setProperty('--impact-x', `${x / 5}%`);
-        monitor.style.setProperty('--impact-y', `${y / 5.8}%`);
-      };
-
-      const setArmed = (value: boolean) => {
-        armed = value;
-        display.disabled = !value;
-        if (value) unlock('trusty-hardware');
-        monitor.classList.toggle('is-armed', value);
-        crowbar.classList.toggle('is-armed', value);
-        monitorStatus.textContent = broken ? 'DISPLAY COMPROMISED' : value ? 'CROWBAR EQUIPPED' : 'SIGNAL STABLE';
-        crowbarLabel.textContent = broken ? 'RESTORE DISPLAY' : value ? 'DROP CROWBAR' : 'TAKE CROWBAR';
-        crowbar.setAttribute('aria-label', broken ? 'Restore chamber display' : value ? 'Drop crowbar' : 'Pick up crowbar. You can also drag it onto the monitor.');
-      };
-
-      const hitScreen = (clientX: number, clientY: number, centered = false) => {
-        if (!armed) return;
-        addImpact(clientX, clientY, centered);
-        impacts++;
-        if (!broken) console.log('%cλ UNFORESEEN CONSEQUENCES', 'color: #ed9652; font: 700 15px monospace');
-        unlock('unforeseen-consequences');
-        broken = true;
-        monitor.classList.add('is-broken');
-        monitorStatus.textContent = 'DISPLAY COMPROMISED';
-        crowbarLabel.textContent = 'RESTORE DISPLAY';
-        crowbar.setAttribute('aria-label', 'Restore chamber display');
-        display.setAttribute('aria-label', `Chamber monitor with ${impacts} impact${impacts === 1 ? '' : 's'}. Click again to add another.`);
-        monitor.classList.remove('is-hitting');
-        void monitor.offsetWidth;
-        monitor.classList.add('is-hitting');
-        window.clearTimeout(hitTimer);
-        hitTimer = window.setTimeout(() => monitor.classList.remove('is-hitting'), 450);
-        window.clearTimeout(recoverTimer);
-        recoverTimer = window.setTimeout(recover, 15000);
-      };
-
-      const restore = () => {
-        broken = false;
-        impacts = 0;
-        cracks.replaceChildren();
-        monitor.classList.remove('is-broken', 'is-hitting', 'is-recovering');
-        window.clearTimeout(hitTimer);
-        window.clearTimeout(recoverTimer);
-        window.clearTimeout(statusTimer);
-        display.setAttribute('aria-label', 'Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.');
-        setArmed(false);
-      };
-
-      const recover = () => {
-        monitor.classList.add('is-recovering');
-        recoverTimer = window.setTimeout(() => {
-          restore();
-          monitorStatus.textContent = 'SIGNAL RESTORED';
-          statusTimer = window.setTimeout(() => { if (!armed && !broken) monitorStatus.textContent = 'SIGNAL STABLE'; }, 3000);
-        }, 900);
-      };
-
-      crowbar.addEventListener('click', (event) => {
-        if (skipClick) { skipClick = false; return; }
-        if (broken) {
-          restore();
-        } else {
-          setArmed(!armed);
-          if (armed && event.detail === 0) display.focus();
-        }
-      });
-
-      display.addEventListener('click', (event) => hitScreen(event.clientX, event.clientY, event.detail === 0));
-      crowbar.addEventListener('pointerdown', (event) => {
-        dragStart = { x: event.clientX, y: event.clientY };
-        dragged = false;
-        crowbar.setPointerCapture(event.pointerId);
-      });
-      crowbar.addEventListener('pointermove', (event) => {
-        if (!dragStart) return;
-        const x = event.clientX - dragStart.x;
-        const y = event.clientY - dragStart.y;
-        if (Math.hypot(x, y) > 8) dragged = true;
-        if (dragged) crowbar.style.translate = `${x}px ${y}px`;
-      });
-      crowbar.addEventListener('pointerup', (event) => {
-        if (!dragStart) return;
-        if (dragged) {
-          const box = display.getBoundingClientRect();
-          if (event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom) {
-            setArmed(true);
-            hitScreen(event.clientX, event.clientY);
-          }
-          skipClick = true;
-          window.setTimeout(() => { skipClick = false; }, 0);
-          crowbar.style.translate = '';
-        }
-        dragStart = null;
-      });
-      crowbar.addEventListener('pointercancel', () => { dragStart = null; crowbar.style.translate = ''; });
-    }
-
-    const elevator = document.querySelector<HTMLAnchorElement>('.elevator');
-    const elevatorDisplay = elevator?.querySelector<HTMLElement>('.elevator-display');
-    elevator?.addEventListener('click', (event) => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !elevatorDisplay || elevator.classList.contains('is-called')) return;
-      event.preventDefault();
-      elevator.classList.add('is-called');
-      const floors = ['B2', 'B1', '01'];
-      floors.forEach((floor, index) => window.setTimeout(() => { elevatorDisplay.textContent = floor; }, index * 380));
-      window.setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        const top = document.getElementById('top');
-        if (top) {
-          if (!top.hasAttribute('tabindex')) top.setAttribute('tabindex', '-1');
-          top.focus({ preventScroll: true });
-        }
-      }, 300);
-      window.setTimeout(() => {
-        elevator.classList.remove('is-called');
-        elevatorDisplay.textContent = 'B2';
-      }, 2400);
-    });
-
-    const copyMail = document.querySelector<HTMLButtonElement>('.copy-mail');
-    copyMail?.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(copyMail.dataset.email ?? '');
-        copyMail.textContent = 'COPIED';
-      } catch {
-        copyMail.textContent = 'COPY FAILED';
-      }
-      window.setTimeout(() => { copyMail.textContent = 'COPY'; }, 2000);
-    });
-
-    if (catsDialog && catsTrigger && typeof catsDialog.showModal === 'function') {
-      catsTrigger.addEventListener('click', (event) => {
-        event.preventDefault();
-        catsDialog.showModal();
-        unlock('what-cat');
-      });
-      catsDialog.addEventListener('click', (event) => {
-        if (event.target === catsDialog) catsDialog.close();
-      });
-    }
 
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const observer = new IntersectionObserver((entries) => {

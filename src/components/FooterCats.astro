@@ -1,0 +1,35 @@
+---
+import ApertureMark from './ApertureMark.astro';
+---
+
+<figure class="footer-cats">
+  <a class="footer-cats-trigger" href="/cats.webp" aria-label="View a larger photo of my cats"><img src="/cats.webp" width="900" height="1200" alt="My two cats curled up together on a couch" loading="lazy" decoding="async" /><span class="cats-monitor-top" aria-hidden="true"><span><span class="record-dot"></span> CAM 02 / BREAK ROOM</span><span>LIVE</span></span></a>
+  <figcaption>THE CATS / CHAMBER COMPANIONS</figcaption>
+  <div class="monitor-chin" aria-hidden="true"><ApertureMark class="chin-mark" /><span class="power-led"></span></div>
+</figure>
+<dialog class="cats-dialog" aria-labelledby="cats-dialog-title">
+  <div class="steam-window">
+    <div class="steam-titlebar"><span id="cats-dialog-title">The Cats - Chamber Companions</span><form method="dialog"><button class="steam-close" aria-label="Close photo">×</button></form></div>
+    <div class="steam-tabs" aria-hidden="true"><span class="is-current">Photo</span><span>Friends (2)</span><span>Treats</span></div>
+    <div class="steam-body"><img src="/cats.webp" width="900" height="1200" alt="My two cats curled up together on a couch" loading="lazy" decoding="async" /></div>
+    <div class="steam-statusbar"><span>2 friends online · napping</span><form method="dialog"><button class="steam-button">Close</button></form></div>
+  </div>
+</dialog>
+
+<script>
+  import { unlock } from '../scripts/achievements';
+
+  const catsDialog = document.querySelector<HTMLDialogElement>('.cats-dialog');
+  const catsTrigger = document.querySelector<HTMLAnchorElement>('.footer-cats-trigger');
+
+  if (catsDialog && catsTrigger && typeof catsDialog.showModal === 'function') {
+    catsTrigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      catsDialog.showModal();
+      unlock('what-cat');
+    });
+    catsDialog.addEventListener('click', (event) => {
+      if (event.target === catsDialog) catsDialog.close();
+    });
+  }
+</script>
