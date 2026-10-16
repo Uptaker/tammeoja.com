@@ -70,41 +70,52 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
       <g class:list={['turret', `turret-${id}`]} transform={`translate(${x} 126) scale(.37)`}>
         <g class="turret-motion">
           <g class="turret-legs">
-      <path d="M135 181 111 223 101 256m72-75 18 42 11 33m-52-61v50" fill="none" stroke="#455d60" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="m94 256 17-3m83 1 18 2m-62-10h17" stroke="#455d60" stroke-width="5" stroke-linecap="round" />
+            <path d="M139 196 113 229 103 256m58-60 26 33 10 27m-47-44v44" fill="none" stroke="#455d60" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="m95 256 17-2m77 0 17 2m-62-6h16" stroke="#455d60" stroke-width="5" stroke-linecap="round" />
           </g>
           <g class="turret-barrels">
-      <path d="M120 128h60v34h-60z" fill="#344b50" />
-      <g class="barrel-left">
-        <path d="M91 114h29v58H91z" fill="#4b6265" />
-        <circle cx="104" cy="129" r="6" fill="#243a3d" /><circle cx="104" cy="151" r="6" fill="#243a3d" />
-      </g>
-      <g class="barrel-right">
-        <path d="M180 114h29v58h-29z" fill="#4b6265" />
-        <circle cx="196" cy="129" r="6" fill="#243a3d" /><circle cx="196" cy="151" r="6" fill="#243a3d" />
-      </g>
+            <g class="barrel-left">
+              <path d="M96 66h42v124H96z" fill="#2c4247" />
+              <path d="M96 92h42M96 166h42" stroke="#455d60" stroke-width="3" />
+              <path d="M101 114h24v52h-24z" fill="#4b6265" stroke="#344b50" stroke-width="2" />
+              <circle cx="113" cy="129" r="6" fill="#1c2c30" /><circle cx="113" cy="151" r="6" fill="#1c2c30" />
+              <path d="M101 140h24" stroke="#344b50" stroke-width="2" />
+            </g>
+            <g class="barrel-right">
+              <path d="M162 66h42v124h-42z" fill="#2c4247" />
+              <path d="M162 92h42M162 166h42" stroke="#455d60" stroke-width="3" />
+              <path d="M175 114h24v52h-24z" fill="#4b6265" stroke="#344b50" stroke-width="2" />
+              <circle cx="187" cy="129" r="6" fill="#1c2c30" /><circle cx="187" cy="151" r="6" fill="#1c2c30" />
+              <path d="M175 140h24" stroke="#344b50" stroke-width="2" />
+            </g>
           </g>
           <g class="turret-wing turret-wing-left">
-        <path d="M90 58c-15 6-23 27-24 64-1 39 6 69 25 91l16-10-12-42-1-62 11-29z" fill="#e5ebe4" stroke="#657d7f" stroke-width="3" />
-        <path d="M89 72c-8 20-11 42-10 70 1 23 5 41 12 54" fill="none" stroke="#f7f8f1" stroke-width="4" opacity=".8" />
-        <path d="m87 105 10 8-3 47-9 7" fill="none" stroke="#8ea39e" stroke-width="2" />
+            <path d="M97 52H85.7C76 72 73 98 73 128s5 54 16 70h8Z" fill="#e5ebe4" stroke="#657d7f" stroke-width="3" stroke-linejoin="round" />
+            <path d="M93 56h4v138h-4z" fill="#b9c8c2" />
+            <path d="M84 66c-5 16-7 38-7 62 0 22 3 41 9 56" fill="none" stroke="#f7f8f1" stroke-width="4" opacity=".8" />
+            <path d="M89 98c-3 10-4 20-4 30s1 20 4 30" fill="none" stroke="#8ea39e" stroke-width="2" />
           </g>
           <g class="turret-wing turret-wing-right">
-        <path d="M210 58c15 6 23 27 24 64 1 39-6 69-25 91l-16-10 12-42 1-62-11-29z" fill="#e5ebe4" stroke="#657d7f" stroke-width="3" />
-        <path d="M211 72c8 20 11 42 10 70-1 23-5 41-12 54" fill="none" stroke="#f7f8f1" stroke-width="4" opacity=".8" />
-        <path d="m213 105-10 8 3 47 9 7" fill="none" stroke="#8ea39e" stroke-width="2" />
+            <path d="M203 52h11.3c9.7 20 12.7 46 12.7 76s-5 54-16 70h-8Z" fill="#e5ebe4" stroke="#657d7f" stroke-width="3" stroke-linejoin="round" />
+            <path d="M203 56h4v138h-4z" fill="#b9c8c2" />
+            <path d="M216 66c5 16 7 38 7 62 0 22-3 41-9 56" fill="none" stroke="#f7f8f1" stroke-width="2.5" opacity=".6" />
+            <path d="M211 98c3 10 4 20 4 30s-1 20-4 30" fill="none" stroke="#8ea39e" stroke-width="2" />
           </g>
           <g class="turret-core">
-      <path d="M150 28c18 3 29 24 33 56l-9 25c8 17 9 36 7 51-2 25-13 44-31 56-18-12-29-31-31-56-2-15-1-34 7-51l-9-25c4-32 15-53 33-56Z" fill="#ebefe8" stroke="#6c8585" stroke-width="3" />
-      <path d="M137 44c-8 20-11 44-9 72m45 35c-3 23-10 40-23 51" fill="none" stroke="#fff" stroke-width="4" opacity=".7" />
-      <path d="M151 30v184" stroke="#829a96" stroke-width="2" />
+            <path d="M156 30c3-7 5-12 6-18" fill="none" stroke="#455d60" stroke-width="3" stroke-linecap="round" />
+            <path d="M125.7 52C127 37 137 28 150 28s23 9 24.3 24Z" fill="#ebefe8" stroke="#6c8585" stroke-width="3" stroke-linejoin="round" />
+            <path d="M137 52h26v146h-26z" fill="#ebefe8" stroke="#6c8585" stroke-width="3" />
+            <path d="M129 198c5 11 13 16 21 16s16-5 21-16Z" fill="#ebefe8" stroke="#6c8585" stroke-width="3" stroke-linejoin="round" />
+            <path d="M136 46c2-8 7-12 13-13m-7 26v62m0 18v52" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".75" />
+            <path d="M145 66h10M145 72h10" stroke="#9fb1ab" stroke-width="2" />
             <circle cx="150" cy="129" r="18" fill="#617677" stroke="#b6c8c0" stroke-width="3" />
             <circle cx="150" cy="129" r="13" fill="#2c4247" />
             <g class="turret-eye">
               <circle cx="150" cy="129" r="9" fill="#b84b3e" />
               <circle cx="150" cy="129" r="4" fill="#e59472" />
+              <circle cx="147" cy="126" r="1.6" fill="#fbe2d6" />
             </g>
-      <path d="M130 208h40" stroke="#b9cac1" stroke-width="4" />
+            <path d="M143 186h14" stroke="#b9cac1" stroke-width="4" stroke-linecap="round" />
           </g>
         </g>
       </g>
@@ -158,8 +169,8 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
   .turret-motion { transform-origin: 150px 252px; }
   .turret-wing-left { transform-origin: 100px 140px; }
   .turret-wing-right { transform-origin: 200px 140px; }
-  .turret-b .turret-wing-left { transform: translateX(40px) rotate(8deg); }
-  .turret-b .turret-wing-right { transform: translateX(-40px) rotate(-8deg); }
+  .turret-b .turret-wing-left { transform: translateX(40px); }
+  .turret-b .turret-wing-right { transform: translateX(-40px); }
   .turret-b .barrel-left { transform: translateX(33px); }
   .turret-b .barrel-right { transform: translateX(-33px); }
   .turret-eye { transform-origin: 150px 129px; }
@@ -265,7 +276,7 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
     75% { transform: translateX(3px) rotate(2deg); }
   }
   @keyframes wing-b-left {
-    0%, 18%, 100% { transform: translateX(40px) rotate(8deg); }
+    0%, 18%, 100% { transform: translateX(40px) rotate(0); }
     24%, 30% { transform: translateX(-9px) rotate(-8deg); }
     34%, 57%, 81%, 90% { transform: translateX(0) rotate(0); }
     38% { transform: translateX(-16px) rotate(-12deg); }
@@ -273,7 +284,7 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
     72% { transform: translateX(-7px) rotate(-5deg); }
   }
   @keyframes wing-b-right {
-    0%, 18%, 100% { transform: translateX(-40px) rotate(-8deg); }
+    0%, 18%, 100% { transform: translateX(-40px) rotate(0); }
     24%, 30% { transform: translateX(9px) rotate(8deg); }
     34%, 57%, 81%, 90% { transform: translateX(0) rotate(0); }
     38% { transform: translateX(16px) rotate(12deg); }
