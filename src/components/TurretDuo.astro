@@ -166,10 +166,10 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
   .turret-motion { transform-origin: 150px 252px; }
   .turret-wing-left { transform-origin: 100px 140px; }
   .turret-wing-right { transform-origin: 200px 140px; }
-  .turret-b .turret-wing-left { transform: translateX(40px); }
-  .turret-b .turret-wing-right { transform: translateX(-40px); }
-  .turret-b .barrel-left { transform: translateX(33px); }
-  .turret-b .barrel-right { transform: translateX(-33px); }
+  .turret-b .turret-wing-left { transform: translateX(52px); }
+  .turret-b .turret-wing-right { transform: translateX(-52px); }
+  .turret-b .barrel-left { transform: translateX(40px); }
+  .turret-b .barrel-right { transform: translateX(-40px); }
   .turret-eye { transform-origin: 150px 129px; }
   .reset-wall { transform: translateX(40px); }
   .shot-lane, .turret-surprise, .wall-jolt, .turret-scan { opacity: 0; }
@@ -273,7 +273,7 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
     75% { transform: translateX(3px) rotate(2deg); }
   }
   @keyframes wing-b-left {
-    0%, 18%, 100% { transform: translateX(40px) rotate(0); }
+    0%, 18%, 100% { transform: translateX(52px) rotate(0); }
     24%, 30% { transform: translateX(-9px) rotate(-8deg); }
     34%, 57%, 81%, 90% { transform: translateX(0) rotate(0); }
     38% { transform: translateX(-16px) rotate(-12deg); }
@@ -281,15 +281,15 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
     72% { transform: translateX(-7px) rotate(-5deg); }
   }
   @keyframes wing-b-right {
-    0%, 18%, 100% { transform: translateX(-40px) rotate(0); }
+    0%, 18%, 100% { transform: translateX(-52px) rotate(0); }
     24%, 30% { transform: translateX(9px) rotate(8deg); }
     34%, 57%, 81%, 90% { transform: translateX(0) rotate(0); }
     38% { transform: translateX(16px) rotate(12deg); }
     43%, 53% { transform: translateX(10px) rotate(8deg); }
     72% { transform: translateX(7px) rotate(5deg); }
   }
-  @keyframes barrel-left-open { 0%, 18%, 100% { transform: translateX(33px); } 24%, 90% { transform: translateX(0); } }
-  @keyframes barrel-right-open { 0%, 18%, 100% { transform: translateX(-33px); } 24%, 90% { transform: translateX(0); } }
+  @keyframes barrel-left-open { 0%, 18%, 100% { transform: translateX(40px); } 24%, 90% { transform: translateX(0); } }
+  @keyframes barrel-right-open { 0%, 18%, 100% { transform: translateX(-40px); } 24%, 90% { transform: translateX(0); } }
   @keyframes first-recoil {
     0%, 18%, 28%, 100% { transform: translateX(0); }
     20%, 22%, 24%, 26% { transform: translateX(-7px); }
