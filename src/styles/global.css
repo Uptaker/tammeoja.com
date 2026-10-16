@@ -63,11 +63,16 @@ h1 em { color: var(--blue); font-style: normal; }
 .hero-designation span { margin-inline: 7px; color: var(--orange); }
 .hero-intro { max-width: 540px; margin-bottom: 0; color: var(--muted); font-size: clamp(17px, 1.5vw, 20px); line-height: 1.58; }
 .hero-links { display: flex; align-items: center; margin-top: 36px; }
-.hero-contact { display: flex; flex-wrap: wrap; gap: 14px 36px; margin-top: 28px; }
-.arrow-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; padding-block: 7px; border-bottom: 1px solid var(--blue); color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: none; transition: color .2s, background-color .2s; }
-.arrow-link:hover, .arrow-link:focus-visible { color: var(--blue); }
-.arrow-link svg { width: 18px; height: 18px; transition: transform .25s ease; }
-.arrow-link:hover svg, .arrow-link:focus-visible svg { transform: translateX(4px); }
+.hero-contact { display: flex; flex-wrap: wrap; gap: 14px 16px; margin-top: 30px; }
+.arrow-link { display: inline-flex; align-items: center; gap: 10px; min-height: 40px; padding: 7px 12px 7px 7px; border: 1px solid var(--ink); background: #f8faf8; color: var(--ink); box-shadow: 4px 4px 0 #c6d2d2; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; transition: background-color .15s, color .15s, box-shadow .1s, transform .1s; }
+.arrow-link:hover, .arrow-link:focus-visible { background: var(--ink); color: #fff; }
+.arrow-link:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #c6d2d2; }
+.arrow-link-icon { display: grid; place-items: center; flex: none; width: 24px; height: 24px; border: 1px solid var(--line); background: var(--blue-soft); color: var(--blue-dark); transition: background-color .15s, color .15s, border-color .15s; }
+.arrow-link-icon svg { width: 13px; height: 13px; }
+.arrow-link:hover .arrow-link-icon, .arrow-link:focus-visible .arrow-link-icon { border-color: #3d5257; background: #2c3f45; color: #fff; }
+.arrow-link-label { padding-left: 2px; }
+.arrow-link-arrow { width: 14px; height: 14px; margin-left: 4px; transition: transform .2s ease; }
+.arrow-link:hover .arrow-link-arrow, .arrow-link:focus-visible .arrow-link-arrow { transform: translateX(3px); }
 .portal-link { display: inline-flex; align-items: center; gap: 12px; color: var(--blue-dark); font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 9px; font-weight: 500; letter-spacing: .07em; text-decoration: none; }
 .portal-orange { color: var(--orange); }
 .portal-art { position: relative; display: block; flex: none; width: 80px; height: 120px; overflow: hidden; transition: transform .25s, filter .25s; }
@@ -227,7 +232,7 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
 .about-body strong { color: var(--ink); }
 .about-body a { color: var(--ink); text-decoration-color: var(--orange); text-underline-offset: 3px; }
 .about-body a:hover { color: var(--blue-dark); }
-.about-links { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; margin-top: 65px; padding-top: 30px; border-top: 1px solid var(--line); }
+.about-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 65px; padding-top: 30px; border-top: 1px solid var(--line); }
 .about-links .portal-link { margin-left: auto; }
 
 .site-footer { position: relative; border-top: 6px solid; border-image: linear-gradient(90deg, var(--portal-blue) 0 50%, var(--portal-orange) 50%) 1; background: var(--footer); color: #f6f8f8; }
@@ -397,7 +402,8 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
   h1 em { color: #555; }
   .hero-intro { max-width: none; font-size: 11pt; }
   .hero-contact { gap: 6px 24px; margin-top: 16px; }
-  .hero-contact .arrow-link { gap: 0; padding: 0; border: 0; font-weight: 500; }
+  .hero-contact .arrow-link, .project-card .arrow-link { min-height: 0; gap: 0; padding: 0; border: 0; background: none; box-shadow: none; color: #111; font: 500 10pt IBM Plex Sans, Arial, sans-serif; letter-spacing: 0; text-transform: none; }
+  .arrow-link-icon { display: none; }
   .hero-contact .arrow-link svg { display: none; }
   .hero-contact a[href^="http"]::after { content: ' — ' attr(href); color: #555; font-weight: 400; }
   .hero-contact a[href^="mailto:"]::after { content: ' — markus.tammeoja@gmail.com'; color: #555; font-weight: 400; }
@@ -428,7 +434,6 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
   .project-wordmark { width: 220px; }
   .project-description { max-width: none; margin-bottom: 10px; }
   .project-tags { margin-bottom: 10px; }
-  .project-card .arrow-link { gap: 0; padding: 0; border: 0; font-weight: 500; }
   .project-card .arrow-link svg { display: none; }
   .project-card .arrow-link::after { content: ' — ' attr(href); color: #555; font-weight: 400; }
   .about-section { break-inside: avoid; }
