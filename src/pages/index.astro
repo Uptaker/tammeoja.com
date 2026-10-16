@@ -132,9 +132,13 @@ import { experience, projects } from '../data/site';
     </div>
   </footer>
 
-  <dialog class="cats-dialog" aria-label="Larger photo of my cats">
-    <form method="dialog"><button class="cats-dialog-close" aria-label="Close photo">×</button></form>
-    <img src="/cats.webp" width="900" height="1200" alt="My two cats curled up together on a couch" loading="lazy" decoding="async" />
+  <dialog class="cats-dialog" aria-labelledby="cats-dialog-title">
+    <div class="steam-window">
+      <div class="steam-titlebar"><span id="cats-dialog-title">The Cats - Chamber Companions</span><form method="dialog"><button class="steam-close" aria-label="Close photo">×</button></form></div>
+      <div class="steam-tabs" aria-hidden="true"><span class="is-current">Photo</span><span>Friends (2)</span><span>Treats</span></div>
+      <div class="steam-body"><img src="/cats.webp" width="900" height="1200" alt="My two cats curled up together on a couch" loading="lazy" decoding="async" /></div>
+      <div class="steam-statusbar"><span>2 friends online · napping</span><form method="dialog"><button class="steam-button">Close</button></form></div>
+    </div>
   </dialog>
 
   <script>
