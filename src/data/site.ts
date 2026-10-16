@@ -10,7 +10,7 @@ export const experience = [
     work: [
       {
         label: 'Factory systems',
-        detail: 'I worked on Python services for diagnostics, repair and robot coordination. I also worked with React and Svelte on tools for repair workflows and monitoring robot capacity and slot status.',
+        detail: 'I work on Python services for diagnostics, repair and robot coordination, and on React and Svelte tools for repair workflows and for monitoring robot capacity and slot status.',
       },
       {
         label: 'AI grading',
@@ -58,17 +58,17 @@ export const experience = [
       },
       {
         label: 'Tenor',
-        detail: 'I worked on a financing product that merchants could offer during checkout. That covered the journey from offer to signed contract, the loan pricing and repayment calculations behind it, and the payment and accounting flows needed afterward.',
+        detail: 'Merchants could offer this financing product during checkout. My work covered the journey from offer to signed contract, the loan pricing and repayment calculations behind it, and the payment and accounting flows needed afterward.',
         url: 'https://tenor.ee/',
       },
       {
         label: 'Ettevõtluskeskus LXP',
-        detail: 'I worked on a learning platform for managing courses, enrolment, attendance, certificates and trainer workflows. Much of my work involved browser automation that kept training listings and registrations aligned with Estonia’s employment service, saving staff from entering the same information twice.',
+        detail: 'On this learning platform for courses, enrolment, attendance, certificates and trainer workflows, much of my work involved browser automation that kept training listings and registrations aligned with Estonia’s employment service, saving staff from entering the same information twice.',
         url: 'https://www.ettevotluskeskus.ee/',
       },
       {
         label: 'Coop Pank',
-        detail: 'I worked on an integration that lets businesses exchange payment files with Coop Pank. Moving it from EBICS 2 to 3 meant adapting to changes in the exchange protocol and carefully checking that the existing payment flow still worked.',
+        detail: 'Businesses use this integration to exchange payment files with Coop Pank. Moving it from EBICS 2 to 3 meant adapting to changes in the exchange protocol and carefully checking that the existing payment flow still worked.',
         url: 'https://www.cooppank.ee/',
       },
       {
