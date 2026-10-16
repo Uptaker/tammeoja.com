@@ -155,6 +155,14 @@ The cats are at the bottom of the page.`,
     const cube = document.querySelector<HTMLButtonElement>('.companion-cube');
     const cubeChat = document.querySelector<HTMLElement>('.cube-chat');
 
+    const fitPixelFont = () => {
+      const ratio = window.devicePixelRatio || 1;
+      const scale = Math.max(1, Math.round(22 * ratio / 16));
+      document.documentElement.style.setProperty('--rs-size', `${16 * scale / ratio}px`);
+    };
+    fitPixelFont();
+    window.addEventListener('resize', fitPixelFont);
+
     if (cube && cubeChat) {
       const phrases = [
         'Fishing lvl?',
@@ -197,7 +205,9 @@ The cats are at the bottom of the page.`,
         cubeChat.textContent = phrases[last];
         cubeChat.style.translate = '';
         const box = cubeChat.getBoundingClientRect();
-        cubeChat.style.translate = `${Math.round(box.left) - box.left}px ${Math.round(box.top) - box.top}px`;
+        const ratio = window.devicePixelRatio || 1;
+        const snap = (value: number) => Math.round(value * ratio) / ratio - value;
+        cubeChat.style.translate = `${snap(box.left)}px ${snap(box.top)}px`;
         cubeChat.classList.remove('is-visible');
         cube.classList.remove('is-loved');
         void cube.offsetWidth;
