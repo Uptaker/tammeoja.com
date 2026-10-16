@@ -12,6 +12,7 @@ import FooterCats from '../components/FooterCats.astro';
 import Elevator from '../components/Elevator.astro';
 import CopyEmail from '../components/CopyEmail.astro';
 import PrintCv from '../components/PrintCv.astro';
+import AchievementProgress from '../components/AchievementProgress.astro';
 import { experience, projects } from '../data/site';
 ---
 
@@ -77,7 +78,7 @@ import { experience, projects } from '../data/site';
         <div><p class="footer-kicker">CONTACT <CopyEmail email="markus.tammeoja@gmail.com" /><PrintCv /></p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
         <FooterCats />
       </div>
-      <div class="footer-bottom"><span>© {new Date().getFullYear()} Markus Tammeoja</span><Elevator /></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} Markus Tammeoja</span><AchievementProgress /><Elevator /></div>
     </div>
   </footer>
 

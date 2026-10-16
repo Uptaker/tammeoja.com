@@ -70,11 +70,14 @@ const showNext = () => {
   }, 4600);
 };
 
+export const progress = () => ({ found: read().filter((key) => key in achievements).length, total });
+
 export const unlock = (id: AchievementId) => {
   const unlocked = read();
   if (unlocked.includes(id)) return;
   unlocked.push(id);
   write(unlocked);
+  window.dispatchEvent(new CustomEvent('achievement-unlocked'));
   const found = unlocked.filter((key) => key in achievements).length;
   queue.push({ ...achievements[id], progress: `${found}/${total}` });
   if (found === total) queue.push({ name: 'Partygoer', description: 'Find every secret in the facility.', progress: `${total}/${total}` });

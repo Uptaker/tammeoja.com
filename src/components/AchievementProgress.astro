@@ -1,0 +1,24 @@
+<span class="achievement-progress"><span class="achievement-pips" aria-hidden="true"></span><span class="achievement-count"></span></span>
+
+<script>
+  import { progress } from '../scripts/achievements';
+
+  const root = document.querySelector<HTMLElement>('.achievement-progress');
+  const pips = root?.querySelector<HTMLElement>('.achievement-pips');
+  const count = root?.querySelector<HTMLElement>('.achievement-count');
+
+  const render = () => {
+    if (!root || !pips || !count) return;
+    const { found, total } = progress();
+    pips.replaceChildren(...Array.from({ length: total }, (_, index) => {
+      const pip = document.createElement('span');
+      if (index < found) pip.className = 'is-found';
+      return pip;
+    }));
+    count.textContent = `ACHIEVEMENTS ${found}/${total}`;
+    root.classList.toggle('is-complete', found === total);
+  };
+
+  render();
+  window.addEventListener('achievement-unlocked', render);
+</script>

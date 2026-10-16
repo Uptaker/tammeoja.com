@@ -264,8 +264,13 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
 .footer-cats img { width: 100%; height: auto; }
 .footer-cats-trigger img { filter: saturate(.8); transition: transform .25s ease; }
 .footer-cats-trigger:hover img, .footer-cats-trigger:focus-visible img { transform: scale(1.025); }
-.footer-bottom { display: flex; justify-content: space-between; gap: 15px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #496068; color: #aabdc4; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 11px; letter-spacing: .03em; }
+.footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #496068; color: #aabdc4; font-family: IBM Plex Mono, ui-monospace, monospace; font-size: 11px; letter-spacing: .03em; }
 .footer-bottom a { text-decoration: none; }
+.achievement-progress { display: inline-flex; align-items: center; gap: 10px; color: #6f878d; font-size: 10px; letter-spacing: .08em; }
+.achievement-pips { display: inline-flex; gap: 3px; }
+.achievement-pips span { width: 6px; height: 6px; border: 1px solid #496068; }
+.achievement-pips .is-found { border-color: var(--portal-orange); background: var(--portal-orange); box-shadow: 0 0 4px #f19b5780; }
+.achievement-progress.is-complete { color: var(--portal-orange); }
 .elevator { display: inline-flex; align-items: center; gap: 8px; padding: 4px 9px 4px 5px; border: 1px solid #496068; border-radius: 3px; background: linear-gradient(#2b3d42, #1c2b30); box-shadow: inset 0 1px 0 #ffffff14, 0 2px 0 #0b1416; color: #aabdc4; }
 .elevator-display { min-width: 30px; padding: 3px 5px; border: 1px solid #0b1416; background: #0d1517; color: #f19b57; font: 500 11px/1 IBM Plex Mono, ui-monospace, monospace; letter-spacing: .08em; text-align: center; text-shadow: 0 0 6px #f19b5799; }
 .elevator-call { position: relative; width: 20px; height: 20px; border: 2px solid #6d8288; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #4a5f65, #26363b); transition: border-color .2s, box-shadow .2s; }
@@ -418,7 +423,7 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
   body { color: #111; font-size: 11pt; }
   .wrap { width: 100%; }
   .site-header { height: auto; padding-bottom: 8px; }
-  .footer-grunge, .footer-bottom, .elevator, .site-header nav, .portrait-wrap, .hero-links, .marquee-rule, .chapter-scene, .cube-station, .specimen-chip, .about-links, .footer-cats, .footer-bottom a, .cats-dialog, .achievement-toast, .portal-warp, .project-card::before, .status-dot, .section-label::before, #experience::before, .about-section::before { display: none !important; }
+  .footer-grunge, .footer-bottom, .achievement-progress, .elevator, .site-header nav, .portrait-wrap, .hero-links, .marquee-rule, .chapter-scene, .cube-station, .specimen-chip, .about-links, .footer-cats, .footer-bottom a, .cats-dialog, .achievement-toast, .portal-warp, .project-card::before, .status-dot, .section-label::before, #experience::before, .about-section::before { display: none !important; }
   .hero::before, .hero::after, .projects-section::before, .site-footer::before { content: none; }
   .hero { display: block; min-height: 0; padding-block: 28px 18px; }
   .hero-copy, .portrait-wrap, .chamber-missing-copy { animation: none; }
