@@ -137,7 +137,7 @@ h1 em { color: var(--blue); font-style: normal; }
 @keyframes signal-return { 0% { filter: brightness(.2); } 20% { filter: brightness(1.8); } 35% { filter: brightness(.3); } 60% { filter: brightness(1.4); } 100% { filter: none; } }
 @keyframes cats-sway { 0%, 100% { transform: rotate(1.5deg); } 50% { transform: rotate(-.6deg); } }
 @keyframes portal-frames { to { transform: translateX(-960px); } }
-@keyframes headcrab-idle { to { transform: translateX(-1520px); } }
+@keyframes headcrab-idle { to { transform: translateX(-1480px); } }
 @keyframes cube-bounce { 30% { transform: translateY(-11px) rotate(-8deg); } 65% { transform: translateY(0) rotate(6deg); } }
 
 .section { position: relative; padding-block: 140px 155px; }
@@ -220,8 +220,8 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(50px, 8vw, 140px); }
 .about-lead { max-width: 550px; margin: 0; font-size: clamp(50px, 5.5vw, 76px); line-height: .95; letter-spacing: -.01em; text-transform: uppercase; }
 .specimen-chip { display: flex; align-items: center; gap: 12px; width: fit-content; margin-top: 30px; padding: 12px 15px 8px 10px; border: 1px solid var(--line); background: linear-gradient(90deg, #e5eae7 1px, transparent 1px), linear-gradient(#e5eae7 1px, transparent 1px), #f8faf8; background-size: 12px 12px; color: var(--orange); font-family: IBM Plex Mono, monospace; font-size: 9px; letter-spacing: .07em; }
-.specimen-sprite { display: block; flex: none; width: 152px; height: 100px; overflow: hidden; }
-.specimen-sprite img { width: 1520px; height: 100px; max-width: none; image-rendering: pixelated; animation: headcrab-idle 1.6s steps(10) infinite; }
+.specimen-sprite { display: block; flex: none; width: 148px; height: 92px; overflow: hidden; }
+.specimen-sprite img { width: 1480px; height: 92px; max-width: none; image-rendering: pixelated; animation: headcrab-idle 1.8s steps(10) infinite; }
 .about-body { padding-top: 10px; }
 .about-body p { max-width: 550px; margin-bottom: 24px; color: var(--muted); font-size: 16px; line-height: 1.85; }
 .about-body strong { color: var(--ink); }
