@@ -298,7 +298,7 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
 @keyframes portal-enter { from { --warp-r: 0px; } to { --warp-r: 150vmax; } }
 @keyframes portal-exit { from { --warp-r: 0px; } to { --warp-r: 150vmax; } }
 
-.achievement-toast { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: flex; align-items: center; gap: 14px; width: min(340px, calc(100vw - 40px)); padding: 13px 16px 13px 13px; border: 1px solid #3c5960; border-left: 3px solid var(--portal-blue); background: linear-gradient(135deg, #24393f, var(--footer)); box-shadow: 0 12px 30px #0c181b59; color: #eef4f3; opacity: 0; transform: translateY(calc(100% + 30px)); transition: transform .4s cubic-bezier(.2, .8, .3, 1), opacity .4s; pointer-events: none; }
+.achievement-toast { position: fixed; inset: auto 20px 20px auto; z-index: 90; margin: 0; overflow: visible; display: flex; align-items: center; gap: 14px; width: min(340px, calc(100vw - 40px)); padding: 13px 16px 13px 13px; border: 1px solid #3c5960; border-left: 3px solid var(--portal-blue); background: linear-gradient(135deg, #24393f, var(--footer)); box-shadow: 0 12px 30px #0c181b59; color: #eef4f3; opacity: 0; transform: translateY(calc(100% + 30px)); transition: transform .4s cubic-bezier(.2, .8, .3, 1), opacity .4s; pointer-events: none; }
 .achievement-toast.is-visible { opacity: 1; transform: translateY(0); }
 .achievement-icon { flex: none; width: 46px; height: 46px; padding: 9px; border: 1px solid #4b6a72; background: #12201f; fill: var(--portal-orange); }
 .achievement-text { display: grid; gap: 3px; min-width: 0; }
@@ -381,7 +381,7 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
   .footer-inner { padding-top: 75px; }
   .footer-mail { font-size: clamp(31px, 7vw, 48px); }
   .footer-cats { width: min(55vw, 190px); }
-  .achievement-toast { right: 12px; bottom: 12px; width: calc(100vw - 24px); }
+  .achievement-toast { inset: auto 12px 12px auto; width: calc(100vw - 24px); }
   .chamber-missing { display: flex; flex-direction: column; align-items: stretch; gap: 58px; min-height: 0; padding-block: 74px 90px; }
   .rat-den { width: min(100% - 10px, 400px); margin-inline: auto; }
 }
