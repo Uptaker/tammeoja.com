@@ -195,6 +195,9 @@ The cats are at the bottom of the page.`,
         }
         last = remaining.pop()!;
         cubeChat.textContent = phrases[last];
+        cubeChat.style.translate = '';
+        const box = cubeChat.getBoundingClientRect();
+        cubeChat.style.translate = `${Math.round(box.left) - box.left}px ${Math.round(box.top) - box.top}px`;
         cubeChat.classList.remove('is-visible');
         cube.classList.remove('is-loved');
         void cube.offsetWidth;
