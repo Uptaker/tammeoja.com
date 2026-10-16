@@ -13,31 +13,36 @@ const clipId = `portal-clip-${tone}`;
 <a class:list={['portal-link', `portal-${tone}`]} href={href} aria-label={description}>
   <span class="portal-art">
     {tone === 'blue' ? (
-      <svg viewBox="0 0 66 110" aria-hidden="true" focusable="false">
-        <defs><clipPath id={clipId}><path d="M26 0h40v110H26z" /></clipPath></defs>
-        <ellipse class="portal-glow" cx="26" cy="55" rx="20" ry="49" />
-        <ellipse class="portal-ring" cx="26" cy="55" rx="16" ry="45" />
-        <ellipse class="portal-swirl" cx="26" cy="55" rx="16" ry="45" pathLength="100" />
+      <svg viewBox="0 0 110 200" aria-hidden="true" focusable="false">
+        <defs><clipPath id={clipId}><path d="M50 0h60v200H50z" /></clipPath></defs>
+        <ellipse class="portal-glow" cx="38" cy="100" rx="31" ry="90" />
+        <ellipse class="portal-ring" cx="38" cy="100" rx="25" ry="84" />
+        <ellipse class="portal-ripple" cx="38" cy="100" rx="19" ry="74" />
+        <ellipse class="portal-shine" cx="38" cy="100" rx="21" ry="79" pathLength="100" />
         <g clip-path={`url(#${clipId})`}>
           <g class="portal-figure">
-            <path d="M16 56h12M27 55l17-14 17 8M27 59l16 15 18 2" />
+            <path class="limb" d="M30 86 66 64 94 76" />
+            <path class="limb-thick" d="M30 104 74 126 101 103" />
           </g>
         </g>
-        <path class="portal-front" d="M26 10a16 45 0 0 1 0 90" />
+        <path class="portal-rim" d="M38 16a25 84 0 0 1 0 168" />
       </svg>
     ) : (
-      <svg viewBox="0 0 66 110" aria-hidden="true" focusable="false">
-        <defs><clipPath id={clipId}><path d="M0 0h40v110H0z" /></clipPath></defs>
-        <ellipse class="portal-glow" cx="40" cy="55" rx="20" ry="49" />
-        <ellipse class="portal-ring" cx="40" cy="55" rx="16" ry="45" />
-        <ellipse class="portal-swirl" cx="40" cy="55" rx="16" ry="45" pathLength="100" />
+      <svg viewBox="0 0 110 200" aria-hidden="true" focusable="false">
+        <defs><clipPath id={clipId}><path d="M0 0h60v200H0z" /></clipPath></defs>
+        <ellipse class="portal-glow" cx="72" cy="100" rx="31" ry="90" />
+        <ellipse class="portal-ring" cx="72" cy="100" rx="25" ry="84" />
+        <ellipse class="portal-ripple" cx="72" cy="100" rx="19" ry="74" />
+        <ellipse class="portal-shine" cx="72" cy="100" rx="21" ry="79" pathLength="100" />
         <g clip-path={`url(#${clipId})`}>
           <g class="portal-figure">
-            <circle cx="16" cy="36" r="6.5" />
-            <path d="M44 60 22 47M27 50l-12 13-6-4M38 56l-8 14 6 10" />
+            <circle cx="24" cy="57" r="11.5" />
+            <path class="limb-thick" d="M41 76 80 101" />
+            <path class="limb" d="M47 81 28 104 12 97" />
+            <path class="limb-thick" d="M70 104 44 128 52 155" />
           </g>
         </g>
-        <path class="portal-front" d="M40 100a16 45 0 0 1 0-90" />
+        <path class="portal-rim" d="M72 184a25 84 0 0 1 0-168" />
       </svg>
     )}
   </span>
