@@ -186,7 +186,7 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
 .cube-station::before { content: ''; position: absolute; top: 50px; left: 50%; width: 280px; height: 180px; transform: translateX(-50%); background: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 20px 20px; mask-image: radial-gradient(ellipse, #000, transparent 75%); opacity: .9; pointer-events: none; }
 .cube-station-head { position: absolute; top: 15px; right: 0; left: 0; display: flex; justify-content: space-between; color: var(--blue-dark); font-family: IBM Plex Mono, monospace; font-size: 10px; letter-spacing: .07em; }
 .cube-stage { position: relative; display: grid; place-items: end center; width: 180px; height: 170px; }
-.cube-chat { position: absolute; bottom: 130px; left: calc(50% - 200px); width: 400px; margin: 0; transform: translateY(4px); color: #ffff00; font: 400 24px/30px RuneScape, sans-serif; text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 2px 2px #000, -2px -2px #000, 2px -2px #000, -2px 2px #000, 4px 4px #000; -webkit-font-smoothing: none; font-smooth: never; text-rendering: optimizeSpeed; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s steps(2); }
+.cube-chat { position: absolute; bottom: 130px; left: calc(50% - 170px); width: 340px; margin: 0; transform: translateY(4px); color: #ffff00; font: 400 16px/20px RuneScape, sans-serif; text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000, 2px 2px #000; -webkit-font-smoothing: none; font-smooth: never; text-rendering: optimizeSpeed; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s steps(2); }
 .cube-chat.is-visible { transform: translateY(-4px); opacity: 1; }
 .companion-cube { position: relative; width: 128px; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .companion-cube img { width: 100%; height: auto; image-rendering: pixelated; filter: drop-shadow(5px 9px 1px #16282c61); transition: transform .25s; }
@@ -314,7 +314,7 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
   #experience::before, .about-section::before { display: none; }
   .cube-station { min-height: 270px; }
   .cube-station-head { font-size: 8px; }
-  .cube-chat { left: calc(50% - 150px); width: 300px; }
+  .cube-chat { left: calc(50% - 140px); width: 280px; }
   .companion-cube { width: 112px; }
   .portrait-wrap { width: min(100% - 10px, 430px); margin-inline: auto; }
   .monitor-display { aspect-ratio: 1.15; }
