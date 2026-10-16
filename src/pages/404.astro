@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PortalLink from '../components/PortalLink.astro';
+---
+
+<BaseLayout title="Chamber not found — Markus Tammeoja" description="This test chamber does not exist." noindex>
+  <header class="site-header wrap">
+    <a class="wordmark" href="/" aria-label="Markus Tammeoja, back to the homepage"><svg class="aperture-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 49.7 11.6 41.1 24.1 33.7 20.1Z M51.1 12.9 58.9 30.1 44 32.8 41.6 24.8Z M59 32 52.4 49.7 39.9 41.1 43.9 33.7Z M51.1 51.1 33.9 58.9 31.2 44 39.2 41.6Z M32 59 14.3 52.4 22.9 39.9 30.3 43.9Z M12.9 51.1 5.1 33.9 20 31.2 22.4 39.2Z M5 32 11.6 14.3 24.1 22.9 20.1 30.3Z M12.9 12.9 30.1 5.1 32.8 20 24.8 22.4Z"/></svg> MT<span>.</span></a>
+  </header>
+
+  <main class="chamber-missing wrap">
+    <div class="chamber-missing-copy">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> TEST CHAMBER / 404 · SIGNAL LOST</p>
+      <h1>Chamber<br /><em>not found.</em></h1>
+      <p class="hero-designation">ERROR 404 <span aria-hidden="true">/</span> THIS TEST CHAMBER DOES NOT EXIST</p>
+      <p class="hero-intro">The Enrichment Center regrets to inform you that the chamber you were looking for has been moved, taken apart or was never built. Please return to the testing area.</p>
+      <div class="hero-links"><PortalLink href="/" tone="orange" label="RETURN PORTAL" description="Enter the orange portal to return to the homepage" /></div>
+    </div>
+    <div class="rat-den" aria-hidden="true">
+      <img src="/lambda-graffiti.png" width="300" height="300" alt="" />
+      <span class="rat-scrawl rat-scrawl-one">THE CAKE IS A LIE</span>
+      <span class="rat-scrawl rat-scrawl-two">THE CAKE IS A LIE</span>
+      <span class="rat-scrawl rat-scrawl-three">THE CAKE IS A LIE</span>
+      <span class="rat-caption">SECTOR ? / BEHIND THE PANELS</span>
+    </div>
+  </main>
+
+  <script>
+    import { unlock } from '../scripts/achievements';
+
+    unlock('lab-rat');
+  </script>
+</BaseLayout>

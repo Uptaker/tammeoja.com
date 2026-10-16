@@ -133,12 +133,15 @@ const turrets = [{ id: 'a', x: 4 }, { id: 'b', x: 129 }];
 </button>
 
 <script>
+  import { unlock } from '../scripts/achievements';
+
   const stage = document.querySelector<HTMLButtonElement>('.turret-stage');
   if (stage && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     stage.disabled = true;
     stage.setAttribute('aria-label', 'Wheatley on a rail above two turrets and a movable wall');
   }
   stage?.addEventListener('click', () => {
+    unlock('no-hard-feelings');
     stage.classList.remove('is-playing');
     void stage.offsetWidth;
     stage.classList.add('is-playing');

@@ -4,9 +4,10 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#f2f4f1" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -31,5 +33,34 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+    <script>
+      import { unlock } from '../scripts/achievements';
+
+      console.log(
+        '%cThank you for opening the developer console. Your curiosity has been noted.\nThe Enrichment Center offers cake to every test subject: aperture.cake()',
+        'color: #65b8d1; font: 500 13px monospace'
+      );
+
+      Object.assign(window, {
+        aperture: {
+          cake: () => {
+            unlock('cake');
+            return 'The cake is a lie.';
+          },
+        },
+      });
+
+      const title = document.title;
+      let returnTimer = 0;
+      document.addEventListener('visibilitychange', () => {
+        window.clearTimeout(returnTimer);
+        if (document.hidden) {
+          document.title = 'Are you still there?';
+          return;
+        }
+        document.title = 'There you are.';
+        returnTimer = window.setTimeout(() => { document.title = title; }, 2000);
+      });
+    </script>
   </body>
 </html>

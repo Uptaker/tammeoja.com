@@ -13,3 +13,43 @@ const { href, tone, label, description } = Astro.props;
   <span class="portal-art"><img src="/portal-pair-figure.png" width="860" height="531" alt="" /></span>
   <span class="portal-label">{label}</span>
 </a>
+
+<script>
+  import { unlock } from '../scripts/achievements';
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const used = new Set<string>();
+
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('.portal-link')) {
+    link.addEventListener('click', (event) => {
+      const tone = link.classList.contains('portal-orange') ? 'orange' : 'blue';
+      used.add(tone);
+      if (used.size === 2) unlock('thinking-with-portals');
+
+      const hash = link.getAttribute('href') ?? '';
+      const target = hash.startsWith('#') ? document.querySelector<HTMLElement>(hash) : null;
+      const art = link.querySelector('.portal-art');
+      if (!target || !art || reducedMotion.matches || event.metaKey || event.ctrlKey || event.shiftKey) return;
+
+      event.preventDefault();
+      const box = art.getBoundingClientRect();
+      const warp = document.createElement('div');
+      warp.className = `portal-warp portal-warp-${tone}`;
+      warp.setAttribute('aria-hidden', 'true');
+      warp.style.setProperty('--warp-x', `${box.left + box.width / 2}px`);
+      warp.style.setProperty('--warp-y', `${box.top + box.height / 2}px`);
+      warp.addEventListener('animationend', () => {
+        if (warp.classList.contains('is-exiting')) {
+          warp.remove();
+          return;
+        }
+        target.scrollIntoView({ behavior: 'instant' });
+        history.pushState(null, '', hash);
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+        warp.classList.add('is-exiting');
+      });
+      document.body.append(warp);
+    });
+  }
+</script>

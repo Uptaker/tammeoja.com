@@ -153,12 +153,15 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
 </div>
 
 <script>
+  import { unlock } from '../scripts/achievements';
+
   const valve = document.querySelector<HTMLButtonElement>('.valve-wheel');
   const pipeBay = document.querySelector<HTMLElement>('.pipe-bay');
 
   if (valve && pipeBay) {
     let ventTimer: number;
     valve.addEventListener('click', () => {
+      unlock('valve-time');
       pipeBay.classList.remove('is-venting');
       void pipeBay.offsetWidth;
       pipeBay.classList.add('is-venting');

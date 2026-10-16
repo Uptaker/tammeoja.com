@@ -32,7 +32,7 @@ import { experience, projects } from '../data/site';
       <div class="portrait-wrap">
         <div class="monitor-shell">
           <div class="monitor-top"><span><span class="record-dot" aria-hidden="true"></span> LIVE FEED / CAM 01</span><span>CHAMBER 17</span></div>
-          <button class="monitor-display" type="button" aria-label="Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.">
+          <button class="monitor-display" type="button" disabled aria-label="Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.">
             <img src="/markus-tammeoja.webp" width="786" height="1048" alt="Markus Tammeoja at a ceramics class" fetchpriority="high" />
             <span class="monitor-reticle" aria-hidden="true"></span>
             <span class="screen-failed" aria-hidden="true"></span>
@@ -104,6 +104,8 @@ import { experience, projects } from '../data/site';
   </dialog>
 
   <script>
+    import { unlock } from '../scripts/achievements';
+
     console.log(
       String.raw`%c /\_/\
 ( o.o )
@@ -145,8 +147,10 @@ The cats are at the bottom of the page.`,
       let remaining: number[] = [];
       let last = -1;
       let chatTimer = 0;
+      let clicks = 0;
 
       cube.addEventListener('click', () => {
+        if (++clicks === 10) unlock('companion');
         if (!remaining.length) {
           remaining = phrases.map((_, index) => index);
           for (let i = remaining.length - 1; i > 0; i--) {
@@ -182,6 +186,8 @@ The cats are at the bottom of the page.`,
       let dragged = false;
       let skipClick = false;
       let hitTimer = 0;
+      let recoverTimer = 0;
+      let statusTimer = 0;
 
       const svgElement = (name: string) => document.createElementNS('http://www.w3.org/2000/svg', name);
       const addPath = (parent: SVGElement, d: string, stroke: string, width: number, opacity = 1, fill = 'none') => {
@@ -262,6 +268,8 @@ The cats are at the bottom of the page.`,
 
       const setArmed = (value: boolean) => {
         armed = value;
+        display.disabled = !value;
+        if (value) unlock('trusty-hardware');
         monitor.classList.toggle('is-armed', value);
         crowbar.classList.toggle('is-armed', value);
         monitorStatus.textContent = broken ? 'DISPLAY COMPROMISED' : value ? 'CROWBAR EQUIPPED' : 'SIGNAL STABLE';
@@ -274,6 +282,7 @@ The cats are at the bottom of the page.`,
         addImpact(clientX, clientY, centered);
         impacts++;
         if (!broken) console.log('%cλ UNFORESEEN CONSEQUENCES', 'color: #ed9652; font: 700 15px monospace');
+        unlock('unforeseen-consequences');
         broken = true;
         monitor.classList.add('is-broken');
         monitorStatus.textContent = 'DISPLAY COMPROMISED';
@@ -285,18 +294,35 @@ The cats are at the bottom of the page.`,
         monitor.classList.add('is-hitting');
         window.clearTimeout(hitTimer);
         hitTimer = window.setTimeout(() => monitor.classList.remove('is-hitting'), 450);
+        window.clearTimeout(recoverTimer);
+        recoverTimer = window.setTimeout(recover, 15000);
+      };
+
+      const restore = () => {
+        broken = false;
+        impacts = 0;
+        cracks.replaceChildren();
+        monitor.classList.remove('is-broken', 'is-hitting', 'is-recovering');
+        window.clearTimeout(hitTimer);
+        window.clearTimeout(recoverTimer);
+        window.clearTimeout(statusTimer);
+        display.setAttribute('aria-label', 'Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.');
+        setArmed(false);
+      };
+
+      const recover = () => {
+        monitor.classList.add('is-recovering');
+        recoverTimer = window.setTimeout(() => {
+          restore();
+          monitorStatus.textContent = 'SIGNAL RESTORED';
+          statusTimer = window.setTimeout(() => { if (!armed && !broken) monitorStatus.textContent = 'SIGNAL STABLE'; }, 3000);
+        }, 900);
       };
 
       crowbar.addEventListener('click', (event) => {
         if (skipClick) { skipClick = false; return; }
         if (broken) {
-          broken = false;
-          impacts = 0;
-          cracks.replaceChildren();
-          monitor.classList.remove('is-broken', 'is-hitting');
-          window.clearTimeout(hitTimer);
-          display.setAttribute('aria-label', 'Chamber monitor showing Markus Tammeoja. Pick up the crowbar to interact with it.');
-          setArmed(false);
+          restore();
         } else {
           setArmed(!armed);
           if (armed && event.detail === 0) display.focus();
@@ -337,6 +363,7 @@ The cats are at the bottom of the page.`,
       catsTrigger.addEventListener('click', (event) => {
         event.preventDefault();
         catsDialog.showModal();
+        unlock('what-cat');
       });
       catsDialog.addEventListener('click', (event) => {
         if (event.target === catsDialog) catsDialog.close();
