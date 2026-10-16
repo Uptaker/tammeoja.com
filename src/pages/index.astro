@@ -98,17 +98,16 @@ import { experience, projects } from '../data/site';
         </filter>
         <filter id="grunge-wear" x="-10%" y="-10%" width="120%" height="120%">
           <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="grain" />
-          <feDisplacementMap in="SourceGraphic" in2="grain" scale="7" result="rough" />
+          <feDisplacementMap in="SourceGraphic" in2="grain" scale="3" result="rough" />
           <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="11" result="chips" />
           <feColorMatrix in="chips" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -7 4.6" result="mask" />
           <feComposite in="rough" in2="mask" operator="in" />
         </filter>
       </defs>
       <rect width="1200" height="520" filter="url(#grunge-blotches)" opacity=".035" />
-      <g class="footer-lambda" transform="translate(690 165) scale(2.7)" filter="url(#grunge-soft)" opacity=".6">
-        <g transform="translate(.8 .8)" fill="#05090a" stroke="#05090a" opacity=".55"><circle cx="50" cy="50" r="44" fill="none" stroke-width="9" /><path d="M30 22H46L67 68H78V78H58L49 57 38 78H25L42 44 36 29H30Z" stroke="none" /></g>
-        <g transform="translate(-.5 -.5)" fill="#a9c4cb" stroke="#a9c4cb" opacity=".13"><circle cx="50" cy="50" r="44" fill="none" stroke-width="9" /><path d="M30 22H46L67 68H78V78H58L49 57 38 78H25L42 44 36 29H30Z" stroke="none" /></g>
-        <g fill="#2a3d43" stroke="#2a3d43"><circle cx="50" cy="50" r="44" fill="none" stroke-width="9" /><path d="M30 22H46L67 68H78V78H58L49 57 38 78H25L42 44 36 29H30Z" stroke="none" /></g>
+      <g class="footer-lambda" transform="translate(600 100) scale(3.4)" fill="#a9c4cb" stroke="#a9c4cb" opacity=".08" filter="url(#grunge-wear)">
+        <circle cx="50" cy="50" r="44" fill="none" stroke-width="8" />
+        <path d="M30 22H46L67 68H78V78H58L49 57 38 78H25L42 44 36 29H30Z" stroke="none" />
       </g>
       <g class="footer-scribbles" filter="url(#grunge-wear)" fill="#a9c4cb" opacity=".055">
         <text x="40" y="70">radon vvvvvvvvvv k=-ln (0.500)/t =0.693/t uranium-235::::</text>
