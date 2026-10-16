@@ -6,7 +6,7 @@ interface Props {
 const { email } = Astro.props;
 ---
 
-<button class="copy-mail" type="button" data-email={email}>COPY</button>
+<button class="footer-action copy-mail" type="button" data-email={email}>COPY</button>
 
 <script>
   const copyMail = document.querySelector<HTMLButtonElement>('.copy-mail');

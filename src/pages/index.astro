@@ -11,6 +11,7 @@ import FooterGrunge from '../components/FooterGrunge.astro';
 import FooterCats from '../components/FooterCats.astro';
 import Elevator from '../components/Elevator.astro';
 import CopyEmail from '../components/CopyEmail.astro';
+import PrintCv from '../components/PrintCv.astro';
 import { experience, projects } from '../data/site';
 ---
 
@@ -73,7 +74,7 @@ import { experience, projects } from '../data/site';
     <FooterGrunge />
     <div class="wrap footer-inner">
       <div class="footer-top">
-        <div><p class="footer-kicker">CONTACT <CopyEmail email="markus.tammeoja@gmail.com" /></p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
+        <div><p class="footer-kicker">CONTACT <CopyEmail email="markus.tammeoja@gmail.com" /><PrintCv /></p><a class="footer-mail" href="mailto:markus.tammeoja@gmail.com">markus.tammeoja@gmail.com</a></div>
         <FooterCats />
       </div>
       <div class="footer-bottom"><span>© {new Date().getFullYear()} Markus Tammeoja</span><Elevator /></div>

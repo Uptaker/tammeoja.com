@@ -245,9 +245,10 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
 .footer-scribbles .footer-scribble-big { font-size: 64px; }
 .footer-inner { position: relative; padding-block: 90px 29px; }
 .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
-.footer-kicker { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; color: #acc5c9; }
-.copy-mail { padding: 4px 8px; border: 1px solid #496068; background: transparent; color: #acc5c9; font: 500 10px/1 IBM Plex Mono, ui-monospace, monospace; letter-spacing: .07em; cursor: pointer; transition: background-color .15s, color .15s, border-color .15s; }
-.copy-mail:hover, .copy-mail:focus-visible { border-color: #acc5c9; background: #acc5c9; color: var(--footer); }
+.footer-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 20px; color: #acc5c9; }
+.footer-action { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid #496068; background: transparent; color: #acc5c9; font: 500 10px/1 IBM Plex Mono, ui-monospace, monospace; letter-spacing: .07em; cursor: pointer; transition: background-color .15s, color .15s, border-color .15s; }
+.footer-action svg { width: 11px; height: 11px; }
+.footer-action:hover, .footer-action:focus-visible { border-color: #acc5c9; background: #acc5c9; color: var(--footer); }
 .footer-mail { display: inline-block; font-size: clamp(42px, 5.6vw, 80px); line-height: .95; letter-spacing: -.015em; text-decoration: none; }
 .footer-mail:hover { color: #8bc4d5; }
 .footer-cats { position: relative; flex: none; width: 210px; margin: -12px 10px 0 0; padding: 10px 10px 0; border: 1px solid #a7b7b6; border-radius: 18px; background: linear-gradient(165deg, #fdfefd, #edf1ef 40%, #d3dcda); box-shadow: inset 0 2px 0 #fff, inset 0 -3px 0 #bfcac8, 8px 10px 0 #0c181b66; transform: rotate(1.5deg); transform-origin: 50% -78px; animation: cats-sway 7s ease-in-out infinite; }
@@ -466,7 +467,7 @@ h2 { margin-bottom: 18px; font-size: clamp(64px, 7vw, 104px); line-height: .9; l
   .site-footer { border: 0; background: none; color: #111; }
   .footer-inner { padding-block: 10px 0; }
   .footer-kicker { margin-bottom: 4px; color: #555; }
-  .copy-mail { display: none; }
+  .footer-action { display: none; }
   .footer-mail { font-size: 18pt; }
   .footer-bottom { margin-top: 12px; padding-top: 8px; border-top: 1px solid #ccc; color: #555; }
 }
