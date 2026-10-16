@@ -65,69 +65,78 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
 
   {kind === 'ridango' && <svg class="inbound-tram" viewBox="0 0 300 250" aria-hidden="true" focusable="false">
     <defs>
-      <linearGradient id="tram-window" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#f6dfa4" />
-        <stop offset="1" stop-color="#d79f5c" />
+      <linearGradient id="tram-light" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e9e6b8" />
+        <stop offset="1" stop-color="#9c9a72" />
       </linearGradient>
       <linearGradient id="tram-beam" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#fff2c4" stop-opacity=".75" />
-        <stop offset="1" stop-color="#fff2c4" stop-opacity="0" />
+        <stop offset="0" stop-color="#fff0b8" stop-opacity=".7" />
+        <stop offset="1" stop-color="#fff0b8" stop-opacity="0" />
       </linearGradient>
-      <linearGradient id="tram-body" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#eef2ec" />
-        <stop offset=".55" stop-color="#d3ddd7" />
-        <stop offset="1" stop-color="#a9b9b4" />
-      </linearGradient>
+      <clipPath id="gman-window"><path d="M134 92h40v30h-40z" /></clipPath>
     </defs>
-    <path d="M60 0v20m180-20v20" stroke="#7f9794" stroke-width="5" opacity=".5" />
-    <path d="M4 20h292v6H4zM4 33h292v4H4z" fill="#62797a" />
-    <path d="M4 26h292v7H4z" fill="#8ea4a0" />
-    <path d="M20 26v7m40-7v7m40-7v7m40-7v7m40-7v7m40-7v7m40-7v7" stroke="#62797a" stroke-width="2" />
-    <text x="8" y="14" fill="#5e7574" font-family="monospace" font-size="8" font-weight="700" letter-spacing="1">BLACK MESA TRANSIT SYSTEM</text>
+    <path d="M60 0v20m180-20v20" stroke="#6f7c75" stroke-width="6" opacity=".55" />
+    <path d="M4 20h292v5H4zM4 34h292v5H4z" fill="#4f5a55" />
+    <path d="M4 25h292v9H4z" fill="#7d877e" />
+    <path d="M14 25v9m30-9v9m30-9v9m30-9v9m30-9v9m30-9v9m30-9v9m30-9v9m30-9v9" stroke="#4f5a55" stroke-width="2" />
+    <text x="8" y="14" fill="#5e6f6a" font-family="monospace" font-size="8" font-weight="700" letter-spacing="1">BLACK MESA / INBOUND</text>
     <g class="tram-car">
       <g class="tram-sway">
-        <path class="tram-beam" d="M276 128 300 112v50l-24-22Z" fill="url(#tram-beam)" />
-        <g fill="#435c60" stroke="#2f4448" stroke-width="2">
-          <path d="M70 37h34v10H70zM186 37h34v10h-34z" />
-          <circle cx="78" cy="35" r="4" /><circle cx="96" cy="35" r="4" /><circle cx="194" cy="35" r="4" /><circle cx="212" cy="35" r="4" />
+        <path class="tram-beam" d="M272 150 300 136v40l-28-18Z" fill="url(#tram-beam)" />
+        <path d="M118 40h64v13h-64z" fill="#3c4542" stroke="#262d2b" stroke-width="2" />
+        <circle cx="128" cy="37" r="5" fill="#2f3634" /><circle cx="172" cy="37" r="5" fill="#2f3634" />
+        <path d="M140 53h20l6 15h-32z" fill="#59625d" stroke="#323a37" stroke-width="2" />
+        <path d="M44 68h96v-6h20v6h82l26 28v78H22V86q0-18 22-18Z" fill="#c4bc9c" stroke="#4f5148" stroke-width="2.5" />
+        <path d="M22 86h246" stroke="#8d866b" stroke-width="2" />
+        <path d="M22 126h246v12H22z" fill="#8a3b2c" />
+        <path d="M22 138h246v36H22z" fill="#7a7764" />
+        <path d="M22 158h246" stroke="#5d5b4c" stroke-width="2" />
+        <path d="M76 68v106m58-106v106m58-106v106" stroke="#8d866b" stroke-width="1.6" />
+        <g fill="#6d6853">
+          <circle cx="72" cy="74" r="1.2" /><circle cx="80" cy="74" r="1.2" /><circle cx="130" cy="74" r="1.2" /><circle cx="138" cy="74" r="1.2" /><circle cx="188" cy="74" r="1.2" /><circle cx="196" cy="74" r="1.2" />
+          <circle cx="72" cy="166" r="1.2" /><circle cx="80" cy="166" r="1.2" /><circle cx="130" cy="166" r="1.2" /><circle cx="138" cy="166" r="1.2" /><circle cx="188" cy="166" r="1.2" /><circle cx="196" cy="166" r="1.2" />
         </g>
-        <path d="M84 47v18m6-18v18m110-18v18m6-18v18" stroke="#435c60" stroke-width="3" />
-        <path d="M22 72q0-8 8-8h212q18 0 30 22l6 14v62q0 14-14 14H30q-8 0-8-8Z" fill="url(#tram-body)" stroke="#5f7779" stroke-width="3" />
-        <path d="M24 84h233l13 22H24z" fill="#2c4247" />
-        <path d="M30 88h46v30H30zM82 88h46v30H82zM134 88h46v30h-46zM186 88h46v30h-46z" fill="url(#tram-window)" />
-        <path d="M238 88h20l10 18v12h-30z" fill="#9ac0c4" opacity=".85" />
-        <path d="M33 90h40v4H33zM85 90h40v4H85zM137 90h40v4h-40zM189 90h40v4h-40z" fill="#fff8e2" opacity=".6" />
-        <g class="tram-passenger">
-          <circle cx="152" cy="101" r="5" fill="#3d3a36" />
-          <path d="M148 100h8" stroke="#1d1c1b" stroke-width="2" />
-          <path d="M143 118q1-11 9-11t9 11Z" fill="#d9822b" />
-          <path d="M150 108h4v10h-4z" fill="#3f4448" />
+        <path d="M30 92h40v30H30zM82 92h46v30H82zM134 92h40v30h-40zM198 92h38v30h-38z" fill="url(#tram-light)" stroke="#3f4139" stroke-width="3" />
+        <path d="M244 92h10l18 20v10h-28z" fill="#5d756f" stroke="#3f4139" stroke-width="3" />
+        <path d="M248 96h4l12 14" stroke="#c9d9d0" stroke-width="1.5" opacity=".6" />
+        <path d="M33 95h34M85 95h40M137 95h34M201 95h32" stroke="#fffbe0" stroke-width="2" opacity=".7" />
+        <path d="M88 110h12v12H88zm22 0h12v12h-12zM36 110h12v12H36zm170 0h12v12h-12z" fill="#5f5c47" opacity=".55" />
+        <g clip-path="url(#gman-window)">
+          <path d="M140 122q2-13 14-14 13 1 15 14Z" fill="#283039" />
+          <path d="M151 108h7l-3.5 9Z" fill="#eef0ea" />
+          <g class="gman-head">
+            <path d="M150.5 97.5q0-7 5-7t5 7v4q0 5-5 5.5-5-.5-5-5.5Z" fill="#cfae93" />
+            <path d="M150 99q-1-9 6-9.5 6 0 5.5 8l-1.5-4q-4-1.5-8.5 0Z" fill="#3a2e26" />
+          </g>
+          <path class="gman-tie" d="M153.5 108.5h2.4l-.4 2 1 7-1.8 2-1.8-2 1-7Z" fill="#1b2a3a" />
+          <g class="gman-arm">
+            <path d="M164 110q4 6 2 13" fill="none" stroke="#283039" stroke-width="4.5" stroke-linecap="round" />
+            <circle cx="166" cy="123" r="2.2" fill="#cfae93" />
+          </g>
         </g>
-        <path d="M24 122h254" stroke="#5f7779" stroke-width="2" />
-        <path d="M24 146h254v8H24z" fill="#c9713c" />
-        <circle cx="62" cy="134" r="9" fill="none" stroke="#5f7779" stroke-width="2.5" />
-        <path d="M56 138q6-12 12 0m-9-1 3-6 3 6" fill="none" stroke="#5f7779" stroke-width="2" />
-        <text x="76" y="138" fill="#5f7779" font-family="monospace" font-size="9" font-weight="700" letter-spacing="1">BLACK MESA</text>
-        <path d="M244 128h20v8h-20z" fill="#1c2b2e" />
-        <text x="246" y="134.5" fill="#f2b45f" font-family="monospace" font-size="6" font-weight="700">IN</text>
-        <circle cx="272" cy="130" r="3.5" fill="#fff4cf" stroke="#b9a37a" stroke-width="1" />
-        <path d="M248 156l8 12m2-12 8 12m2-12 6 9" stroke="#2c4247" stroke-width="3.5" opacity=".85" />
-        <path d="M30 176h228" stroke="#3e585d" stroke-width="3" />
+        <path d="M22 140h20m226 0h-24" stroke="#d6b23e" stroke-width="10" />
+        <path d="M24 135l8 10m6-10 8 10M246 135l8 10m6-10 8 10" stroke="#262626" stroke-width="3.5" />
+        <circle cx="262" cy="152" r="3.5" fill="#fff2c4" stroke="#6a654f" stroke-width="1" />
+        <text x="88" y="152" fill="#e6e0c4" font-family="monospace" font-size="7" font-weight="700" letter-spacing="1" opacity=".75">TRANSIT 07 / SECTOR C</text>
+        <path d="M30 168q20 4 40-2m90 3q30 3 60-1" stroke="#4f4c3d" stroke-width="3" opacity=".25" />
+        <path d="M22 174h246v6H22z" fill="#3a3f3d" />
       </g>
     </g>
   </svg>}
 
   {kind === 'codeborne' && <>
+  <div class="ceiling-beam" aria-hidden="true"></div>
   <div class="chamber-terminal" aria-hidden="true">
-    <div class="terminal-head"><span>A/S // AUXILIARY FEED</span><span class="terminal-led"></span></div>
     <div class="terminal-glass">
+      <div class="terminal-head"><span>A/S // AUXILIARY FEED</span><span>CAM 03</span></div>
       <span class="terminal-sector">SECTOR 04 / MAINTENANCE</span>
       <strong class="terminal-message">CHAMBER 02 / PANEL JAM</strong>
       <span class="terminal-readout">SIGNAL DEGRADED _</span>
       <span class="terminal-dead-zone"></span>
       <svg class="terminal-cracks" viewBox="0 0 240 125" preserveAspectRatio="none" aria-hidden="true"><path d="m179 0-12 32 13 8-9 14 18 11-4 16 21 14m-35-41-23 6-16 21m57-16 22-5 15 11m-40 10-21 20-4 24" fill="none" stroke="#a9c9c5" stroke-width="1.5" opacity=".55" /></svg>
+      <div class="terminal-foot"><span>CHAMBER DISPLAY / 02</span><span>FAULT</span></div>
     </div>
-    <div class="terminal-foot"><span>CHAMBER DISPLAY / 02</span><span>FAULT</span></div>
+    <div class="terminal-chin"><span class="terminal-led"></span></div>
   </div>
   <svg class="wall-markings" viewBox="0 0 300 340" aria-hidden="true" focusable="false">
     <path d="M37 45h225M36 47l12 4m8-8 9 2m157 1 17 4M48 84h214M45 275h217" fill="none" stroke="#6d8582" stroke-width="2" opacity=".4" />
@@ -249,14 +258,20 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
   .tram-car { animation: tram-arrive 14s ease-in-out infinite; }
   .tram-sway { transform-origin: 145px 35px; animation: tram-sway 14s ease-in-out infinite; }
   .tram-beam { animation: tram-beam 2.6s ease-in-out infinite; }
-  .chamber-terminal { top: 52px; left: 5%; width: 90%; padding: 4px 11px 3px; border: 1px solid #9fb1b0; border-radius: 18px; background: linear-gradient(165deg, #fbfcfb, #e7ecea 45%, #cbd5d3); box-shadow: inset 0 2px 0 #fff, inset 0 -3px 0 #b7c3c1, 7px 8px 0 #718b8a4d; }
-  .chamber-terminal::before { content: ''; position: absolute; bottom: 100%; left: 50%; z-index: -1; width: 14px; height: 52px; transform: translateX(-50%); background: linear-gradient(90deg, #26353a, #5b6d71 45%, #26353a); }
-  .chamber-terminal::after { content: ''; position: absolute; top: -7px; left: 50%; z-index: -1; width: 46px; height: 14px; transform: translateX(-50%); border-radius: 7px; background: linear-gradient(#3c4d52, #1f2c30); }
-  .terminal-head, .terminal-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 24px; padding-inline: 3px; color: #526b71; font: 500 9px/1.3 IBM Plex Mono, monospace; letter-spacing: .05em; }
+  .gman-arm { transform-origin: 164px 110px; animation: gman-tie 14s ease-in-out infinite; }
+  .gman-head { transform-origin: 155px 106px; animation: gman-nod 14s ease-in-out infinite; }
+  .chamber-terminal { top: 52px; left: 5%; width: 90%; padding: 10px 10px 0; border: 1px solid #9fb1b0; border-radius: 18px; background: linear-gradient(165deg, #fbfcfb, #e7ecea 45%, #cbd5d3); box-shadow: inset 0 2px 0 #fff, inset 0 -3px 0 #b7c3c1, 7px 8px 0 #718b8a4d; }
+  .ceiling-beam { position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: 12px; background: linear-gradient(#4f5a55 0 3px, #7d877e 3px 9px, #4f5a55 9px); }
+  .ceiling-beam::after { content: ''; position: absolute; inset: 3px 0; background: repeating-linear-gradient(90deg, transparent 0 28px, #4f5a55 28px 30px); }
+  .chamber-terminal::before { width: 22px; height: 46px; }
+  .chamber-terminal::after { display: none; }
+  .terminal-head, .terminal-foot { position: absolute; right: 10px; left: 10px; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #8fb3ad; font: 500 8px/1.3 IBM Plex Mono, monospace; letter-spacing: .06em; }
+  .terminal-head { top: 7px; }
+  .terminal-chin { display: flex; align-items: center; justify-content: center; height: 18px; }
   .terminal-led { width: 6px; height: 6px; border-radius: 50%; background: #b7775c; animation: terminal-led 3.4s step-end infinite; }
-  .terminal-foot { min-height: 21px; font-size: 8px; }
-  .terminal-foot span:last-child { color: #a5654f; }
-  .terminal-glass { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 12px; min-height: 125px; padding: 15px 14px; overflow: hidden; border: 5px solid #1b282c; border-radius: 9px; box-shadow: 0 0 0 1px #8fa1a2; background: linear-gradient(90deg, #152b32, #203f44); color: #bbd4cb; font: 500 9px/1.4 IBM Plex Mono, monospace; letter-spacing: .045em; }
+  .terminal-foot { bottom: 7px; }
+  .terminal-foot span:last-child { color: #e08a6a; }
+  .terminal-glass { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 12px; min-height: 150px; padding: 26px 14px; overflow: hidden; border: 5px solid #1b282c; border-radius: 9px; box-shadow: 0 0 0 1px #8fa1a2; background: linear-gradient(90deg, #152b32, #203f44); color: #bbd4cb; font: 500 9px/1.4 IBM Plex Mono, monospace; letter-spacing: .045em; }
   .terminal-glass::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 3px, #d9f8ff12 4px 5px); pointer-events: none; }
   .terminal-glass::after { content: ''; position: absolute; top: 0; right: 11%; bottom: 0; width: 2px; background: #c17f6f; box-shadow: 7px 0 #85afbd, 10px 0 #af6b80; opacity: .44; animation: terminal-lines 4.1s step-end infinite; pointer-events: none; }
   .terminal-sector { color: #8eb9b0; font-size: 8px; }
@@ -310,6 +325,8 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
   @keyframes lower-panel-stall { 0%, 18%, 42%, 100% { transform: translateY(0); } 26% { transform: translateY(7px); } 31% { transform: translateY(13px); } 34% { transform: translateY(10px); } 36% { transform: translateY(14px); } }
   @keyframes tram-arrive { 0% { transform: translateX(-330px); } 30%, 64% { transform: translateX(0); } 94%, 100% { transform: translateX(330px); } }
   @keyframes tram-sway { 0%, 26% { transform: rotate(0); } 32% { transform: rotate(-2.2deg); } 38% { transform: rotate(1.4deg); } 44% { transform: rotate(-.6deg); } 50%, 64% { transform: rotate(0); } 70% { transform: rotate(1.8deg); } 76%, 100% { transform: rotate(0); } }
+  @keyframes gman-tie { 0%, 36%, 58%, 100% { transform: rotate(0); } 41%, 44% { transform: rotate(78deg); } 46% { transform: rotate(70deg); } 48% { transform: rotate(80deg); } 50% { transform: rotate(72deg); } 53% { transform: rotate(78deg); } }
+  @keyframes gman-nod { 0%, 38%, 56%, 100% { transform: rotate(0); } 42%, 52% { transform: rotate(-6deg); } }
   @keyframes tram-beam { 0%, 100% { opacity: .9; } 45% { opacity: .55; } 50% { opacity: .95; } }
   @keyframes terminal-led { 0%, 82%, 100% { opacity: 1; } 83%, 88% { opacity: .25; } }
   @keyframes terminal-lines { 0%, 68%, 100% { opacity: .44; transform: translateX(0); } 69%, 73% { opacity: .85; transform: translateX(-4px); } 74%, 78% { opacity: .18; transform: translateX(3px); } }
@@ -333,7 +350,7 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
     .wall-markings { left: 128px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .machine-panel, .machine-piston, .machine-lower-panel, .tram-car, .tram-sway, .tram-beam, .terminal-led, .terminal-glass::after, .chamber-terminal.is-switching .terminal-glass, .steam-puff, .pipe-bay.is-venting .valve-wheel svg { animation: none; }
+    .machine-panel, .machine-piston, .machine-lower-panel, .tram-car, .tram-sway, .tram-beam, .gman-arm, .gman-head, .terminal-led, .terminal-glass::after, .chamber-terminal.is-switching .terminal-glass, .steam-puff, .pipe-bay.is-venting .valve-wheel svg { animation: none; }
     .pipe-bay.is-venting .steam-puff-one { opacity: .28; }
   }
 </style>
