@@ -64,22 +64,56 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
   </>}
 
   {kind === 'ridango' && <svg class="inbound-tram" viewBox="0 0 300 250" aria-hidden="true" focusable="false">
-    <path d="M9 43h282m-282 6h282M18 207h266m-266 8h266" stroke="#7f9794" stroke-width="4" opacity=".56" />
-    <path d="M22 221h256" stroke="#b77f58" stroke-width="5" stroke-dasharray="10 6" opacity=".55" />
-    <path d="M32 17h236v13H32zM85 30v24m130-24v24" fill="#a9bbb4" stroke="#748b89" stroke-width="3" />
+    <defs>
+      <linearGradient id="tram-window" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f6dfa4" />
+        <stop offset="1" stop-color="#d79f5c" />
+      </linearGradient>
+      <linearGradient id="tram-beam" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#fff2c4" stop-opacity=".75" />
+        <stop offset="1" stop-color="#fff2c4" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="tram-body" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#eef2ec" />
+        <stop offset=".55" stop-color="#d3ddd7" />
+        <stop offset="1" stop-color="#a9b9b4" />
+      </linearGradient>
+    </defs>
+    <path d="M60 0v20m180-20v20" stroke="#7f9794" stroke-width="5" opacity=".5" />
+    <path d="M4 20h292v6H4zM4 33h292v4H4z" fill="#62797a" />
+    <path d="M4 26h292v7H4z" fill="#8ea4a0" />
+    <path d="M20 26v7m40-7v7m40-7v7m40-7v7m40-7v7m40-7v7m40-7v7" stroke="#62797a" stroke-width="2" />
+    <text x="8" y="14" fill="#5e7574" font-family="monospace" font-size="8" font-weight="700" letter-spacing="1">BLACK MESA TRANSIT SYSTEM</text>
     <g class="tram-car">
-      <path d="M30 71h233l14 16v91l-12 13H35l-13-14V88z" fill="#dce6e0" stroke="#6e8585" stroke-width="4" />
-      <path d="M37 86h224v64H37z" fill="#547078" stroke="#78918e" stroke-width="3" />
-      <path d="M45 92h56v51H45zM108 92h56v51h-56zM171 92h54v51h-54z" fill="#a3c2c2" opacity=".7" />
-      <path d="M102 86v64m64-64v64m64-64v64" stroke="#d5e1d9" stroke-width="5" />
-      <path d="M48 129h44m27 0h37m26 0h35" stroke="#4a686f" stroke-width="10" opacity=".7" />
-      <path d="M26 158h248v15H26z" fill="#7d9792" />
-      <path d="M27 170h247v7H27z" fill="#b3825d" opacity=".7" />
-      <path d="M35 183h230" stroke="#3e585d" stroke-width="3" />
-      <circle cx="69" cy="191" r="8" fill="#50676a" /><circle cx="230" cy="191" r="8" fill="#50676a" />
-      <path d="m40 73 8-19h205l8 19" fill="#dce6e0" stroke="#6e8585" stroke-width="3" />
-      <text x="45" y="69" fill="#5e7574" font-family="monospace" font-size="9" font-weight="700" letter-spacing="1">BLACK MESA / INBOUND</text>
-      <text x="136" y="172" fill="#e9eee5" font-family="monospace" font-size="10" font-weight="700">λ</text>
+      <g class="tram-sway">
+        <path class="tram-beam" d="M276 128 300 112v50l-24-22Z" fill="url(#tram-beam)" />
+        <g fill="#435c60" stroke="#2f4448" stroke-width="2">
+          <path d="M70 37h34v10H70zM186 37h34v10h-34z" />
+          <circle cx="78" cy="35" r="4" /><circle cx="96" cy="35" r="4" /><circle cx="194" cy="35" r="4" /><circle cx="212" cy="35" r="4" />
+        </g>
+        <path d="M84 47v18m6-18v18m110-18v18m6-18v18" stroke="#435c60" stroke-width="3" />
+        <path d="M22 72q0-8 8-8h212q18 0 30 22l6 14v62q0 14-14 14H30q-8 0-8-8Z" fill="url(#tram-body)" stroke="#5f7779" stroke-width="3" />
+        <path d="M24 84h233l13 22H24z" fill="#2c4247" />
+        <path d="M30 88h46v30H30zM82 88h46v30H82zM134 88h46v30h-46zM186 88h46v30h-46z" fill="url(#tram-window)" />
+        <path d="M238 88h20l10 18v12h-30z" fill="#9ac0c4" opacity=".85" />
+        <path d="M33 90h40v4H33zM85 90h40v4H85zM137 90h40v4h-40zM189 90h40v4h-40z" fill="#fff8e2" opacity=".6" />
+        <g class="tram-passenger">
+          <circle cx="152" cy="101" r="5" fill="#3d3a36" />
+          <path d="M148 100h8" stroke="#1d1c1b" stroke-width="2" />
+          <path d="M143 118q1-11 9-11t9 11Z" fill="#d9822b" />
+          <path d="M150 108h4v10h-4z" fill="#3f4448" />
+        </g>
+        <path d="M24 122h254" stroke="#5f7779" stroke-width="2" />
+        <path d="M24 146h254v8H24z" fill="#c9713c" />
+        <circle cx="62" cy="134" r="9" fill="none" stroke="#5f7779" stroke-width="2.5" />
+        <path d="M56 138q6-12 12 0m-9-1 3-6 3 6" fill="none" stroke="#5f7779" stroke-width="2" />
+        <text x="76" y="138" fill="#5f7779" font-family="monospace" font-size="9" font-weight="700" letter-spacing="1">BLACK MESA</text>
+        <path d="M244 128h20v8h-20z" fill="#1c2b2e" />
+        <text x="246" y="134.5" fill="#f2b45f" font-family="monospace" font-size="6" font-weight="700">IN</text>
+        <circle cx="272" cy="130" r="3.5" fill="#fff4cf" stroke="#b9a37a" stroke-width="1" />
+        <path d="M248 156l8 12m2-12 8 12m2-12 6 9" stroke="#2c4247" stroke-width="3.5" opacity=".85" />
+        <path d="M30 176h228" stroke="#3e585d" stroke-width="3" />
+      </g>
     </g>
   </svg>}
 
@@ -212,13 +246,17 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
   .machine-panel { animation: panel-struggle 18s linear infinite; }
   .machine-piston { animation: piston-struggle 18s linear infinite; transform-origin: 31px 198px; }
   .machine-lower-panel { animation: lower-panel-stall 14s ease-in-out infinite; }
-  .tram-car { animation: tram-arrive 13s ease-in-out infinite; }
-  .chamber-terminal { top: 35px; left: 5%; width: 90%; padding: 8px; border: 1px solid #698386; background: #cad8d5; box-shadow: 7px 8px 0 #718b8a6e; }
+  .tram-car { animation: tram-arrive 14s ease-in-out infinite; }
+  .tram-sway { transform-origin: 145px 35px; animation: tram-sway 14s ease-in-out infinite; }
+  .tram-beam { animation: tram-beam 2.6s ease-in-out infinite; }
+  .chamber-terminal { top: 52px; left: 5%; width: 90%; padding: 4px 11px 3px; border: 1px solid #9fb1b0; border-radius: 18px; background: linear-gradient(165deg, #fbfcfb, #e7ecea 45%, #cbd5d3); box-shadow: inset 0 2px 0 #fff, inset 0 -3px 0 #b7c3c1, 7px 8px 0 #718b8a4d; }
+  .chamber-terminal::before { content: ''; position: absolute; bottom: 100%; left: 50%; z-index: -1; width: 14px; height: 52px; transform: translateX(-50%); background: linear-gradient(90deg, #26353a, #5b6d71 45%, #26353a); }
+  .chamber-terminal::after { content: ''; position: absolute; top: -7px; left: 50%; z-index: -1; width: 46px; height: 14px; transform: translateX(-50%); border-radius: 7px; background: linear-gradient(#3c4d52, #1f2c30); }
   .terminal-head, .terminal-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 24px; padding-inline: 3px; color: #526b71; font: 500 9px/1.3 IBM Plex Mono, monospace; letter-spacing: .05em; }
   .terminal-led { width: 6px; height: 6px; border-radius: 50%; background: #b7775c; animation: terminal-led 3.4s step-end infinite; }
   .terminal-foot { min-height: 21px; font-size: 8px; }
   .terminal-foot span:last-child { color: #a5654f; }
-  .terminal-glass { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 12px; min-height: 125px; padding: 15px 14px; overflow: hidden; border: 4px solid #263f45; background: linear-gradient(90deg, #152b32, #203f44); color: #bbd4cb; font: 500 9px/1.4 IBM Plex Mono, monospace; letter-spacing: .045em; }
+  .terminal-glass { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 12px; min-height: 125px; padding: 15px 14px; overflow: hidden; border: 5px solid #1b282c; border-radius: 9px; box-shadow: 0 0 0 1px #8fa1a2; background: linear-gradient(90deg, #152b32, #203f44); color: #bbd4cb; font: 500 9px/1.4 IBM Plex Mono, monospace; letter-spacing: .045em; }
   .terminal-glass::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 3px, #d9f8ff12 4px 5px); pointer-events: none; }
   .terminal-glass::after { content: ''; position: absolute; top: 0; right: 11%; bottom: 0; width: 2px; background: #c17f6f; box-shadow: 7px 0 #85afbd, 10px 0 #af6b80; opacity: .44; animation: terminal-lines 4.1s step-end infinite; pointer-events: none; }
   .terminal-sector { color: #8eb9b0; font-size: 8px; }
@@ -270,7 +308,9 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
     55% { transform: scaleX(1.08); }
   }
   @keyframes lower-panel-stall { 0%, 18%, 42%, 100% { transform: translateY(0); } 26% { transform: translateY(7px); } 31% { transform: translateY(13px); } 34% { transform: translateY(10px); } 36% { transform: translateY(14px); } }
-  @keyframes tram-arrive { 0%, 12% { transform: translateX(-13px); } 34%, 68% { transform: translateX(0); } 90%, 100% { transform: translateX(11px); } }
+  @keyframes tram-arrive { 0% { transform: translateX(-330px); } 30%, 64% { transform: translateX(0); } 94%, 100% { transform: translateX(330px); } }
+  @keyframes tram-sway { 0%, 26% { transform: rotate(0); } 32% { transform: rotate(-2.2deg); } 38% { transform: rotate(1.4deg); } 44% { transform: rotate(-.6deg); } 50%, 64% { transform: rotate(0); } 70% { transform: rotate(1.8deg); } 76%, 100% { transform: rotate(0); } }
+  @keyframes tram-beam { 0%, 100% { opacity: .9; } 45% { opacity: .55; } 50% { opacity: .95; } }
   @keyframes terminal-led { 0%, 82%, 100% { opacity: 1; } 83%, 88% { opacity: .25; } }
   @keyframes terminal-lines { 0%, 68%, 100% { opacity: .44; transform: translateX(0); } 69%, 73% { opacity: .85; transform: translateX(-4px); } 74%, 78% { opacity: .18; transform: translateX(3px); } }
   @keyframes terminal-flicker { 0%, 100% { filter: brightness(1); } 20%, 60% { filter: brightness(.45); } 40%, 80% { filter: brightness(1.4); } }
@@ -293,7 +333,7 @@ const kind = company === 'Tallinn University' ? 'university' : company.toLowerCa
     .wall-markings { left: 128px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .machine-panel, .machine-piston, .machine-lower-panel, .tram-car, .terminal-led, .terminal-glass::after, .chamber-terminal.is-switching .terminal-glass, .steam-puff, .pipe-bay.is-venting .valve-wheel svg { animation: none; }
+    .machine-panel, .machine-piston, .machine-lower-panel, .tram-car, .tram-sway, .tram-beam, .terminal-led, .terminal-glass::after, .chamber-terminal.is-switching .terminal-glass, .steam-puff, .pipe-bay.is-venting .valve-wheel svg { animation: none; }
     .pipe-bay.is-venting .steam-puff-one { opacity: .28; }
   }
 </style>
