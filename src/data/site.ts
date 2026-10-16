@@ -18,7 +18,7 @@ export const experience = [
       },
       {
         label: 'The Mactivator',
-        detail: 'MacBook setup used to be completely manual. For the MacBook launch, I built a small USB controller that acts as a keyboard and mouse, navigates the first macOS setup screens and starts the factory activation workflow. Now plugging it in is the only thing an operator has to do. Somewhere along the way it became the Mactivator, and a bit of an internal meme.',
+        detail: 'For the MacBook launch, I built a small USB controller that acts as a keyboard and mouse, navigates the first macOS setup screens and starts the factory activation workflow, so plugging it in is the only thing an operator has to do. Somewhere along the way it became the Mactivator, and a bit of an internal meme.',
       },
       {
         label: 'Workstation tools',
